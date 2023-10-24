@@ -1,0 +1,112 @@
+package com.DoAnTotNghiep.QuanLyPhongMay.entity;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "may_tinh")
+public class MayTinh {
+
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ma_may")
+    private Long maMay;
+
+    @Column(name = "trang_thai",columnDefinition = "nvarchar(50) DEFAULT N'Đang sử dụng  ' CHECK (trang_thai IN (N'Đã hỏng', N'Đang hoạt động'))")
+    private String trangThai= "Đang sử dụng";
+
+    @Column(name = "mo_ta")
+    private String moTa;
+    
+    @Column(name = "ngay_lap_dat")
+    private Date ngayLapDat;    
+    @ManyToOne
+    @JoinColumn(name = "ma_phong")
+    private PhongMay phongMay;
+
+    @OneToMany(mappedBy = "mayTinh")
+    private List<ThietBiMay> thietBis;
+
+	public Long getMaMay() {
+		return maMay;
+	}
+
+	public void setMaMay(Long maMay) {
+		this.maMay = maMay;
+	}
+
+	public String getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(String trangThai) {
+		this.trangThai = trangThai;
+	}
+
+	public String getMoTa() {
+		return moTa;
+	}
+
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
+	}
+
+	public Date getNgayLapDat() {
+		return ngayLapDat;
+	}
+
+	public void setNgayLapDat(Date ngayLapDat) {
+		this.ngayLapDat = ngayLapDat;
+	}
+
+	public PhongMay getPhongMay() {
+		return phongMay;
+	}
+
+	public void setPhongMay(PhongMay phongMay) {
+		this.phongMay = phongMay;
+	}
+
+	public List<ThietBiMay> getThietBis() {
+		return thietBis;
+	}
+
+	public void setThietBis(List<ThietBiMay> thietBis) {
+		this.thietBis = thietBis;
+	}
+
+	public MayTinh(Long maMay, String trangThai, String moTa, Date ngayLapDat, PhongMay phongMay,
+			List<ThietBiMay> thietBis) {
+		super();
+		this.maMay = maMay;
+		this.trangThai = trangThai;
+		this.moTa = moTa;
+		this.ngayLapDat = ngayLapDat;
+		this.phongMay = phongMay;
+		this.thietBis = thietBis;
+	}
+
+	public MayTinh() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "MayTinh [maMay=" + maMay + ", trangThai=" + trangThai + ", moTa=" + moTa + ", ngayLapDat=" + ngayLapDat
+				+ ", phongMay=" + phongMay + ", thietBis=" + thietBis + "]";
+	}
+
+	
+   
+}
