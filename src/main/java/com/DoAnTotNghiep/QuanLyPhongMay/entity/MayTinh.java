@@ -23,13 +23,14 @@ public class MayTinh {
     private Long maMay;
 
     @Column(name = "trang_thai",columnDefinition = "nvarchar(50) DEFAULT N'Đang sử dụng  ' CHECK (trang_thai IN (N'Đã hỏng', N'Đang hoạt động'))")
-    private String trangThai= "Đang sử dụng";
+    private String trangThai= "Đang hoạt động";
 
     @Column(name = "mo_ta")
     private String moTa;
     
     @Column(name = "ngay_lap_dat")
     private Date ngayLapDat;    
+    
     @ManyToOne
     @JoinColumn(name = "ma_phong")
     private PhongMay phongMay;

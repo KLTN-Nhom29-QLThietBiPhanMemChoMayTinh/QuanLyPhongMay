@@ -1,6 +1,8 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,16 +29,18 @@ public class AuthController {
 	}
 
 	@PostMapping("/DangNhap")
-	public TaiKhoan login(@RequestBody TaiKhoan taiKhoan) {
+	public ResponseEntity<?> login(@RequestBody TaiKhoan taiKhoan) {
+		TaiKhoan taiKhoan2 = null;
+		taiKhoan2 = userService.findByTenDangNhap(taiKhoan.getTenDangNhap());
 
-		TaiKhoan taiKhoan2 = userService.findByTenDangNhap(taiKhoan.getTenDangNhap());
-
-		if (taiKhoan2 == null || !new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau())) {
-
-			return null;
+		System.out.println(taiKhoan2);
+		System.out.println(new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau()));
+		if (taiKhoan2 == null || new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau())) {
+//			return new ResponseEntity<>("Khong tim thay - "+ taiKhoan, HttpStatus.NOT_FOUND);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Đăng nhập không thành công. Sai thông tin");
 		}
-
-		return taiKhoan2;
+		
+		return ResponseEntity.ok(taiKhoan2);
 	}
 
 	@GetMapping("/tai_khoan/{tenDangNhap}")

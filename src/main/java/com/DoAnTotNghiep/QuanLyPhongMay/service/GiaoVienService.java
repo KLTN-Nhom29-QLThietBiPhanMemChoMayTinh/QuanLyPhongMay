@@ -6,11 +6,11 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.GiaoVien;
 
 public interface GiaoVienService {
 
-	public GiaoVien layGVTheoMa(Long maGiaoVien);
+	public GiaoVien layGVTheoMa(String maGiaoVien);
 
 	public List<GiaoVien> layDSGV();
 
-	public void xoa(Long maGiaoVien);
+	public void xoa(String maGiaoVien);
 
 	public GiaoVien luu(GiaoVien giaoVien);
 }

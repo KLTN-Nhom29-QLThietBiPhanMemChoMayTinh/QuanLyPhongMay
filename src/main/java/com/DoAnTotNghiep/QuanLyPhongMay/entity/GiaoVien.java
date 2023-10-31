@@ -7,16 +7,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "giao_vien")
 public class GiaoVien {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ma_giao_vien")
-    private Long maGiaoVien;
+    private String maGiaoVien;
 
     @Column(name = "ho_ten")
     private String hoTen;
@@ -30,11 +34,13 @@ public class GiaoVien {
     @Column(name = "hoc_vi")
     private String hocVi;
 	
-	 @ManyToOne
-	 @JoinColumn(name = "ma_tk", insertable = false, updatable = false)
+	@OneToOne
+	@MapsId
+	@JoinColumn(name = "ma_gv")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	 private TaiKhoan taiKhoan;
 	
-	public GiaoVien(Long maGiaoVien, String hoTen, String soDienThoai, String email, String hocVi, TaiKhoan taiKhoan,
+	public GiaoVien(String maGiaoVien, String hoTen, String soDienThoai, String email, String hocVi, TaiKhoan taiKhoan,
 			Khoa khoa) {
 		super();
 		this.maGiaoVien = maGiaoVien;
@@ -58,11 +64,11 @@ public class GiaoVien {
     @JoinColumn(name = "ma_khoa") 
     private Khoa khoa;
 
-	public Long getMaGiaoVien() {
+	public String getMaGiaoVien() {
 		return maGiaoVien;
 	}
 
-	public void setMaGiaoVien(Long maGiaoVien) {
+	public void setMaGiaoVien(String maGiaoVien) {
 		this.maGiaoVien = maGiaoVien;
 	}
 

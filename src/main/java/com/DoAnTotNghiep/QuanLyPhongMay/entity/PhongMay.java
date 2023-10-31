@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 @Table(name="phong_may")
 public class PhongMay {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ma_phong")
     private Long maPhong;
     @Column(name="ten_phong")
@@ -23,7 +26,7 @@ public class PhongMay {
     private int soMay;
     @Column(name = "mo_ta")
     private String moTa;
-    @Column(name = "trang_thai",  columnDefinition = "nvarchar(50) DEFAULT N'Trống' CHECK (trang_thai IN (N'Trống', N'Đã đặt', N'Đã nhận', N'Chưa dọn dẹp'))")
+    @Column(name = "trang_thai",  columnDefinition = "nvarchar(50) DEFAULT N'Trống' CHECK (trang_thai IN (N'Trống', N'Đang có tiết', N'Không thể dùng'))")
     private String trangThai= "Trống";
 	@ManyToOne
 	@JoinColumn(name = "ma_tang", nullable = false)

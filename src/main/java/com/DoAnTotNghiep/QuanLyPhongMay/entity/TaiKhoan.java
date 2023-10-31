@@ -18,9 +18,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class TaiKhoan {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ma_tk")
-	private Long maTK;
+	private String maTK;
 
 	@Column(name = "ten_dang_nhap", columnDefinition = "nvarchar(255) UNIQUE")
 	private String tenDangNhap;
@@ -32,11 +31,11 @@ public class TaiKhoan {
     @JoinColumn(name = "ma_quyen")
 	private Quyen quyen;
 
-	public Long getMaTK() {
+	public String getMaTK() {
 		return maTK;
 	}
 
-	public void setMaTK(Long maTK) {
+	public void setMaTK(String maTK) {
 		this.maTK = maTK;
 	}
 
@@ -64,7 +63,7 @@ public class TaiKhoan {
 		this.quyen = quyen;
 	}
 
-	public TaiKhoan(Long maTK, String tenDangNhap, String matKhau, Quyen quyen) {
+	public TaiKhoan(String maTK, String tenDangNhap, String matKhau, Quyen quyen) {
 		super();
 		this.maTK = maTK;
 		this.tenDangNhap = tenDangNhap;

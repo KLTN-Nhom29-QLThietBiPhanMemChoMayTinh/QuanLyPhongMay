@@ -13,7 +13,7 @@ public class TaiKhoanServiceImpl implements TaiKhoanService{
 	private TaiKhoanRepository taiKhoanRepository;
 
 	@Override
-	public void xoa(Long maTK) {
+	public void xoa(String maTK) {
 		taiKhoanRepository.deleteById(maTK);
 	}
 

@@ -3,6 +3,7 @@ package com.DoAnTotNghiep.QuanLyPhongMay.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.ToaNha;
@@ -11,6 +12,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.ToaNhaRepository;
 @Service
 public class ToaNhaServiceImpl implements ToaNhaService{
 
+	@Autowired
 	private ToaNhaRepository toaNhaRepository;
 	@Override
 	public ToaNha layToaNhaTheoMa(Long maToaNha) {

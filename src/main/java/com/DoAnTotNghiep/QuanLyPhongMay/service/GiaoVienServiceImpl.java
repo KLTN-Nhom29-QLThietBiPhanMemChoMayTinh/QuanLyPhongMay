@@ -23,7 +23,7 @@ public class GiaoVienServiceImpl implements GiaoVienService{
 	
 	
 	@Override
-	public GiaoVien layGVTheoMa(Long maGiaoVien) {
+	public GiaoVien layGVTheoMa(String maGiaoVien) {
 		GiaoVien giaoVien = null;
 		Optional<GiaoVien> kq = giaoVienRepository.findById(maGiaoVien);
 		try {
@@ -41,14 +41,10 @@ public class GiaoVienServiceImpl implements GiaoVienService{
 
 
 	@Transactional
-	public void xoa(Long maGiaoVien) {
-	    Optional<GiaoVien> giaoVienOptional = giaoVienRepository.findById(maGiaoVien);
-	    if (giaoVienOptional.isPresent()) {
-	        GiaoVien giaoVien = giaoVienOptional.get();
-	        TaiKhoan taiKhoan = giaoVien.getTaiKhoan();  
-	        giaoVienRepository.delete(giaoVien);
-	        userRepository.delete(taiKhoan);
-	    }
+	public void xoa(String maGiaoVien) {
+		Optional<TaiKhoan> kq = userRepository.findById(maGiaoVien);			
+		TaiKhoan taiKhoan = kq.get();
+		userRepository.deleteById(taiKhoan.getMaTK());
 	}
 
 	@Override

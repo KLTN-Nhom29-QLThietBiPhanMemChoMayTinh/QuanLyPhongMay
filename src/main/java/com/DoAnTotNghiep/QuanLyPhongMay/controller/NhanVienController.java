@@ -27,7 +27,7 @@ public class NhanVienController {
 	}
 
 	@GetMapping("/NhanVien/{maNV}")
-	public NhanVien layNVTheoMa(@PathVariable Long maNV){
+	public NhanVien layNVTheoMa(@PathVariable String maNV){
 		return nhanVienService.layNVTheoMa(maNV);
 	}
 	
@@ -37,7 +37,7 @@ public class NhanVienController {
 	}
 
 	@DeleteMapping("/XoaNhanVien/{maNV}")
-	public String xoa(@PathVariable Long maNV) {
+	public String xoa(@PathVariable String maNV) {
 		nhanVienService.xoa(maNV);
 		return "Đã xoá nhân viên " + maNV;
 	}

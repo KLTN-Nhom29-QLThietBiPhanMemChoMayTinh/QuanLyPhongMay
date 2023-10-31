@@ -17,8 +17,16 @@ public class PhanMem {
     private String trangThai;
     @Column(name = "mo_ta")
     private String moTa;
+    @Column(name = "phien_ban")
+    private String phienBan;
 	public Long getMaPhanMem() {
 		return maPhanMem;
+	}
+	public String getPhienBan() {
+		return phienBan;
+	}
+	public void setPhienBan(String phienBan) {
+		this.phienBan = phienBan;
 	}
 	public void setMaPhanMem(Long maPhanMem) {
 		this.maPhanMem = maPhanMem;
@@ -41,12 +49,14 @@ public class PhanMem {
 	public void setMoTa(String moTa) {
 		this.moTa = moTa;
 	}
-	public PhanMem(Long maPhanMem, String tenPhanMem, String trangThai, String moTa) {
+
+	public PhanMem(Long maPhanMem, String tenPhanMem, String trangThai, String moTa, String phienBan) {
 		super();
 		this.maPhanMem = maPhanMem;
 		this.tenPhanMem = tenPhanMem;
 		this.trangThai = trangThai;
 		this.moTa = moTa;
+		this.phienBan = phienBan;
 	}
 	public PhanMem() {
 		super();
@@ -55,7 +65,7 @@ public class PhanMem {
 	@Override
 	public String toString() {
 		return "PhanMem [maPhanMem=" + maPhanMem + ", tenPhanMem=" + tenPhanMem + ", trangThai=" + trangThai + ", moTa="
-				+ moTa + "]";
+				+ moTa + ", phienBan=" + phienBan + "]";
 	}
     
 

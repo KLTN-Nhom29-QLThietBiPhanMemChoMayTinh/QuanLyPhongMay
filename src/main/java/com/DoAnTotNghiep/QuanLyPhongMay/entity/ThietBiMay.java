@@ -1,5 +1,7 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,12 +26,25 @@ public class ThietBiMay {
 
     @Column(name = "tuoi_tho")
     private double tuoiTho;
-    
+
+	@Column(name = "ngay_cai_dat", columnDefinition = "DATETIME")
+	private Date ngayCaiDat;
+
     @ManyToOne
     @JoinColumn(name = "ma_may")
     private MayTinh mayTinh;
 
     
+	public Date getNgayCaiDat() {
+		return ngayCaiDat;
+	}
+
+
+	public void setNgayCaiDat(Date ngayCaiDat) {
+		this.ngayCaiDat = ngayCaiDat;
+	}
+
+
 	@ManyToOne
 	@JoinColumn(name = "ma_loai", nullable = false)
 	private LoaiThietBi loaiThietBi;
@@ -85,11 +100,13 @@ public class ThietBiMay {
 	}
 
 
-	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, MayTinh mayTinh, LoaiThietBi loaiThietBi) {
+	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, Date ngayCaiDat, MayTinh mayTinh,
+			LoaiThietBi loaiThietBi) {
 		super();
 		this.maThietBi = maThietBi;
 		this.tenThietBi = tenThietBi;
 		this.tuoiTho = tuoiTho;
+		this.ngayCaiDat = ngayCaiDat;
 		this.mayTinh = mayTinh;
 		this.loaiThietBi = loaiThietBi;
 	}
@@ -104,7 +121,7 @@ public class ThietBiMay {
 	@Override
 	public String toString() {
 		return "ThietBiMay [maThietBi=" + maThietBi + ", tenThietBi=" + tenThietBi + ", tuoiTho=" + tuoiTho
-				+ ", mayTinh=" + mayTinh + ", loaiThietBi=" + loaiThietBi + "]";
+				+ ", ngayCaiDat=" + ngayCaiDat + ", mayTinh=" + mayTinh + ", loaiThietBi=" + loaiThietBi + "]";
 	}
 	
 	

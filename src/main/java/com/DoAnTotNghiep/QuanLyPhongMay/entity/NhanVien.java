@@ -19,9 +19,8 @@ import org.hibernate.annotations.OnDeleteAction;
 public class NhanVien {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ma_nv")
-	private Long maNV;
+	private String maNV;
 
 	@Column(name = "ten_nv", columnDefinition = "nvarchar(100)", nullable = false)
 	private String tenNV;
@@ -37,12 +36,14 @@ public class NhanVien {
     @JoinColumn(name = "ma_cv", nullable = false)
 	private ChucVu chucVu;
 	
-	 @ManyToOne
-	 @JoinColumn(name = "ma_tk", insertable = false, updatable = false)
-	 private TaiKhoan taiKhoan;
+	@OneToOne
+	@MapsId
+	@JoinColumn(name = "ma_nv")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private TaiKhoan taiKhoan;
 	
 
-	public NhanVien(Long maNV, String tenNV, String email, String sDT) {
+	public NhanVien(String maNV, String tenNV, String email, String sDT) {
 		super();
 		this.maNV = maNV;
 		this.tenNV = tenNV;
@@ -50,11 +51,11 @@ public class NhanVien {
 		this.sDT = sDT;
 	}
 
-	public Long getMaNV() {
+	public String getMaNV() {
 		return maNV;
 	}
 
-	public void setMaNV(Long maNV) {
+	public void setMaNV(String maNV) {
 		this.maNV = maNV;
 	}
 
@@ -101,7 +102,7 @@ public class NhanVien {
 	public NhanVien() {
 	}
 
-	public NhanVien(Long maNV, String tenNV, String gioiTinh, String email, String soCMND, String sDT,
+	public NhanVien(String maNV, String tenNV, String gioiTinh, String email, String soCMND, String sDT,
 			String duongDanHinh, ChucVu chucVu, TaiKhoan taiKhoan) {
 		this.maNV = maNV;
 		this.tenNV = tenNV;

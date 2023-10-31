@@ -22,7 +22,7 @@ public class NhanVienServiceImpl implements NhanVienService {
 	private UserRepository userRepository;
 	
 	@Override
-	public NhanVien layNVTheoMa(Long maNV) {
+	public NhanVien layNVTheoMa(String maNV) {
 		NhanVien nhanVien = null;
 		Optional<NhanVien> kq = nhanVienRepository.findById(maNV);
 		try {
@@ -39,14 +39,10 @@ public class NhanVienServiceImpl implements NhanVienService {
 	}
 
 	@Transactional
-	public void xoa(Long maNV) {
-	    Optional<NhanVien> nhanVienOptional = nhanVienRepository.findById(maNV);
-	    if (nhanVienOptional.isPresent()) {
-	        NhanVien nhanVien = nhanVienOptional.get();
-	        TaiKhoan taiKhoan = nhanVien.getTaiKhoan();  
-	        nhanVienRepository.delete(nhanVien);
-	        userRepository.delete(taiKhoan);
-	    }
+	public void xoa(String maNV) {
+		Optional<TaiKhoan> kq = userRepository.findById(maNV);			
+		TaiKhoan taiKhoan = kq.get();
+		userRepository.deleteById(taiKhoan.getMaTK());
 	}
 
 

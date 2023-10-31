@@ -27,7 +27,7 @@ public class GiaoVienController {
 	}
 
 	@GetMapping("/GiaoVien/{maGiaoVien}")
-	public GiaoVien layGVTheoMa(@PathVariable Long maGiaoVien){
+	public GiaoVien layGVTheoMa(@PathVariable String maGiaoVien){
 		return giaoVienService.layGVTheoMa(maGiaoVien);
 	}
 	
@@ -37,7 +37,7 @@ public class GiaoVienController {
 	}
 
 	@DeleteMapping("/XoaGiaoVien/{maGiaoVien}")
-	public String xoa(@PathVariable Long maGiaoVien) {
+	public String xoa(@PathVariable String maGiaoVien) {
 		giaoVienService.xoa(maGiaoVien);
 		return "Đã xoá nhân viên " + maGiaoVien;
 	}
