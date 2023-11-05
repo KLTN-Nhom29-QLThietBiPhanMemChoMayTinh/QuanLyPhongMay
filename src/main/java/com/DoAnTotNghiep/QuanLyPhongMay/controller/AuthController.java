@@ -1,5 +1,7 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,11 +30,27 @@ public class AuthController {
 			taiKhoan.setMatKhau(new BCryptPasswordEncoder().encode(taiKhoan.getMatKhau()));
 		return userService.createUser(taiKhoan);
 	}
+	
+	@PutMapping("/tai_khoan")
+	public ResponseEntity<?> updateTaiKhoan(@RequestBody TaiKhoan taiKhoan) {
+		System.out.println(taiKhoan);
+		
+		return ResponseEntity.ok(taiKhoan);
+		
+	}
 
 	@PostMapping("/DangNhap")
 	public ResponseEntity<?> login(@RequestBody TaiKhoan taiKhoan) {
 		TaiKhoan taiKhoan2 = null;
-		taiKhoan2 = userService.findByTenDangNhap(taiKhoan.getTenDangNhap());
+		
+		try {
+			
+			taiKhoan2 = userService.findByTenDangNhap(taiKhoan.getTenDangNhap());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Đăng nhập không thành công. Sai thông tin <Tài khoản.>");
+		}
 
 		System.out.println(taiKhoan2);
 		System.out.println(new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau()));

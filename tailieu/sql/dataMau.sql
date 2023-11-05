@@ -11,12 +11,21 @@ INSERT INTO chuc_vu (ten_cv) VALUES ('Nhân viên hỗ trợ');
 INSERT INTO khoa (ten_khoa) VALUES ('Công nghệ thông tin');
 INSERT INTO khoa (ten_khoa) VALUES ('Tài chính kế toán');
 -- Thêm 3 tài khoản và 3 người dùng
-INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV001', 'nhanvien1', 'password1', 1);
-INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV001','NhanVien1', 'email1@example.com', '123456789', 1);
-INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('GV001', 'giaovien1', 'password2', 2);
+INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV001', 'nhanvien1', '123456A', 1);
+INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV001','Nguyễn văn A', 'email1@example.com', '123456789', 1);
+INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('GV001', 'giaovien1', '123456A', 2);
 INSERT INTO giao_vien (ma_gv,ho_ten, email,hoc_vi ,so_dien_thoai, ma_khoa) VALUES ('GV001','giaoVien1', 'email1@example.com', 'Giáo sư','123456789', 1);
-INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV002', 'nhanvien2', 'password2', 3);
+INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV002', 'nhanvien2', '123456A', 3);
 INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV002','NhanVien2', 'email1@example.com', '123456789', 2);	
+ ---
+INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV003', 'nhanvien3', '123456A', 3);
+INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV003','Nhân văn Viên 3', 'email3@example.com', '0951753002', 2);	
+INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV004', 'nhanvien4', '123456A', 3);
+INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV004','Nhân văn Viên 4', 'email4@example.com', '0951753004', 2);	
+INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV005', 'nhanvien5', '123456A', 3);
+INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV005','Nhân văn Viên 5', 'email5@example.com', '0951753005', 2);	
+
+
 -- Thêm 4 phần mềm
 INSERT INTO phan_mem (mo_ta, phien_ban, ten_phanmem, trang_thai)
 VALUES ('Môi trường phát triển tích hợp (IDE) phổ biến cho các ứng dụng Windows', '2019', 'Visual Studio', 'Đang hoạt động');
@@ -130,4 +139,14 @@ INSERT INTO monhoc_phanmem (ma_mon, ma_phanmem)
 VALUES (3, 3);
 INSERT INTO monhoc_phanmem (ma_mon, ma_phanmem)
 VALUES (4, 4);
+
+-- lich truc
+INSERT INTO `QuanLyPhongMay`.`lich_truc` (`ma_lich`, `ngay_truc`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `ma_nv`, `ma_tang`) 
+VALUES ('1', '2023-10-31 00:00:00.000000', '6', '14', 'NV003', '3');
+
+
+INSERT INTO `QuanLyPhongMay`.`lich_truc` (`ma_lich`, `ngay_truc`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `ma_nv`, `ma_tang`) 
+VALUES (2, '2023-10-31 00:00:00.000000', '14', '22', 'NV004', 3);
+INSERT INTO `QuanLyPhongMay`.`lich_truc` (`ma_lich`, `ngay_truc`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `ma_nv`, `ma_tang`) 
+VALUES (3, '2023-10-31 00:00:00.000000', '6h', '14h', 'NV005', 3);
 
