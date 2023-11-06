@@ -1,7 +1,5 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +28,7 @@ public class AuthController {
 			taiKhoan.setMatKhau(new BCryptPasswordEncoder().encode(taiKhoan.getMatKhau()));
 		return userService.createUser(taiKhoan);
 	}
-	
+
 	@PutMapping("/tai_khoan")
 	public ResponseEntity<?> updateTaiKhoan(@RequestBody TaiKhoan taiKhoan) {
 		System.out.println(taiKhoan);

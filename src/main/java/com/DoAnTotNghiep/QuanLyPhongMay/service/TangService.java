@@ -12,4 +12,8 @@ public interface TangService {
 	public void xoa(Long maTang);
 
 	public Tang luu(Tang tang);
+	
+	public List<Tang> layTangTheoToaNha(Long maToaNha); 
+	
+	public Long tinhSoLuongTangTheoMaToaNha(Long maToaNha);
 }

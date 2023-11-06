@@ -18,9 +18,6 @@ public class ToaNha {
 	@Column(name = "ten_toanha", columnDefinition = "nvarchar(50)", nullable = false)
 	private String tenToaNha;
 
-	  @Column(name = "so_tang")
-	  private int soTang;
-	
 	public Long getMaToaNha() {
 		return maToaNha;
 	}
@@ -37,19 +34,12 @@ public class ToaNha {
 		this.tenToaNha = tenToaNha;
 	}
 
-	public int getSoTang() {
-		return soTang;
-	}
-
-	public void setSoTang(int soTang) {
-		this.soTang = soTang;
-	}
-
-	public ToaNha(Long maToaNha, String tenToaNha, int soTang) {
+	
+	public ToaNha(Long maToaNha, String tenToaNha ) {
 		super();
 		this.maToaNha = maToaNha;
 		this.tenToaNha = tenToaNha;
-		this.soTang = soTang;
+	
 	}
 
 	public ToaNha() {
@@ -59,7 +49,7 @@ public class ToaNha {
 
 	@Override
 	public String toString() {
-		return "ToaNha [maToaNha=" + maToaNha + ", tenToaNha=" + tenToaNha + ", soTang=" + soTang + "]";
+		return "ToaNha [maToaNha=" + maToaNha + ", tenToaNha=" + tenToaNha  +	 "]";
 	}
 
 

@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "may_tinh")
 public class MayTinh {
@@ -32,10 +35,12 @@ public class MayTinh {
     private Date ngayLapDat;    
     
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "ma_phong")
     private PhongMay phongMay;
 
     @OneToMany(mappedBy = "mayTinh")
+	@JsonManagedReference
     private List<ThietBiMay> thietBis;
 
 	public Long getMaMay() {

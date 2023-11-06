@@ -36,5 +36,14 @@ public class TangController {
     	tangService.xoa(maTang);
         return "Đã xoá quyền " + maTang;
     }
+    
+    @GetMapping("/TangTheoToaNha/{maToaNha}")
+    public List<Tang> layTangTheoToaNha(@PathVariable Long maToaNha) {
+        return tangService.layTangTheoToaNha(maToaNha);
+    }
 
+    @GetMapping("/Tang/{maTang}")
+    public Tang layTangTheoMa(@PathVariable Long maTang) {
+        return tangService.layTangTheoMa(maTang);
+    }
 }

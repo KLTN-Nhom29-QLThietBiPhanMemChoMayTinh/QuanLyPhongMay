@@ -43,5 +43,14 @@ public class TangServiceImpl implements TangService{
 		return tangRepository.save(tang);
 	}
 
+	 @Override
+	    public List<Tang> layTangTheoToaNha(Long maToaNha) {
+	        return tangRepository.findByToaNha_MaToaNha(maToaNha);
+	 }
+	 
+	 @Override
+	 public Long tinhSoLuongTangTheoMaToaNha(Long maToaNha) {
+		    return tangRepository.countByToaNha_MaToaNha(maToaNha);
+	}
 
 }

@@ -44,5 +44,20 @@ public class PhongMayServiceImpl implements PhongMayService{
 		return phongMayRepository.save(phongMay);
 	}
 
+	@Override
+	public PhongMay capNhat(PhongMay phongMay) {
+		return phongMayRepository.save(phongMay);
+	}
+
+	@Override
+	public PhongMay capNhatTheoMa(Long maPhong, PhongMay phongMay) {
+		 Optional<PhongMay> phongMayDB = phongMayRepository.findById(maPhong);
+	        if (phongMayDB.isPresent()) {
+	            PhongMay phongMayCu = phongMayDB.get();
+	            return phongMayRepository.save(phongMayCu);
+	        }
+	        return null;
+	}
+
 
 }

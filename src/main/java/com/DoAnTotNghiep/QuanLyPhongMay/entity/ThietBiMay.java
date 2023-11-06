@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name = "thiet_bi_may")
@@ -31,6 +33,7 @@ public class ThietBiMay {
 	private Date ngayCaiDat;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "ma_may")
     private MayTinh mayTinh;
 

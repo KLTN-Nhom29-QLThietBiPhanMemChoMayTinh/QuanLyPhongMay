@@ -11,7 +11,6 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.ToaNhaRepository;
 
 @Service
 public class ToaNhaServiceImpl implements ToaNhaService{
-
 	@Autowired
 	private ToaNhaRepository toaNhaRepository;
 	@Override

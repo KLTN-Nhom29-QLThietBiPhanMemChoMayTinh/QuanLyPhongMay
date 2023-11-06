@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table(name="phong_may")
@@ -41,6 +43,7 @@ public class PhongMay {
 	}
 
 	@OneToMany(mappedBy = "phongMay")
+	@JsonManagedReference
 	private List<MayTinh> mayTinhs;
 
 	public Long getMaPhong() {

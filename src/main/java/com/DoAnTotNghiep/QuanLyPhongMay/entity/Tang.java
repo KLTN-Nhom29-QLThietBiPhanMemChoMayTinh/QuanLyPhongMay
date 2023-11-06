@@ -24,7 +24,7 @@ public class Tang {
 	private String tenTang;
 	
 	@ManyToOne
-	@JoinColumn(name = "ma_toanha", referencedColumnName = "ma_toanha")
+	@JoinColumn(name = "ma_toanha")
 	private ToaNha toaNha;
 
 	@OneToMany(mappedBy = "tang")

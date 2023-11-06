@@ -36,5 +36,8 @@ public class MayTinhController {
     	mayTinhService.xoa(maMay);
         return "Đã xoá quyền " + maMay;
     }
-
+    @GetMapping("/MayTinh/{maMay}")
+  	public MayTinh layMayTinhTheoMa(@PathVariable Long maMay){
+  	      return mayTinhService.layMayTinhTheoMa(maMay);
+  	}
 }

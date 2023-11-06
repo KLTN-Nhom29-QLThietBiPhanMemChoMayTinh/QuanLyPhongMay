@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.ToaNha;
-import com.DoAnTotNghiep.QuanLyPhongMay.repository.ToaNhaRepository;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.ToaNhaService;
 
 @RestController
@@ -21,9 +20,6 @@ public class ToaNhaController {
 	
 	@Autowired
     private ToaNhaService toaNhaService;
-	
-	@Autowired
-	private ToaNhaRepository toaNhaRepository;
 
     @PostMapping("/LuuToaNha")
     public ToaNha luu(@RequestBody ToaNha toaNha){
@@ -33,10 +29,6 @@ public class ToaNhaController {
     @GetMapping("/DSToaNha")
     public List<ToaNha> layDSToaNha(){
         return toaNhaService.layDSToaNha();
-    }
-    @GetMapping("/DSToaNha/{id}")
-    public ToaNha getToaNhabyId(@PathVariable("id") long id){
-        return toaNhaRepository.getById(id);
     }
 
     @DeleteMapping("/XoaToaNha/{maToaNha}")
