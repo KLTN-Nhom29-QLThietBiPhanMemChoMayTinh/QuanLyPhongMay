@@ -27,7 +27,7 @@ public class PhongMayPhanMemController {
     }
 
     @GetMapping("/DSPhongMayPhanMem/{maPhong}")
-    public List<PhongMayPhanMem> layDSPhongMayPhanMem(Long maPhong){
+    public List<PhongMayPhanMem> layDSPhongMayPhanMem(@PathVariable Long maPhong){
         return phongMayPhanMemService.layDSPMPM(maPhong);
     }
 

@@ -13,9 +13,10 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 
 	@Autowired
 	private PhongMayPhanMemRepository phongMayPhanMemRepository;
+	
 	@Override
 	public List<PhongMayPhanMem> layDSMHPMTheoMa(Long maPhong) {
-		return phongMayPhanMemRepository.layDSMHPMTheoMa(maPhong);
+		return phongMayPhanMemRepository.layDSPMPMTheoMa(maPhong);
 	}
 	@Override
 	public void xoa(Long maPhong, Long maPhanMem) {
@@ -29,7 +30,7 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 
 	@Override
 	public List<PhongMayPhanMem> layDSPMPM(Long maPhong) {
-		return phongMayPhanMemRepository.layDSMHPM(maPhong);
+		return phongMayPhanMemRepository.layDSPMPM(maPhong);
 	}
 
 }

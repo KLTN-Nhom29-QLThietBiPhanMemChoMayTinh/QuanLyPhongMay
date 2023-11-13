@@ -16,18 +16,16 @@ public class PhongMayPhanMemRepositoryImpl implements PhongMayPhanMemRepository{
 	private EntityManager entityManager;
 	
 	
-	
 	public PhongMayPhanMemRepositoryImpl(EntityManager entityManager) {
 		super();
 		this.entityManager = entityManager;
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	@Transactional
-	public List<PhongMayPhanMem> layDSMHPMTheoMa(Long maPhong) {
-		Query query = entityManager.createQuery("from phongmay_phanmem where ma_phong=:maPhong");
-		query.setParameter("ma_phong", maPhong);
+	public List<PhongMayPhanMem> layDSPMPMTheoMa(Long maPhong) {
+		Query query = entityManager.createQuery("FROM phongmay_phanmem WHERE ma_phong = :maPhong");
+		query.setParameter("maPhong", maPhong);
 		return query.getResultList();
 	}
 
@@ -43,7 +41,7 @@ public class PhongMayPhanMemRepositoryImpl implements PhongMayPhanMemRepository{
 	}
 
 	@Override
-	public List<PhongMayPhanMem> layDSMHPM(Long maPhong) {
+	public List<PhongMayPhanMem> layDSPMPM(Long maPhong) {
 		Query query = entityManager.createNativeQuery("SELECT * FROM phongmay_phanmem WHERE ma_phong = " + maPhong, PhongMayPhanMem.class);
 		return query.getResultList();
 	}
