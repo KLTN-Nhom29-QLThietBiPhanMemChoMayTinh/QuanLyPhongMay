@@ -32,5 +32,9 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 	public List<PhongMayPhanMem> layDSPMPM(Long maPhong) {
 		return phongMayPhanMemRepository.layDSPMPM(maPhong);
 	}
+	@Override
+	public List<PhongMayPhanMem> layDanhSachPhongMayPhanMem() {
+		return phongMayPhanMemRepository.layDanhSachPhongMayPhanMem();
+	}
 
 }

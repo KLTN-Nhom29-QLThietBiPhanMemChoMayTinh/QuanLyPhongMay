@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MonHocPhanMem;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.MonHocPhanMemService;
 
 @RestController
@@ -26,7 +27,7 @@ public class MonHocPhanMemController {
         return monHocPhanMemService.luu(monHocPhanMem);
     }
 
-    @GetMapping("/DSMonHocPhanMem")
+    @GetMapping("/DSMonHocPhanMem/{maMon}")
     public List<MonHocPhanMem> layDSMonHocPhanMem(@PathVariable Long maMon){
         return monHocPhanMemService.layDSMHPM(maMon);
     }
@@ -36,5 +37,11 @@ public class MonHocPhanMemController {
     	monHocPhanMemService.xoa(maMon, maPhanMem);
         return "Đã xoá quyền " + maMon+"Đã xoá quyền " + maPhanMem;
     }
+    
+    @GetMapping("/DanhSachMonHocPhanMem")
+    public List<MonHocPhanMem> layDanhSachMonHocPhanMem() {
+        return monHocPhanMemService.layDanhSachMonHocPhanMem();
+    }
+
 
 }

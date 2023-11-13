@@ -36,5 +36,9 @@ public class PhongMayPhanMemController {
     	phongMayPhanMemService.xoa(maPhong,maPhanMem);
         return "Đã xoá quyền " + maPhong + "Đã xoá quyền" +maPhanMem;
     }
+    @GetMapping("/DanhSachPhongMayPhanMem")
+    public List<PhongMayPhanMem> layDanhSachPhongMayPhanMem() {
+        return phongMayPhanMemService.layDanhSachPhongMayPhanMem();
+    }
 
 }

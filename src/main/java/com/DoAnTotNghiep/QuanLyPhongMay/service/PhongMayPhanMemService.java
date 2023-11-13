@@ -11,5 +11,7 @@ public interface PhongMayPhanMemService {
 
 	public PhongMayPhanMem luu(PhongMayPhanMem phongMayPhanMem);
 	
+	public List<PhongMayPhanMem> layDanhSachPhongMayPhanMem();
+
 	public List<PhongMayPhanMem> layDSPMPM(Long maPhong);
 }

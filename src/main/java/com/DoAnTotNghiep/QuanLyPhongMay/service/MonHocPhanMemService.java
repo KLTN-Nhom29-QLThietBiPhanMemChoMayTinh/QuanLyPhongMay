@@ -1,8 +1,8 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.service;
 
 import java.util.List;
-import com.DoAnTotNghiep.QuanLyPhongMay.entity.MonHocPhanMem;
 
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.MonHocPhanMem;
 
 public interface MonHocPhanMemService {
 
@@ -13,4 +13,6 @@ public interface MonHocPhanMemService {
 	public MonHocPhanMem luu(MonHocPhanMem monHocPhanMem);
 	
 	public List<MonHocPhanMem> layDSMHPM(Long maMon);
+
+	public List<MonHocPhanMem> layDanhSachMonHocPhanMem();
 }

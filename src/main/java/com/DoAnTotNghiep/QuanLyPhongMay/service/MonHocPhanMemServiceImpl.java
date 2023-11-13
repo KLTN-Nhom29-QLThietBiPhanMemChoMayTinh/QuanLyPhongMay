@@ -34,4 +34,10 @@ public class MonHocPhanMemServiceImpl implements MonHocPhanMemService{
 		return monHocPhanMemRepository.layDSMHPM(maMon);
 	}
 
+	@Override
+	public List<MonHocPhanMem> layDanhSachMonHocPhanMem() {
+	    return monHocPhanMemRepository.layDanhSachMonHocPhanMem();
+	}
+
+
 }
