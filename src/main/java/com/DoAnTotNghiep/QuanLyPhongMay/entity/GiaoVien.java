@@ -1,5 +1,6 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class GiaoVien {
     @Column(name = "hoc_vi")
     private String hocVi;
 	
-	@OneToOne
+	@OneToOne (cascade = CascadeType.ALL)
 	@MapsId
 	@JoinColumn(name = "ma_gv")
 	@OnDelete(action = OnDeleteAction.CASCADE)

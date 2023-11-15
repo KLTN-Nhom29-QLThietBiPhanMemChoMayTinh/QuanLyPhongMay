@@ -1,5 +1,7 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.TaiKhoan;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.UserRepository;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.UserService;
 
 @RestController
@@ -21,6 +24,8 @@ public class AuthController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private UserRepository userRepository;
 
 	@PostMapping("/tai_khoan")
 	public TaiKhoan register(@RequestBody TaiKhoan taiKhoan) {
@@ -39,6 +44,7 @@ public class AuthController {
 
 	@PostMapping("/DangNhap")
 	public ResponseEntity<?> login(@RequestBody TaiKhoan taiKhoan) {
+		System.out.println(taiKhoan);
 		TaiKhoan taiKhoan2 = null;
 		
 		try {
@@ -52,7 +58,7 @@ public class AuthController {
 
 		System.out.println(taiKhoan2);
 		System.out.println(new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau()));
-		if (taiKhoan2 == null || new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau())) {
+		if (taiKhoan2 == null || !new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau())) {
 //			return new ResponseEntity<>("Khong tim thay - "+ taiKhoan, HttpStatus.NOT_FOUND);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Đăng nhập không thành công. Sai thông tin");
 		}
@@ -64,4 +70,10 @@ public class AuthController {
 	public TaiKhoan layTKTheo(@PathVariable String tenDangNhap) {
 		return userService.findByTenDangNhap(tenDangNhap);
 	}
+	
+	@GetMapping("/DSTaiKhoan")
+	public List<TaiKhoan> DsTaiKhoan() {
+		return userRepository.findAll();
+	}
+	
 }

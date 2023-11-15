@@ -110,7 +110,7 @@ public class MayTinh {
 	@Override
 	public String toString() {
 		return "MayTinh [maMay=" + maMay + ", trangThai=" + trangThai + ", moTa=" + moTa + ", ngayLapDat=" + ngayLapDat
-				+ ", phongMay=" + phongMay + ", thietBis=" + thietBis + "]";
+				+ ", phongMay=" + phongMay + ", thietBis="  + "]";
 	}
 
 	

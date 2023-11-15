@@ -114,7 +114,7 @@ public class PhongMay {
 	@Override
 	public String toString() {
 		return "PhongMay [maPhong=" + maPhong + ", tenPhong=" + tenPhong + ", soMay=" + soMay + ", moTa=" + moTa
-				+ ", trangThai=" + trangThai + ", tang=" + tang + ", mayTinhs=" + mayTinhs + "]";
+				+ ", trangThai=" + trangThai + ", tang=" + tang + ", mayTinhs=" + "]";
 	}
 	
     

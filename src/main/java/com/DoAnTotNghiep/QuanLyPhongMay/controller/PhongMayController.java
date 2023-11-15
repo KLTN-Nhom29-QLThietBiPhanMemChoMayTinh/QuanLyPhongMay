@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinh;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.ThietBiMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.model.PhongMayModel;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.PhongMayPhanMemService;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.PhongMayService;
@@ -34,7 +36,15 @@ public class PhongMayController {
 
     @PostMapping("/LuuPhongMay")
     public PhongMay luu(@RequestBody PhongMay phongMay){
-        return phongMayService.luu(phongMay);
+    	System.out.println(phongMay);
+    	
+    	List<MayTinh> mayTinhs  = phongMay.getMayTinhs();
+    	
+    	for (MayTinh mayTinh : mayTinhs) {
+    		System.out.println(mayTinh);
+		}
+//        return phongMayService.luu(phongMay);
+    	return new PhongMay();
     }
 
     @GetMapping("/DSPhongMay")
