@@ -23,6 +23,7 @@ public class MayTinhController {
 
     @PostMapping("/LuuMayTinh")
     public MayTinh luu(@RequestBody MayTinh mayTinh){
+    	System.out.println(mayTinh);
         return mayTinhService.luu(mayTinh);
     }
 

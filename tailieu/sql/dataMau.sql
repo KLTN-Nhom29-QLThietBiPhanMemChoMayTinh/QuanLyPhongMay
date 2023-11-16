@@ -1,5 +1,5 @@
 create database QuanLyPhongMay;
-use QuanLyPhongMay;
+use QuanLyPhongMay2;
 -- Thêm 2 quyền
 INSERT INTO quyen (ten_quyen) VALUES ('Người quản lý');
 INSERT INTO quyen (ten_quyen) VALUES ('Giáo viên');
@@ -113,14 +113,19 @@ INSERT INTO loai_thiet_bi (ten_loai)
 VALUES ('Loa');
 
 -- Thêm 4 thiết bị máy
-INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, ma_may)
-VALUES ('2023-10-25', 'Bàn phím Logitech K780', 2.5, 1, 1);
-INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, ma_may)
-VALUES ('2023-10-26', 'Màn hình Dell Ultrasharp U2719D', 3.0, 2, 2);
-INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, ma_may)
-VALUES ('2023-10-27', 'Chuột Microsoft Ergonomic Mouse', 1.5, 3, 3);
-INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, ma_may)
-VALUES ('2023-10-28', 'Loa Logitech Z623', 2.0, 4, 4);
+-- '2023-10-25',
+-- INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, ma_may)
+-- VALUES ('2023-10-28', 'Loa Logitech Z623', 2.0, 4, 4);
+INSERT INTO thiet_bi_may ( `ngay_cai_dat`, `ten_thiet_bi`, `tuoi_tho`, `ma_loai`, `status`) 
+VALUES ( '2022-10-28 00:00:00', 'Loa Logitech Z600', '26', '4', TRUE);
+INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
+VALUES ( '2021-10-28', 'Bàn phím Logitech K780', 28, 1, TRUE);
+INSERT INTO thiet_bi_may ( ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
+VALUES ( '2022-10-28','Màn hình Dell Ultrasharp U2719D', 36, 2, TRUE);
+INSERT INTO thiet_bi_may ( ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
+VALUES ( '2021-10-28', 'Chuột Microsoft Ergonomic Mouse', 24, 3, TRUE);
+INSERT INTO thiet_bi_may ( ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
+VALUES ( '2020-10-28', 'Loa Logitech Z623', 25, 4, TRUE);
 
 -- Thêm 4 môn học
 INSERT INTO mon_hoc (ngay_bat_dau, ngay_ket_thuc, ten_mon)

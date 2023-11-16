@@ -15,6 +15,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinhThietBi;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.MayTinhThietBiService;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.PhongMayPhanMemService;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.MayTinhThietBiRepository2;
 
 @RestController
 @CrossOrigin
@@ -22,10 +23,14 @@ public class MayTinhThietBiController {
 	
 	@Autowired
     private MayTinhThietBiService mayTinhThietBiService;
+	
+	@Autowired
+	private MayTinhThietBiRepository2 MayTinhThietBiRepository2;
 
     @PostMapping("/LuuMayTinhThietBi")
     public MayTinhThietBi luu(@RequestBody MayTinhThietBi mayTinhThietBi){
-        return mayTinhThietBiService.luu(mayTinhThietBi);
+    	System.out.println(mayTinhThietBi);
+        return MayTinhThietBiRepository2.save(mayTinhThietBi);
     }
 
     @GetMapping("/DSMayTinhThietBi/{maMay}")

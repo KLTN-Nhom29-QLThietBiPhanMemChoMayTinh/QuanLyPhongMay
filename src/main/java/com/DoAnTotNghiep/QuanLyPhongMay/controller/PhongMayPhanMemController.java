@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository2;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.PhongMayPhanMemService;
 
 @RestController
@@ -21,9 +22,12 @@ public class PhongMayPhanMemController {
 	@Autowired
     private PhongMayPhanMemService phongMayPhanMemService;
 
+	@Autowired
+	private PhongMayPhanMemRepository2 mayPhanMemRepository2;
+	
     @PostMapping("/LuuPhongMayPhanMem")
     public PhongMayPhanMem luu(@RequestBody PhongMayPhanMem PhongMayPhanMem){
-        return phongMayPhanMemService.luu(PhongMayPhanMem);
+        return mayPhanMemRepository2.save(PhongMayPhanMem);
     }
 
     @GetMapping("/DSPhongMayPhanMem/{maPhong}")

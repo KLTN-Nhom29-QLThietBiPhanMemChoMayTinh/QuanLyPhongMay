@@ -15,18 +15,18 @@ import javax.persistence.Table;
 @Table(name = "phongmay_phanmem")
 public class PhongMayPhanMem {
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "ma_phong")
-    private PhongMay phongMay;
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "ma_phanmem")
-    private PhanMem phanMem;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "ma_phong")
+	private PhongMay phongMay;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "ma_phanmem")
+	private PhanMem phanMem;
+	@JoinColumn(name = "status", columnDefinition = "boolean default true")
+	private boolean status;
 
-    @Column(name = "ngay_cai_dat")
-    private Date ngayCaiDat;
-
+	//
 	public PhongMay getPhongMay() {
 		return phongMay;
 	}
@@ -43,19 +43,19 @@ public class PhongMayPhanMem {
 		this.phanMem = phanMem;
 	}
 
-	public Date getNgayCaiDat() {
-		return ngayCaiDat;
+	public boolean isStatus() {
+		return status;
 	}
 
-	public void setNgayCaiDat(Date ngayCaiDat) {
-		this.ngayCaiDat = ngayCaiDat;
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
-	public PhongMayPhanMem(PhongMay phongMay, PhanMem phanMem, Date ngayCaiDat) {
+	public PhongMayPhanMem(PhongMay phongMay, PhanMem phanMem, boolean status) {
 		super();
 		this.phongMay = phongMay;
 		this.phanMem = phanMem;
-		this.ngayCaiDat = ngayCaiDat;
+		this.status = status;
 	}
 
 	public PhongMayPhanMem() {
@@ -65,9 +65,7 @@ public class PhongMayPhanMem {
 
 	@Override
 	public String toString() {
-		return "PhongMayPhanMem [phongMay=" + phongMay + ", phanMem=" + phanMem + ", ngayCaiDat=" + ngayCaiDat + "]";
+		return "PhongMayPhanMem [phongMay=" + phongMay + ", phanMem=" + phanMem + ", status=" + status + "]";
 	}
-    
-    
-   
+
 }
