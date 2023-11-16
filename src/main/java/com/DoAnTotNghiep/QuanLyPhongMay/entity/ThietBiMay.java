@@ -29,24 +29,9 @@ public class ThietBiMay {
     @Column(name = "tuoi_tho")
     private double tuoiTho;
 
+
 	@Column(name = "ngay_cai_dat", columnDefinition = "DATETIME")
 	private Date ngayCaiDat;
-
-    @ManyToOne
-    @JsonBackReference
-    @JoinColumn(name = "ma_may")
-    private MayTinh mayTinh;
-
-    
-	public Date getNgayCaiDat() {
-		return ngayCaiDat;
-	}
-
-
-	public void setNgayCaiDat(Date ngayCaiDat) {
-		this.ngayCaiDat = ngayCaiDat;
-	}
-
 
 	@ManyToOne
 	@JoinColumn(name = "ma_loai", nullable = false)
@@ -82,17 +67,6 @@ public class ThietBiMay {
 		this.tuoiTho = tuoiTho;
 	}
 
-
-	public MayTinh getMayTinh() {
-		return mayTinh;
-	}
-
-
-	public void setMayTinh(MayTinh mayTinh) {
-		this.mayTinh = mayTinh;
-	}
-
-
 	public LoaiThietBi getLoaiThietBi() {
 		return loaiThietBi;
 	}
@@ -103,14 +77,12 @@ public class ThietBiMay {
 	}
 
 
-	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, Date ngayCaiDat, MayTinh mayTinh,
+	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, 
 			LoaiThietBi loaiThietBi) {
 		super();
 		this.maThietBi = maThietBi;
 		this.tenThietBi = tenThietBi;
 		this.tuoiTho = tuoiTho;
-		this.ngayCaiDat = ngayCaiDat;
-		this.mayTinh = mayTinh;
 		this.loaiThietBi = loaiThietBi;
 	}
 
@@ -124,7 +96,7 @@ public class ThietBiMay {
 	@Override
 	public String toString() {
 		return "ThietBiMay [maThietBi=" + maThietBi + ", tenThietBi=" + tenThietBi + ", tuoiTho=" + tuoiTho
-				+ ", ngayCaiDat=" + ngayCaiDat + ", mayTinh=" + mayTinh + ", loaiThietBi=" + loaiThietBi + "]";
+				+ ", loaiThietBi=" + loaiThietBi + "]";
 	}
 	
 	

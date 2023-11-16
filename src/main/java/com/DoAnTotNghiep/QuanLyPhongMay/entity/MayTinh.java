@@ -39,10 +39,6 @@ public class MayTinh {
     @JoinColumn(name = "ma_phong")
     private PhongMay phongMay;
 
-    @OneToMany(mappedBy = "mayTinh")
-	@JsonManagedReference
-    private List<ThietBiMay> thietBis;
-
 	public Long getMaMay() {
 		return maMay;
 	}
@@ -83,23 +79,14 @@ public class MayTinh {
 		this.phongMay = phongMay;
 	}
 
-	public List<ThietBiMay> getThietBis() {
-		return thietBis;
-	}
 
-	public void setThietBis(List<ThietBiMay> thietBis) {
-		this.thietBis = thietBis;
-	}
-
-	public MayTinh(Long maMay, String trangThai, String moTa, Date ngayLapDat, PhongMay phongMay,
-			List<ThietBiMay> thietBis) {
+	public MayTinh(Long maMay, String trangThai, String moTa, Date ngayLapDat, PhongMay phongMay) {
 		super();
 		this.maMay = maMay;
 		this.trangThai = trangThai;
 		this.moTa = moTa;
 		this.ngayLapDat = ngayLapDat;
 		this.phongMay = phongMay;
-		this.thietBis = thietBis;
 	}
 
 	public MayTinh() {
@@ -110,7 +97,7 @@ public class MayTinh {
 	@Override
 	public String toString() {
 		return "MayTinh [maMay=" + maMay + ", trangThai=" + trangThai + ", moTa=" + moTa + ", ngayLapDat=" + ngayLapDat
-				+ ", phongMay=" + phongMay + ", thietBis="  + "]";
+				+ ", phongMay=" + phongMay +  "]";
 	}
 
 	

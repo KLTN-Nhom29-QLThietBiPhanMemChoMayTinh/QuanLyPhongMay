@@ -33,7 +33,6 @@ public class GiaoVienController {
 	
 	@PostMapping("/LuuGiaoVien")
 	public GiaoVien luu(@RequestBody GiaoVien giaoVien) {
-		System.out.println(giaoVien);
 		return giaoVienService.luu(giaoVien);
 	}
 

@@ -27,7 +27,7 @@ public class AuthController {
 	@Autowired
 	private UserRepository userRepository;
 
-	@PostMapping("/tai_khoan")
+	@PostMapping("/them_tai_khoan")
 	public TaiKhoan register(@RequestBody TaiKhoan taiKhoan) {
 		if (taiKhoan.getMatKhau() != null)
 			taiKhoan.setMatKhau(new BCryptPasswordEncoder().encode(taiKhoan.getMatKhau()));
@@ -44,7 +44,6 @@ public class AuthController {
 
 	@PostMapping("/DangNhap")
 	public ResponseEntity<?> login(@RequestBody TaiKhoan taiKhoan) {
-		System.out.println(taiKhoan);
 		TaiKhoan taiKhoan2 = null;
 		
 		try {
@@ -70,10 +69,8 @@ public class AuthController {
 	public TaiKhoan layTKTheo(@PathVariable String tenDangNhap) {
 		return userService.findByTenDangNhap(tenDangNhap);
 	}
-	
 	@GetMapping("/DSTaiKhoan")
 	public List<TaiKhoan> DsTaiKhoan() {
 		return userRepository.findAll();
 	}
-	
 }

@@ -20,7 +20,7 @@ import org.hibernate.annotations.OnDeleteAction;
 public class GiaoVien {
 
     @Id
-    @Column(name = "ma_giao_vien")
+    @Column(name = "ma_gv")
     private String maGiaoVien;
 
     @Column(name = "ho_ten")
@@ -35,12 +35,16 @@ public class GiaoVien {
     @Column(name = "hoc_vi")
     private String hocVi;
 	
-	@OneToOne (cascade = CascadeType.ALL)
-	@MapsId
-	@JoinColumn(name = "ma_gv")
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	 private TaiKhoan taiKhoan;
-	
+    @OneToOne(cascade = CascadeType.ALL)
+    @MapsId
+    @JoinColumn(name = "ma_gv")
+    private TaiKhoan taiKhoan;
+
+    @ManyToOne
+    @JoinColumn(name = "ma_khoa") 
+    private Khoa khoa;
+
+
 	public GiaoVien(String maGiaoVien, String hoTen, String soDienThoai, String email, String hocVi, TaiKhoan taiKhoan,
 			Khoa khoa) {
 		super();
@@ -61,10 +65,7 @@ public class GiaoVien {
 		this.hocVi = hocVi;
 	}
 
-	@ManyToOne
-    @JoinColumn(name = "ma_khoa") 
-    private Khoa khoa;
-
+	
 	public String getMaGiaoVien() {
 		return maGiaoVien;
 	}
