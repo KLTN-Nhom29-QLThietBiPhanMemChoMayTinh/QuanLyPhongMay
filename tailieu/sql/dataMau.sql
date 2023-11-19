@@ -28,13 +28,13 @@ INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV005','Nhân v
 
 -- Thêm 4 phần mềm
 INSERT INTO phan_mem (mo_ta, phien_ban, ten_phanmem, trang_thai)
-VALUES ('Môi trường phát triển tích hợp (IDE) phổ biến cho các ứng dụng Windows', '2019', 'Visual Studio', 'Đang hoạt động');
+VALUES ('Môi trường phát triển tích hợp (IDE) phổ biến cho các ứng dụng Windows', '2019', 'Visual Studio', TRUE);
 INSERT INTO phan_mem (mo_ta, phien_ban, ten_phanmem, trang_thai)
-VALUES ('Môi trường phát triển tích hợp (IDE) được sử dụng chủ yếu cho phát triển Java', '2021-09', 'Eclipse', 'Đang hoạt động');
+VALUES ('Môi trường phát triển tích hợp (IDE) được sử dụng chủ yếu cho phát triển Java', '2021-09', 'Eclipse', TRUE);
 INSERT INTO phan_mem (mo_ta, phien_ban, ten_phanmem, trang_thai)
-VALUES ('Môi trường phát triển tích hợp (IDE) cho nhiều ngôn ngữ lập trình', '2021.3', 'IntelliJ IDEA', 'Đang hoạt động');
+VALUES ('Môi trường phát triển tích hợp (IDE) cho nhiều ngôn ngữ lập trình', '2021.3', 'IntelliJ IDEA', TRUE);
 INSERT INTO phan_mem (mo_ta, phien_ban, ten_phanmem, trang_thai)
-VALUES ('Một mã nguồn mở, nhẹ và mạnh mẽ cho phát triển ứng dụng web', '1.61', 'Visual Studio Code', 'Đang hoạt động');
+VALUES ('Một mã nguồn mở, nhẹ và mạnh mẽ cho phát triển ứng dụng web', '1.61', 'Visual Studio Code', TRUE);
 
 -- Thêm 4 toà nhà
 INSERT INTO toa_nha (so_tang, ten_toanha)
@@ -117,15 +117,15 @@ VALUES ('Loa');
 -- INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, ma_may)
 -- VALUES ('2023-10-28', 'Loa Logitech Z623', 2.0, 4, 4);
 INSERT INTO thiet_bi_may ( `ngay_cai_dat`, `ten_thiet_bi`, `tuoi_tho`, `ma_loai`, `status`) 
-VALUES ( '2022-10-28 00:00:00', 'Loa Logitech Z600', '26', '4', TRUE);
+VALUES ( '2022-10-28 00:00:00', 'Logitech Z600', '26', '4', FALSE);
 INSERT INTO thiet_bi_may (ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
-VALUES ( '2021-10-28', 'Bàn phím Logitech K780', 28, 1, TRUE);
+VALUES ( '2021-10-28', 'Logitech K780', 28, 1, TRUE);
 INSERT INTO thiet_bi_may ( ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
-VALUES ( '2022-10-28','Màn hình Dell Ultrasharp U2719D', 36, 2, TRUE);
+VALUES ( '2022-10-28','Dell Ultrasharp U2719D', 36, 2, TRUE);
 INSERT INTO thiet_bi_may ( ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
-VALUES ( '2021-10-28', 'Chuột Microsoft Ergonomic Mouse', 24, 3, TRUE);
+VALUES ( '2021-10-28', 'Microsoft Ergonomic Mouse', 20, 3, TRUE);
 INSERT INTO thiet_bi_may ( ngay_cai_dat, ten_thiet_bi, tuoi_tho, ma_loai, `status`)
-VALUES ( '2020-10-28', 'Loa Logitech Z623', 25, 4, TRUE);
+VALUES ( '2021-12-10', 'Logitech Z623', 24, 4, TRUE);
 
 -- Thêm 4 môn học
 INSERT INTO mon_hoc (ngay_bat_dau, ngay_ket_thuc, ten_mon)

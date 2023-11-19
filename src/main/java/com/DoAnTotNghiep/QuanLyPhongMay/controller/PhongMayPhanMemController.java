@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhanMem;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository2;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.PhongMayPhanMemService;
@@ -37,7 +39,16 @@ public class PhongMayPhanMemController {
 
     @DeleteMapping("/XoaPhongMayPhanMem/{maPhong}/{maPhanMem}")
     public String xoa(@PathVariable Long maPhong,@PathVariable Long maPhanMem){
-    	phongMayPhanMemService.xoa(maPhong,maPhanMem);
+    	
+    	PhongMayPhanMem mayPhanMem = new PhongMayPhanMem();
+    	PhongMay phongMay = new PhongMay();
+    	phongMay.setMaPhong(maPhong);
+    	PhanMem phanMem = new PhanMem();
+    	phanMem.setMaPhanMem(maPhanMem);
+    	
+    	mayPhanMem.setPhanMem(phanMem);
+    	mayPhanMem.setPhongMay(phongMay);
+    	mayPhanMemRepository2.delete(mayPhanMem);
         return "Đã xoá quyền " + maPhong + "Đã xoá quyền" +maPhanMem;
     }
     @GetMapping("/DanhSachPhongMayPhanMem")

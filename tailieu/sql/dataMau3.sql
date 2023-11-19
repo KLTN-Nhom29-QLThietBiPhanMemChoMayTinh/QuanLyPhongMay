@@ -36,171 +36,122 @@ UNLOCK TABLES;
 -- Dumping data for table `chuc_vu`
 --
 
-LOCK TABLES `chuc_vu` WRITE;
-/*!40000 ALTER TABLE `chuc_vu` DISABLE KEYS */;
 INSERT INTO `chuc_vu` VALUES (1,'Nhân viên quản lý'),(2,'Nhân viên hỗ trợ');
-/*!40000 ALTER TABLE `chuc_vu` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `giao_vien`
 --
 
-LOCK TABLES `giao_vien` WRITE;
-/*!40000 ALTER TABLE `giao_vien` DISABLE KEYS */;
 INSERT INTO `giao_vien` VALUES ('GV001','email1@example.com','giaoVien1','Giáo sư','123456789',1);
-/*!40000 ALTER TABLE `giao_vien` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `khoa`
 --
 
-LOCK TABLES `khoa` WRITE;
-/*!40000 ALTER TABLE `khoa` DISABLE KEYS */;
+
 INSERT INTO `khoa` VALUES (1,'Công nghệ thông tin'),(2,'Tài chính kế toán'),(3,'Công nghệ thông tin'),(4,'Tài chính kế toán');
-/*!40000 ALTER TABLE `khoa` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `lich_truc`
 --
 
-LOCK TABLES `lich_truc` WRITE;
-/*!40000 ALTER TABLE `lich_truc` DISABLE KEYS */;
 INSERT INTO `lich_truc` VALUES (1,'2023-10-31 00:00:00.000000','6','14','NV003',3),(2,'2023-10-31 00:00:00.000000','14','22','NV004',3),(3,'2023-10-31 00:00:00.000000','6','14','NV005',3),(4,NULL,'14','22','NV004',NULL),(5,NULL,'14','22','NV005',NULL),(6,NULL,'14','22','NV005',NULL),(7,NULL,'14','22','NV005',NULL),(8,NULL,'14','22','NV001',NULL);
-/*!40000 ALTER TABLE `lich_truc` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `loai_thiet_bi`
 --
 
-LOCK TABLES `loai_thiet_bi` WRITE;
-/*!40000 ALTER TABLE `loai_thiet_bi` DISABLE KEYS */;
 INSERT INTO `loai_thiet_bi` VALUES (1,'Bàn phím'),(2,'Màn hình'),(3,'Chuột'),(4,'Loa');
-/*!40000 ALTER TABLE `loai_thiet_bi` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `may_tinh`
 --
 
-LOCK TABLES `may_tinh` WRITE;
-/*!40000 ALTER TABLE `may_tinh` DISABLE KEYS */;
 INSERT INTO `may_tinh` VALUES (1,'Máy H3M001','2023-10-25 00:00:00.000000','Đang hoạt động',1),(2,'Máy H3M002','2023-10-26 00:00:00.000000','Đang hoạt động',1),(3,'Máy H3M044','2023-10-27 00:00:00.000000','Đã hỏng',2),(4,'Máy H3M024','2023-10-28 00:00:00.000000','Đã hỏng',2);
-/*!40000 ALTER TABLE `may_tinh` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `mon_hoc`
 --
 
-LOCK TABLES `mon_hoc` WRITE;
-/*!40000 ALTER TABLE `mon_hoc` DISABLE KEYS */;
 INSERT INTO `mon_hoc` VALUES (1,'2023-10-01 00:00:00.000000','2023-11-30 00:00:00.000000','Lập trình C++'),(2,'2023-10-15 00:00:00.000000','2023-12-15 00:00:00.000000','Lập trình Python'),(3,'2023-11-01 00:00:00.000000','2024-01-31 00:00:00.000000','Lập trình Java'),(4,'2023-11-15 00:00:00.000000','2024-02-28 00:00:00.000000','Lập trình Web');
-/*!40000 ALTER TABLE `mon_hoc` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `monhoc_phanmem`
 --
 
-LOCK TABLES `monhoc_phanmem` WRITE;
-/*!40000 ALTER TABLE `monhoc_phanmem` DISABLE KEYS */;
 INSERT INTO `monhoc_phanmem` VALUES (1,1),(2,2),(3,3),(4,4);
-/*!40000 ALTER TABLE `monhoc_phanmem` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `nhan_vien`
 --
 
-LOCK TABLES `nhan_vien` WRITE;
-/*!40000 ALTER TABLE `nhan_vien` DISABLE KEYS */;
+
 INSERT INTO `nhan_vien` VALUES ('NV001','email1@example.com','123456789','Nguyễn văn A',1),('NV002','email1@example.com','123456789','NhanVien2',2),('NV003','email3@example.com','0951753002','Nhân văn Viên 3',2),('NV004','email4@example.com','0951753004','Nhân văn Viên 4',2),('NV005','email5@example.com','0951753005','Nhân văn Viên 5',2);
-/*!40000 ALTER TABLE `nhan_vien` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `phan_mem`
 --
 
-LOCK TABLES `phan_mem` WRITE;
-/*!40000 ALTER TABLE `phan_mem` DISABLE KEYS */;
 INSERT INTO `phan_mem` VALUES (1,'Môi trường phát triển tích hợp (IDE) phổ biến cho các ứng dụng Windows','2019','Visual Studio','Đang hoạt động'),(2,'Môi trường phát triển tích hợp (IDE) được sử dụng chủ yếu cho phát triển Java','2021-09','Eclipse','Đang hoạt động'),(3,'Môi trường phát triển tích hợp (IDE) cho nhiều ngôn ngữ lập trình','2021.3','IntelliJ IDEA','Đang hoạt động'),(4,'Một mã nguồn mở, nhẹ và mạnh mẽ cho phát triển ứng dụng web','1.61','Visual Studio Code','Đang hoạt động'),(5,'Môi trường phát triển tích hợp (IDE) phổ biến cho các ứng dụng Windows','2019','Visual Studio','Đang hoạt động'),(6,'Môi trường phát triển tích hợp (IDE) được sử dụng chủ yếu cho phát triển Java','2021-09','Eclipse','Đang hoạt động'),(7,'Môi trường phát triển tích hợp (IDE) cho nhiều ngôn ngữ lập trình','2021.3','IntelliJ IDEA','Đang hoạt động'),(8,'Một mã nguồn mở, nhẹ và mạnh mẽ cho phát triển ứng dụng web','1.61','Visual Studio Code','Đang hoạt động');
-/*!40000 ALTER TABLE `phan_mem` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `phong_may`
 --
 
-LOCK TABLES `phong_may` WRITE;
-/*!40000 ALTER TABLE `phong_may` DISABLE KEYS */;
 INSERT INTO `phong_may` VALUES (1,'Phòng máy 1',30,'Lab 101','Trống',1),(2,'Phòng máy 2',25,'Lab 102','Trống',1),(3,'Phòng máy 3',20,'Lab 201','Trống',2),(4,'Phòng máy 4',15,'Lab 202','Trống',5),(5,'Phòng máy 1',30,'Lab 301','Trống',3),(6,'Phòng máy 2',25,'Lab 302','Trống',4),(7,'Phòng máy 3',20,'Lab 201','Trống',3),(8,'Phòng máy 4',15,'Lab 202','Trống',5);
-/*!40000 ALTER TABLE `phong_may` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `phongmay_phanmem`
 --
 
-LOCK TABLES `phongmay_phanmem` WRITE;
-/*!40000 ALTER TABLE `phongmay_phanmem` DISABLE KEYS */;
 INSERT INTO `phongmay_phanmem` VALUES (1,1,'2023-10-25 00:00:00.000000'),(1,3,'2023-10-25 00:00:00.000000'),(2,1,'2023-10-26 00:00:00.000000'),(2,2,'2023-10-26 00:00:00.000000'),(2,3,'2023-10-25 00:00:00.000000'),(2,4,'2023-10-27 00:00:00.000000'),(3,2,'2023-10-28 00:00:00.000000'),(3,3,'2023-10-27 00:00:00.000000'),(3,4,'2023-10-27 00:00:00.000000'),(4,1,'2023-10-26 00:00:00.000000'),(4,2,'2023-10-28 00:00:00.000000'),(4,4,'2023-10-28 00:00:00.000000');
-/*!40000 ALTER TABLE `phongmay_phanmem` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `quyen`
 --
 
-LOCK TABLES `quyen` WRITE;
-/*!40000 ALTER TABLE `quyen` DISABLE KEYS */;
 INSERT INTO `quyen` VALUES (1,'Người quản lý'),(2,'Giáo viên'),(3,'Nhân viên');
-/*!40000 ALTER TABLE `quyen` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `tai_khoan`
 --
 
-LOCK TABLES `tai_khoan` WRITE;
-/*!40000 ALTER TABLE `tai_khoan` DISABLE KEYS */;
 INSERT INTO `tai_khoan` VALUES ('GV001','123456A','giaovien1',2),('NV001','123456A','nhanvien1',1),('NV002','123456A','nhanvien2',3),('NV003','123456A','nhanvien3',3),('NV004','123456A','nhanvien4',3),('NV005','123456A','nhanvien5',3);
-/*!40000 ALTER TABLE `tai_khoan` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `tang`
 --
 
-LOCK TABLES `tang` WRITE;
-/*!40000 ALTER TABLE `tang` DISABLE KEYS */;
 INSERT INTO `tang` VALUES (1,'Tầng 1',1),(2,'Tầng 2',1),(3,'Tầng 1',2),(4,'Tầng 2',2),(5,'Tầng 1',3),(6,'Tầng 2',3),(7,'Tầng 1',4),(8,'Tầng 2',4);
-/*!40000 ALTER TABLE `tang` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `thiet_bi_may`
 --
 
-LOCK TABLES `thiet_bi_may` WRITE;
-/*!40000 ALTER TABLE `thiet_bi_may` DISABLE KEYS */;
 INSERT INTO `thiet_bi_may` VALUES (1,'2023-10-25 00:00:00','Bàn phím Logitech K780',2.5,1,1),(2,'2023-10-26 00:00:00','Màn hình Dell Ultrasharp U2719D',3,2,2),(3,'2023-10-27 00:00:00','Chuột Microsoft Ergonomic Mouse',1.5,3,3),(4,'2023-10-28 00:00:00','Loa Logitech Z623',2,4,4);
-/*!40000 ALTER TABLE `thiet_bi_may` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Dumping data for table `toa_nha`
 --
 
-LOCK TABLES `toa_nha` WRITE;
-/*!40000 ALTER TABLE `toa_nha` DISABLE KEYS */;
 INSERT INTO `toa_nha` VALUES (1,'Toà nhà A'),(2,'Toà nhà B'),(3,'Toà nhà C'),(4,'Toà nhà D'),(5,'Toà nhà E'),(6,'Toà nhà F'),(7,'Toà nhà F1'),(8,'Toà nhà F2');
-/*!40000 ALTER TABLE `toa_nha` ENABLE KEYS */;
-UNLOCK TABLES;
+
+
+
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
