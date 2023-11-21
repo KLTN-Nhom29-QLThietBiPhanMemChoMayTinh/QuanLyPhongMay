@@ -55,7 +55,6 @@ public class MayTinhController {
 		List<MayTinhModel> lst = new ArrayList<>();
 
 		for (MayTinh mayTinh : mayTinhs) {
-			System.out.println(mayTinh);
 			
 			MayTinhModel model = new MayTinhModel();
 			model.setMaMay(mayTinh.getMaMay());
@@ -72,7 +71,6 @@ public class MayTinhController {
 			//
 			List<MayTinhThietBi> lstMayTinhThietBi = mayTinhThietBiService.layDSMTTB(model.getMaMay());
 			for (MayTinhThietBi mayTinhThietBi : lstMayTinhThietBi) {
-				System.out.println(mayTinhThietBi);
 				ThietBiMay thietBiMay = mayTinhThietBi.getThietBi();
 				boolean trangThai = mayTinhThietBi.isStatus();
 
@@ -91,7 +89,6 @@ public class MayTinhController {
 
 			model.setThietBiMays(thietBiMays);
 			
-			System.out.println(model);
 			//
 			lst.add(model);
 		}
