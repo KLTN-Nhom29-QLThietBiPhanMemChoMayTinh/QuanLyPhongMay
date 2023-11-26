@@ -14,4 +14,5 @@ public interface MayTinhThietBiService {
 	public List<MayTinhThietBi> layDanhSachMayTinhThietBi();
 	public List<MayTinhThietBi> layDSMTTBTheoMaThietBi(Long maThietBi);
 	public List<MayTinhThietBi> layDSMTTB(Long maMay);
+	public MayTinhThietBi updateMayTinhThietBi(MayTinhThietBi mayTinhThietBi);
 }

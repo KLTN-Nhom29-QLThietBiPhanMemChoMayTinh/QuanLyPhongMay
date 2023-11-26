@@ -6,15 +6,15 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.LichTruc;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 
 public interface LichTrucService {
-	public LichTruc layLTTheoMa(Long maLich);
+	 	public LichTruc layLTTheoMa(Long maLich);
 
-	public List<LichTruc> layDSLT();
+		public List<LichTruc> layDSLT();
 
-	public void xoa(Long maLich);
+		public void xoa(Long maLich);
 
-	public LichTruc luu(LichTruc lichTruc);
-
-	public List<Tang> layTangChuaCoNhanVienTrucTrongThang();
-
-	public List<LichTruc> layLichTrucTheoMaTang(Long maTang);
+		public LichTruc luu(LichTruc lichTruc);
+		
+		public   List<Tang> layTangChuaCoNhanVienTrucTrongThang();
+		public LichTruc updateLichTruc(LichTruc lichTruc);
+		public List<LichTruc> layLichTrucTheoMaTang(Long maTang); 
 }

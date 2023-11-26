@@ -11,18 +11,18 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.LichTrucRepository;
 
 @Service
-public class LichTrucServiceImpl implements LichTrucService {
+public class LichTrucServiceImpl implements LichTrucService{
 
-	@Autowired
-	private LichTrucRepository lichTrucRepository;
+    @Autowired
+    private LichTrucRepository lichTrucRepository;
 
 	@Override
 	public LichTruc layLTTheoMa(Long maLich) {
 		LichTruc lichTruc = null;
-		Optional<LichTruc> kq = lichTrucRepository.findById(maLich);
-		try {
-			lichTruc = kq.get();
-			return lichTruc;
+    	Optional<LichTruc> kq = lichTrucRepository.findById(maLich);
+    	try {
+    		lichTruc = kq.get();
+    		return lichTruc;
 		} catch (Exception e) {
 			return lichTruc;
 		}
@@ -45,11 +45,28 @@ public class LichTrucServiceImpl implements LichTrucService {
 
 	@Override
 	public List<LichTruc> layLichTrucTheoMaTang(Long maTang) {
-		return lichTrucRepository.findByTang_MaTang(maTang);
+		 return lichTrucRepository.findByTang_MaTang(maTang);
 	}
+	 @Override
+	 public List<Tang> layTangChuaCoNhanVienTrucTrongThang() {
+	     return lichTrucRepository.findTangChuaCoNhanVienTrucTrongThang();
+	 }
+	 
+	 @Override
+	    public LichTruc updateLichTruc(LichTruc lichTruc) {
+	        Optional<LichTruc> existingLichTruc = lichTrucRepository.findById(lichTruc.getMaLich());
+	        if (existingLichTruc.isPresent()) {
 
-	@Override
-	public List<Tang> layTangChuaCoNhanVienTrucTrongThang() {
-		return lichTrucRepository.findTangChuaCoNhanVienTrucTrongThang();
-	}
+	            LichTruc updatedLichTruc = existingLichTruc.get();
+	            updatedLichTruc.setNgayTruc(lichTruc.getNgayTruc());
+	            updatedLichTruc.setThoiGianBatDau(lichTruc.getThoiGianBatDau());
+	            updatedLichTruc.setThoiGianKetThuc(lichTruc.getThoiGianKetThuc());
+	            updatedLichTruc.setTang(lichTruc.getTang());
+	            updatedLichTruc.setNhanVien(lichTruc.getNhanVien());
+	           
+	            return lichTrucRepository.save(updatedLichTruc);
+	        } else {
+	            return null;
+	        }
+	    }
 }

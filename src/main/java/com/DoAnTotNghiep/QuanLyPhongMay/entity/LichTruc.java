@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "lich_truc")
@@ -23,6 +25,7 @@ public class LichTruc {
     private Long maLich;
 
     @Column(name = "ngay_truc")
+    @Temporal(TemporalType.DATE)
     private Date ngayTruc;
 
     @Column(name = "thoi_gian_bat_dau")

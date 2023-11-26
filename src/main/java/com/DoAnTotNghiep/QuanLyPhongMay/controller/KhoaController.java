@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DoAnTotNghiep.QuanLyPhongMay.entity.ChucVu;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.Khoa;
-import com.DoAnTotNghiep.QuanLyPhongMay.service.ChucVuService;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.KhoaService;
 
 @RestController

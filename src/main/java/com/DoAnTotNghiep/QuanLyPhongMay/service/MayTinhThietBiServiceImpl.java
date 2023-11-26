@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.Optional;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinhThietBi;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.MayTinhThietBiRepository;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.MayTinhThietBiRepository2;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository;
 
 @Service
@@ -15,6 +16,8 @@ public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
 
 	@Autowired
 	private MayTinhThietBiRepository mayTinhThietBiRepository;
+	@Autowired
+    private MayTinhThietBiRepository2 mayTinhThietBiRepository2;
 	
 	@Override
 	public List<MayTinhThietBi> layDSMTTBTheoMa(Long maMay) {
@@ -42,5 +45,8 @@ public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
 	public List<MayTinhThietBi> layDSMTTBTheoMaThietBi(Long maThietBi) {
 		return mayTinhThietBiRepository.layDSMTTBheoMaThietBi(maThietBi);
 	}
-
+	@Override
+    public MayTinhThietBi updateMayTinhThietBi(MayTinhThietBi mayTinhThietBi) {
+		 return mayTinhThietBiRepository2.save(mayTinhThietBi);
+    }
 }

@@ -26,15 +26,6 @@ public class ThietBiMay {
 	@Column(name = "ten_thiet_bi")
 	private String tenThietBi;
 
-	public double getSoTonKho() {
-		return soTonKho;
-	}
-
-
-	public void setSoTonKho(double soTonKho) {
-		this.soTonKho = soTonKho;
-	}
-
 	@Column(name = "tuoi_tho")
 	private double tuoiTho;
 	
@@ -53,6 +44,29 @@ public class ThietBiMay {
 
 	public boolean isStatus() {
 		return status;
+	}
+
+	
+	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, double soTonKho, Date ngayCaiDat,
+			boolean status, LoaiThietBi loaiThietBi) {
+		super();
+		this.maThietBi = maThietBi;
+		this.tenThietBi = tenThietBi;
+		this.tuoiTho = tuoiTho;
+		this.soTonKho = soTonKho;
+		this.ngayCaiDat = ngayCaiDat;
+		this.status = status;
+		this.loaiThietBi = loaiThietBi;
+	}
+
+
+	public double getSoTonKho() {
+		return soTonKho;
+	}
+
+
+	public void setSoTonKho(double soTonKho) {
+		this.soTonKho = soTonKho;
 	}
 
 

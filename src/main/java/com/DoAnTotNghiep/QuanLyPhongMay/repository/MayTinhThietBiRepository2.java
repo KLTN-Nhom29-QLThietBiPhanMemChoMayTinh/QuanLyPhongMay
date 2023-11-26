@@ -7,9 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinhThietBi;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinhThietBiPK;
-import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 
 @Repository
 public interface MayTinhThietBiRepository2 extends JpaRepository<MayTinhThietBi, MayTinhThietBiPK>{
-	
+	public MayTinhThietBi save(MayTinhThietBi mayTinhThietBi);
 }

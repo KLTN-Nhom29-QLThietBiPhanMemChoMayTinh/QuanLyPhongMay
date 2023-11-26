@@ -8,8 +8,8 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 
 public interface TangRepository extends JpaRepository<Tang, Long>{
 
-	List<Tang> findByToaNha_MaToaNha(Long maToaNha);
+	public List<Tang> findByToaNha_MaToaNha(Long maToaNha);
 
-	Long countByToaNha_MaToaNha(Long maToaNha);
+	public	Long countByToaNha_MaToaNha(Long maToaNha);
 
 }

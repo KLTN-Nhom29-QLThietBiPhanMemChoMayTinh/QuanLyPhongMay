@@ -56,5 +56,10 @@ public class GiaoVienServiceImpl implements GiaoVienService{
 		}
 		return giaoVienRepository.save(giaoVien);
 	}
-
+		
+	@Override
+    public GiaoVien capNhat(GiaoVien giaoVien) {
+        // Assuming the ID is present
+        return giaoVienRepository.save(giaoVien);
+    }
 }

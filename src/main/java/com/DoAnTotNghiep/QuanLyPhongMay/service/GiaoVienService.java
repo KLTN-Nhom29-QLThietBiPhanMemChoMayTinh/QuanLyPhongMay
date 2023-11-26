@@ -11,6 +11,8 @@ public interface GiaoVienService {
 	public List<GiaoVien> layDSGV();
 
 	public void xoa(String maGiaoVien);
-
+	
+	public GiaoVien capNhat(GiaoVien giaoVien);
+	
 	public GiaoVien luu(GiaoVien giaoVien);
 }

@@ -1,16 +1,16 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.CaThucHanh;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.CaThucHanhRepository;
-
 @Service
 public class CaThucHanhServiceImpl implements CaThucHanhService{
-
 	@Autowired
 	private CaThucHanhRepository caThucHanhRepository;
 	
@@ -25,7 +25,10 @@ public class CaThucHanhServiceImpl implements CaThucHanhService{
 			return caThucHanh;
 		}
 	}
-
+	 @Override
+	 public List<CaThucHanh> layDSCaThucHanhTheoNgay(Date ngayThucHanh) {
+	        return caThucHanhRepository.findByNgayThucHanh(ngayThucHanh);
+	}
 	@Override
 	public List<CaThucHanh> layDSCaThucHanh() {
 		return caThucHanhRepository.findAll();
@@ -36,7 +39,14 @@ public class CaThucHanhServiceImpl implements CaThucHanhService{
 		caThucHanhRepository.deleteById(maCaThucHanh);
 		
 	}
-
+	@Override
+    public List<CaThucHanh> layDSCaThucHanhTheoMonHoc(Long maMon) {
+        return caThucHanhRepository.findByMonHoc_MaMon(maMon);
+    }
+	 @Override
+	    public CaThucHanh capNhat(CaThucHanh caThucHanh) {
+	        return caThucHanhRepository.save(caThucHanh);
+	    }
 	@Override
 	public CaThucHanh luu(CaThucHanh caThucHanh) {
 		return caThucHanhRepository.save(caThucHanh);

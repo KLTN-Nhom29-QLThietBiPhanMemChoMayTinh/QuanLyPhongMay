@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ca_thuc_hanh")
@@ -23,6 +25,7 @@ public class CaThucHanh {
     private Long maCa;
 
     @Column(name = "ngay_thuc_hanh")
+    @Temporal(TemporalType.DATE)
     private Date ngayThucHanh;
 
     @Column(name = "ten_ca")
@@ -109,7 +112,6 @@ public class CaThucHanh {
 	}
 	public CaThucHanh() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
