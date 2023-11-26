@@ -5,8 +5,10 @@ import java.util.List;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 
 public interface PhongMayPhanMemService {
-	public List<PhongMayPhanMem> layDSMHPMTheoMa(Long maPhong);
-
+	public List<PhongMayPhanMem> layDSPMPMTheoMa(Long maPhong);
+	
+	public List<PhongMayPhanMem> layDSPMPMTheoMaPhanMem(Long maPhanMem);
+	
 	public void xoa(Long maPhong, Long maPhanMem);
 
 	public PhongMayPhanMem luu(PhongMayPhanMem phongMayPhanMem);

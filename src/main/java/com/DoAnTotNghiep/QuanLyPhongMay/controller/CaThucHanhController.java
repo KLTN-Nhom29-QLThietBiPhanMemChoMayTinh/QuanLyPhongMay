@@ -12,14 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.CaThucHanh;
-import com.DoAnTotNghiep.QuanLyPhongMay.entity.ChucVu;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.CaThucHanhService;
-import com.DoAnTotNghiep.QuanLyPhongMay.service.ChucVuService;
 
 @RestController
 @CrossOrigin
 public class CaThucHanhController {
-    
     @Autowired
     private CaThucHanhService caThucHanhService;
 

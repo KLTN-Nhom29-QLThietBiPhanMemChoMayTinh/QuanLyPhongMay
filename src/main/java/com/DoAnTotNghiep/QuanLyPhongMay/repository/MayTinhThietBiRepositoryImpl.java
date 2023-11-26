@@ -52,4 +52,10 @@ public class MayTinhThietBiRepositoryImpl implements MayTinhThietBiRepository{
 	    return query.getResultList();
 	}
 
+	@Override
+	public List<MayTinhThietBi> layDSMTTBheoMaThietBi(Long maThietBi) {
+		Query query = entityManager.createNativeQuery("SELECT * FROM maytinh_thietbi WHERE ma_thiet_bi = " + maThietBi, MayTinhThietBi.class);
+		return query.getResultList();
+	}
+
 }

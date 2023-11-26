@@ -1,5 +1,6 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class TaiKhoan {
 	@Column(name = "mat_khau")
 	private String matKhau;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "ma_quyen")
 	private Quyen quyen;
 

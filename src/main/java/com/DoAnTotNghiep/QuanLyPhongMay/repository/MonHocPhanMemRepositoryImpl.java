@@ -41,7 +41,7 @@ public class MonHocPhanMemRepositoryImpl  implements MonHocPhanMemRepository{
 
 	@Override
 	public List<MonHocPhanMem> layDSMHPM(Long maMon) {
-		Query query = entityManager.createNativeQuery("SELECT * FROM MonHocPhanMem  WHERE ma_mon = " + maMon, MonHocPhanMem.class);
+		Query query = entityManager.createNativeQuery("SELECT * FROM monhoc_phanmem  WHERE ma_mon = " + maMon, MonHocPhanMem.class);
 		return query.getResultList();
 	}
 

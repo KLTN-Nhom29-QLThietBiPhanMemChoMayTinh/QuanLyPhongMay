@@ -3,14 +3,18 @@ package com.DoAnTotNghiep.QuanLyPhongMay.service;
 import java.util.List;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.LichTruc;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 
 public interface LichTrucService {
-	 	public LichTruc layLTTheoMa(Long maLich);
+	public LichTruc layLTTheoMa(Long maLich);
 
-		public List<LichTruc> layDSLT();
+	public List<LichTruc> layDSLT();
 
-		public void xoa(Long maLich);
+	public void xoa(Long maLich);
 
-		public LichTruc luu(LichTruc lichTruc);
+	public LichTruc luu(LichTruc lichTruc);
 
+	public List<Tang> layTangChuaCoNhanVienTrucTrongThang();
+
+	public List<LichTruc> layLichTrucTheoMaTang(Long maTang);
 }

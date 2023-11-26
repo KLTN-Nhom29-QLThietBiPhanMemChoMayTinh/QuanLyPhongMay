@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.LichTruc;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.TangRepository;
 
@@ -15,6 +16,8 @@ public class TangServiceImpl implements TangService{
 
 	@Autowired
 	private TangRepository tangRepository;
+	@Autowired
+    private LichTrucService lichTrucService;
 	
 	@Override
 	public Tang layTangTheoMa(Long maTang) {
@@ -33,10 +36,14 @@ public class TangServiceImpl implements TangService{
 		return tangRepository.findAll();
 	}
 
-	@Override
-	public void xoa(Long maTang) {
-		tangRepository.deleteById(maTang);
-	}
+	 @Override
+	    public void xoa(Long maTang) {
+	        List<LichTruc> dsLichTruc = lichTrucService.layLichTrucTheoMaTang(maTang);
+	        for (LichTruc lichTruc : dsLichTruc) {
+	            lichTrucService.xoa(lichTruc.getMaLich());
+	        }
+	        tangRepository.deleteById(maTang);
+	    }
 
 	@Override
 	public Tang luu(Tang tang) {

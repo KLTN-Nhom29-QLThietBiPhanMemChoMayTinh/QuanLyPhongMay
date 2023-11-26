@@ -38,5 +38,9 @@ public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
 	public List<MayTinhThietBi> layDanhSachMayTinhThietBi() {
 		return mayTinhThietBiRepository.layDanhSachMayTinhThietBi();
 	}
+	@Override
+	public List<MayTinhThietBi> layDSMTTBTheoMaThietBi(Long maThietBi) {
+		return mayTinhThietBiRepository.layDSMTTBheoMaThietBi(maThietBi);
+	}
 
 }

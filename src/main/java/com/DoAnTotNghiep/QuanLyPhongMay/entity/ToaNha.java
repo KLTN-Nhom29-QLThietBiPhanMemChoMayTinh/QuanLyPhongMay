@@ -17,6 +17,8 @@ public class ToaNha {
 	
 	@Column(name = "ten_toanha", columnDefinition = "nvarchar(50)", nullable = false)
 	private String tenToaNha;
+	
+	
 
 	public Long getMaToaNha() {
 		return maToaNha;
@@ -49,9 +51,8 @@ public class ToaNha {
 
 	@Override
 	public String toString() {
-		return "ToaNha [maToaNha=" + maToaNha + ", tenToaNha=" + tenToaNha  +	 "]";
+	    return String.format("ToaNha [maToaNha=%d, tenToaNha=%s]", maToaNha, tenToaNha);
 	}
-
 
 }
 

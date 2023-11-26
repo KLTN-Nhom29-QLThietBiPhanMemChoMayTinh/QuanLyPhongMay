@@ -51,4 +51,10 @@ public class PhongMayPhanMemRepositoryImpl implements PhongMayPhanMemRepository{
 	    return query.getResultList();
 	}
 
+	@Override
+	public List<PhongMayPhanMem> layDSPMPMTheoMaPhanMem(Long maPhanMem) {
+		Query query = entityManager.createNativeQuery("SELECT * FROM phongmay_phanmem WHERE ma_phanmem = " + maPhanMem, PhongMayPhanMem.class);
+		return query.getResultList();
+	}
+
 }

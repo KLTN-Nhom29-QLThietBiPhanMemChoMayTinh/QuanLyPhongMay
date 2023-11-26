@@ -1,5 +1,6 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -13,11 +14,13 @@ import javax.persistence.Table;
 public class MonHocPhanMem {
 
 	  @Id
-	  @ManyToOne
+	  @ManyToOne(cascade = CascadeType.ALL)
+
 	  @JoinColumn(name = "ma_phanmem")
 	  private PhanMem phanMem;
 	  @Id
-	  @ManyToOne
+	  @ManyToOne(cascade = CascadeType.ALL)
+
 	  @JoinColumn(name = "ma_mon")
 	  private MonHoc monHoc;
 	public PhanMem getPhanMem() {

@@ -3,6 +3,7 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class MayTinh {
     @Column(name = "ngay_lap_dat")
     private Date ngayLapDat;    
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference
     @JoinColumn(name = "ma_phong")
     private PhongMay phongMay;
@@ -96,10 +97,7 @@ public class MayTinh {
 
 	@Override
 	public String toString() {
-		return "MayTinh [maMay=" + maMay + ", trangThai=" + trangThai + ", moTa=" + moTa + ", ngayLapDat=" + ngayLapDat
-				+ ", phongMay="  +  "]";
+	    return String.format("MayTinh [maMay=%d, trangThai=%s, moTa=%s, ngayLapDat=%s, phongMay=%s]",
+	        maMay, trangThai, moTa, ngayLapDat, phongMay != null ? phongMay.getTenPhong() : "null");
 	}
-
-	
-   
 }

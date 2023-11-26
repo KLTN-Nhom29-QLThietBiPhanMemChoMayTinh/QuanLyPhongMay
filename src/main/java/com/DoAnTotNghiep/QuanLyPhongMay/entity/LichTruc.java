@@ -2,8 +2,10 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,14 +31,21 @@ public class LichTruc {
     @Column(name = "thoi_gian_ket_thuc")
     private String thoiGianKetThuc;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "ma_nv") 
     private NhanVien nhanVien;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "ma_tang") 
     private Tang tang;
 
+	public Tang getTang() {
+		return tang;
+	}
+
+	public void setTang(Tang tang) {
+		this.tang = tang;
+	}
 
 	public Long getMaLich() {
 		return maLich;
@@ -78,13 +87,15 @@ public class LichTruc {
 		this.nhanVien = nhanVien;
 	}
 
-	public LichTruc(Long maLich, Date ngayTruc, String thoiGianBatDau, String thoiGianKetThuc, NhanVien nhanVien) {
+	public LichTruc(Long maLich, Date ngayTruc, String thoiGianBatDau, String thoiGianKetThuc, NhanVien nhanVien,
+			Tang tang) {
 		super();
 		this.maLich = maLich;
 		this.ngayTruc = ngayTruc;
 		this.thoiGianBatDau = thoiGianBatDau;
 		this.thoiGianKetThuc = thoiGianKetThuc;
 		this.nhanVien = nhanVien;
+		this.tang = tang;
 	}
 
 	public LichTruc() {
@@ -92,11 +103,14 @@ public class LichTruc {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "LichTruc [maLich=" + maLich + ", ngayTruc=" + ngayTruc + ", thoiGianBatDau=" + thoiGianBatDau
-				+ ", thoiGianKetThuc=" + thoiGianKetThuc + ", nhanVien=" + nhanVien + "]";
-	} 
+	 @Override
+	    public String toString() {
+	        return String.format("LichTruc [maLich=%d, ngayTruc=%s, thoiGianBatDau=%s, thoiGianKetThuc=%s, nhanVien=%s, tang=%s]",
+	                maLich, ngayTruc, thoiGianBatDau, thoiGianKetThuc,
+	                nhanVien != null ? nhanVien.getTenNV() : "null",
+	                tang != null ? tang.getTenTang() : "null");
+	    }
+
 
 	
 }

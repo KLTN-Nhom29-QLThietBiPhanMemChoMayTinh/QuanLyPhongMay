@@ -16,5 +16,6 @@ public interface PhongMayPhanMemRepository {
 	
 	public List<PhongMayPhanMem> layDanhSachPhongMayPhanMem();
 
+	public List<PhongMayPhanMem> layDSPMPMTheoMaPhanMem(Long maPhanMem);
 	public List<PhongMayPhanMem> layDSPMPM(Long maPhong);
 }

@@ -48,9 +48,7 @@ public class Khoa {
 
 	@Override
 	public String toString() {
-		return "Khoa [maKhoa=" + maKhoa + ", tenKhoa=" + tenKhoa + "]";
+	    return String.format("Khoa [maKhoa=%d, tenKhoa=%s]", maKhoa, tenKhoa);
 	}
-	
-	
-    
+
 }

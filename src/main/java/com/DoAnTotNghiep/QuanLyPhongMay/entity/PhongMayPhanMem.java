@@ -2,6 +2,7 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,18 +16,20 @@ import javax.persistence.Table;
 @Table(name = "phongmay_phanmem")
 public class PhongMayPhanMem {
 
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "ma_phong")
-	private PhongMay phongMay;
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "ma_phanmem")
-	private PhanMem phanMem;
-	@JoinColumn(name = "status", columnDefinition = "boolean default true")
-	private boolean status;
+	 @Id
+	    @ManyToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name = "ma_phong")
+	    private PhongMay phongMay;
 
-	//
+	    @Id
+	    @ManyToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name = "ma_phanmem")
+	    private PhanMem phanMem;
+
+	    @JoinColumn(name = "status", columnDefinition = "boolean default true")
+	    private boolean status;
+	    
+	    
 	public PhongMay getPhongMay() {
 		return phongMay;
 	}

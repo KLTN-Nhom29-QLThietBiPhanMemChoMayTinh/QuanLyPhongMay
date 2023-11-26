@@ -2,8 +2,10 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,16 +34,19 @@ public class CaThucHanh {
     @Column(name = "tiet_ket_thuc")
     private int tietKetThuc;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "ma_giao_vien") 
     private GiaoVien giaoVien;
-    
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "ma_phong_may")
     private PhongMay phongMay;
-    @ManyToOne
-    @JoinColumn(name = "ma_mon_hoc")
+
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ma_mon", referencedColumnName = "ma_mon")
     private MonHoc monHoc;
+
+    
 	public Long getMaCa() {
 		return maCa;
 	}
@@ -108,11 +113,11 @@ public class CaThucHanh {
 	}
 	@Override
 	public String toString() {
-		return "CaThucHanh [maCa=" + maCa + ", ngayThucHanh=" + ngayThucHanh + ", tenCa=" + tenCa + ", tietBatDau="
-				+ tietBatDau + ", tietKetThuc=" + tietKetThuc + ", giaoVien=" + giaoVien + ", phongMay=" + phongMay
-				+ ", monHoc=" + monHoc + "]";
+	    return String.format("CaThucHanh [maCa=%d, ngayThucHanh=%s, tenCa=%s, tietBatDau=%d, tietKetThuc=%d, giaoVien=%s, phongMay=%s, monHoc=%s]",
+	        maCa, ngayThucHanh, tenCa, tietBatDau, tietKetThuc, giaoVien != null ? giaoVien.getHoTen() : "null",
+	        phongMay != null ? phongMay.getTenPhong() : "null", monHoc != null ? monHoc.getTenMon() : "null");
 	}
-
+	
     
 	
 }

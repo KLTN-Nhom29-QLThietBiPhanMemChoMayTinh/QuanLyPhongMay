@@ -18,7 +18,7 @@ public class PhanMem {
 	private String tenPhanMem;
 	@Column(name = "trang_thai", columnDefinition = "boolean default true")
 	private boolean trangThai;
-	@Column(name = "mo_ta")
+	@Column(name = "mo_ta", columnDefinition = "nvarchar(500)")
 	private String moTa;
 	@Column(name = "phien_ban")
 	private String phienBan;
@@ -96,12 +96,6 @@ public class PhanMem {
 		this.ngayCaiDat = ngayCaiDat;
 	}
 
-	@Override
-	public String toString() {
-		return "PhanMem [maPhanMem=" + maPhanMem + ", tenPhanMem=" + tenPhanMem + ", trangThai=" + trangThai + ", moTa="
-				+ moTa + ", phienBan=" + phienBan + ", tuoiTho=" + tuoiTho + ", ngayCaiDat=" + ngayCaiDat + "]";
-	}
-
 	public PhanMem(Long maPhanMem, String tenPhanMem, boolean trangThai, String moTa, String phienBan,
 			Date ngayCaiDat) {
 		super();
@@ -117,5 +111,9 @@ public class PhanMem {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
+	public String toString() {
+	    return String.format("PhanMem [maPhanMem=%d, tenPhanMem=%s, trangThai=%b, moTa=%s, phienBan=%s, tuoiTho=%f, ngayCaiDat=%s]",
+	        maPhanMem, tenPhanMem, trangThai, moTa, phienBan, tuoiTho, ngayCaiDat);
+	}
 }

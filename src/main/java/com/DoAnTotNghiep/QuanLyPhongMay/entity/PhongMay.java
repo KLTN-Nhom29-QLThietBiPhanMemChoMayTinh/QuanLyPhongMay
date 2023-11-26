@@ -2,6 +2,7 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,11 +27,14 @@ public class PhongMay {
     private String tenPhong;
     @Column(name = "so_may",columnDefinition = "int CHECK (so_may >= 0)", nullable = false)
     private int soMay;
+   
     @Column(name = "mo_ta")
     private String moTa;
+   
     @Column(name = "trang_thai",  columnDefinition = "nvarchar(50) DEFAULT N'Trống' CHECK (trang_thai IN (N'Trống', N'Đang có tiết', N'Không thể dùng'))")
     private String trangThai= "Trống";
-	@ManyToOne
+	
+    @ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ma_tang", nullable = false)
 	private Tang tang;
 
@@ -42,10 +46,10 @@ public class PhongMay {
 		this.mayTinhs = mayTinhs;
 	}
 
-	@OneToMany(mappedBy = "phongMay")
+	@OneToMany(mappedBy = "phongMay", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
 	private List<MayTinh> mayTinhs;
-
+	
 	public Long getMaPhong() {
 		return maPhong;
 	}
@@ -113,9 +117,9 @@ public class PhongMay {
 
 	@Override
 	public String toString() {
-		return "PhongMay [maPhong=" + maPhong + ", tenPhong=" + tenPhong + ", soMay=" + soMay + ", moTa=" + moTa
-				+ ", trangThai=" + trangThai + ", tang=" + tang + ", mayTinhs=" + mayTinhs + "]";
+	    return String.format("PhongMay [maPhong=%d, tenPhong=%s, soMay=%d, moTa=%s, trangThai=%s, tang=%s, mayTinhs=%s]",
+	        maPhong, tenPhong, soMay, moTa, trangThai, tang != null ? tang.getTenTang() : "null",
+	        mayTinhs != null ? mayTinhs.toString() : "null");
 	}
-	
-    
+
 }

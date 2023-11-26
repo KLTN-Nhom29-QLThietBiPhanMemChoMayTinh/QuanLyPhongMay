@@ -32,11 +32,15 @@ public class PhongMayPhanMemController {
         return mayPhanMemRepository2.save(PhongMayPhanMem);
     }
 
-    @GetMapping("/DSPhongMayPhanMem/{maPhong}")
+    @GetMapping("/DSPhongMayPhanMemTheoMaPhong/{maPhong}")
     public List<PhongMayPhanMem> layDSPhongMayPhanMem(@PathVariable Long maPhong){
         return phongMayPhanMemService.layDSPMPM(maPhong);
     }
-
+    @GetMapping("/DSPhongMayPhanMemTheoMaPhanMem/{maPhanMem}")
+    public List<PhongMayPhanMem> layDSPhongMayPhanMemTheoMaPhanMem(@PathVariable Long maPhanMem){
+        return phongMayPhanMemService.layDSPMPMTheoMaPhanMem(maPhanMem);
+    }
+    
     @DeleteMapping("/XoaPhongMayPhanMem/{maPhong}/{maPhanMem}")
     public String xoa(@PathVariable Long maPhong,@PathVariable Long maPhanMem){
     	
@@ -51,6 +55,7 @@ public class PhongMayPhanMemController {
     	mayPhanMemRepository2.delete(mayPhanMem);
         return "Đã xoá quyền " + maPhong + "Đã xoá quyền" +maPhanMem;
     }
+    
     @GetMapping("/DanhSachPhongMayPhanMem")
     public List<PhongMayPhanMem> layDanhSachPhongMayPhanMem() {
         return phongMayPhanMemService.layDanhSachPhongMayPhanMem();

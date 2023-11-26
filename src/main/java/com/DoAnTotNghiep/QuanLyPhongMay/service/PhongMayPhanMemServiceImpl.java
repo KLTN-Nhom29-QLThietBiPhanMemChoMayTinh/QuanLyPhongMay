@@ -15,7 +15,7 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 	private PhongMayPhanMemRepository phongMayPhanMemRepository;
 	
 	@Override
-	public List<PhongMayPhanMem> layDSMHPMTheoMa(Long maPhong) {
+	public List<PhongMayPhanMem> layDSPMPMTheoMa(Long maPhong) {
 		return phongMayPhanMemRepository.layDSPMPMTheoMa(maPhong);
 	}
 	@Override
@@ -35,6 +35,10 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 	@Override
 	public List<PhongMayPhanMem> layDanhSachPhongMayPhanMem() {
 		return phongMayPhanMemRepository.layDanhSachPhongMayPhanMem();
+	}
+	@Override
+	public List<PhongMayPhanMem> layDSPMPMTheoMaPhanMem(Long maPhanMem) {
+		return phongMayPhanMemRepository.layDSPMPMTheoMaPhanMem(maPhanMem);
 	}
 
 }

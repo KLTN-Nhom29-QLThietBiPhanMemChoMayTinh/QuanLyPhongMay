@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.LichTruc;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.ToaNha;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.ToaNhaRepository;
 
@@ -13,6 +15,12 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.ToaNhaRepository;
 public class ToaNhaServiceImpl implements ToaNhaService{
 	@Autowired
 	private ToaNhaRepository toaNhaRepository;
+	@Autowired
+    private TangService tangService;
+
+    @Autowired
+    private LichTrucService lichTrucService;
+
 	@Override
 	public ToaNha layToaNhaTheoMa(Long maToaNha) {
 		ToaNha toaNha = null;
@@ -31,10 +39,17 @@ public class ToaNhaServiceImpl implements ToaNhaService{
 	}
 
 	@Override
-	public void xoa(Long maToaNha) {
-		toaNhaRepository.deleteById(maToaNha);
-		
-	}
+    public void xoa(Long maToaNha) {
+        List<Tang> dsTang = tangService.layTangTheoToaNha(maToaNha);
+        for (Tang tang : dsTang) {
+            List<LichTruc> dsLichTruc = lichTrucService.layLichTrucTheoMaTang(tang.getMaTang());
+            for (LichTruc lichTruc : dsLichTruc) {
+                lichTrucService.xoa(lichTruc.getMaLich());
+            }
+            tangService.xoa(tang.getMaTang());
+        }
+        toaNhaRepository.deleteById(maToaNha);
+    }
 
 	@Override
 	public ToaNha luu(ToaNha toaNha) {

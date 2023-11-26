@@ -3,6 +3,7 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,8 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -35,15 +38,13 @@ public class GiaoVien {
     @Column(name = "hoc_vi")
     private String hocVi;
 	
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name = "ma_gv")
+    @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ma_tai_khoan", referencedColumnName = "ma_tk")
     private TaiKhoan taiKhoan;
-
-    @ManyToOne
-    @JoinColumn(name = "ma_khoa") 
+    
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "maKhoa")
     private Khoa khoa;
-
 
 	public GiaoVien(String maGiaoVien, String hoTen, String soDienThoai, String email, String hocVi, TaiKhoan taiKhoan,
 			Khoa khoa) {
@@ -122,10 +123,8 @@ public class GiaoVien {
 
 	@Override
 	public String toString() {
-		return "GiaoVien [maGiaoVien=" + maGiaoVien + ", hoTen=" + hoTen + ", soDienThoai=" + soDienThoai + ", email="
-				+ email + ", hocVi=" + hocVi + ", taiKhoan=" + taiKhoan + ", khoa=" + khoa + "]";
+	    return String.format("GiaoVien [maGiaoVien=%s, hoTen=%s, soDienThoai=%s, email=%s, hocVi=%s, taiKhoan=%s, khoa=%s]",
+	        maGiaoVien, hoTen, soDienThoai, email, hocVi, taiKhoan != null ? taiKhoan.getMaTK() : "null",
+	        khoa != null ? khoa.getTenKhoa() : "null");
 	}
-	
-	
-	
 }

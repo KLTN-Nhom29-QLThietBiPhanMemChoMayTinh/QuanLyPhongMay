@@ -1,8 +1,10 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,12 +25,9 @@ public class Tang {
 	@Column(name = "ten_tang", columnDefinition = "nvarchar(50)", nullable = false)
 	private String tenTang;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ma_toanha")
 	private ToaNha toaNha;
-
-	@OneToMany(mappedBy = "tang")
-	private List<LichTruc> lichTrucList;
 
 	public Long getMaTang() {
 		return maTang;
@@ -67,9 +66,10 @@ public class Tang {
 	}
 
 	@Override
-	public String toString() {
-		return "Tang [maTang=" + maTang + ", tenTang=" + tenTang + ", toaNha=" + toaNha + "]";
-	}
+    public String toString() {
+        return String.format("Tang [maTang=%d, tenTang=%s, toaNha=%s]",
+                maTang, tenTang, toaNha != null ? toaNha.getTenToaNha() : "null");
+    }
 
 	
 }

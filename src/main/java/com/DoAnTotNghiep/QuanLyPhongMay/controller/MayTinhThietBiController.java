@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinh;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinhThietBi;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
-import com.DoAnTotNghiep.QuanLyPhongMay.entity.ThietBiMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.MayTinhThietBiService;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.PhongMayPhanMemService;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.MayTinhThietBiRepository2;
@@ -35,24 +33,18 @@ public class MayTinhThietBiController {
         return MayTinhThietBiRepository2.save(mayTinhThietBi);
     }
 
-    @GetMapping("/DSMayTinhThietBi/{maMay}")
+    @GetMapping("/DSMayTinhThietBiheoMaMay/{maMay}")
     public List<MayTinhThietBi> layDSMayTinhThietBi(@PathVariable Long maMay){
         return mayTinhThietBiService.layDSMTTB(maMay);
     }
-
+    @GetMapping("/DSMayTinhThietBiTheoMaThietBi/{maThietBi}")
+    public List<MayTinhThietBi> layDSMayTinhThietBiTheoMaThietBi(@PathVariable Long maThietBi){
+        return mayTinhThietBiService.layDSMTTBTheoMaThietBi(maThietBi);
+    }
+    
     @DeleteMapping("/XoaMayTinhThietBi/{maMay}/{maThietBi}")
     public String xoa(@PathVariable Long maMay,@PathVariable Long maThietBi){
-    	MayTinhThietBi mayTinhThietBi = new MayTinhThietBi();
-    	//
-    	MayTinh mayTinh = new MayTinh();
-    	mayTinh.setMaMay(maMay);
-    	ThietBiMay thietBiMay = new ThietBiMay();
-    	thietBiMay.setMaThietBi(maThietBi);
-    	//
-    	mayTinhThietBi.setMayTinh(mayTinh);
-    	mayTinhThietBi.setThietBi(thietBiMay);
-    	
-    	MayTinhThietBiRepository2.delete(mayTinhThietBi);
+    	mayTinhThietBiService.xoa(maMay,maThietBi);
         return "Đã xoá quyền " + maMay + "Đã xoá quyền" +maThietBi;
     }
     @GetMapping("/DanhSachMayTinhThietBi")

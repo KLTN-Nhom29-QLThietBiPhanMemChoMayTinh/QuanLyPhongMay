@@ -1,7 +1,9 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,11 +34,11 @@ public class NhanVien {
 	private String sDT;
 
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "ma_cv", nullable = false)
 	private ChucVu chucVu;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@MapsId
 	@JoinColumn(name = "ma_nv")
 	@OnDelete(action = OnDeleteAction.CASCADE)
@@ -114,8 +116,9 @@ public class NhanVien {
 
 	@Override
 	public String toString() {
-		return "NhanVien [maNV=" + maNV + ", tenNV=" + tenNV + ", email=" + email + ", sDT=" + sDT + ", chucVu="
-				+ chucVu + ", taiKhoan=" + taiKhoan + "]";
+	    return String.format("NhanVien [maNV=%s, tenNV=%s, email=%s, sDT=%s, chucVu=%s, taiKhoan=%s]",
+	        maNV, tenNV, email, sDT, chucVu != null ? chucVu.getTenCV() : "null",
+	        taiKhoan != null ? taiKhoan.getMaTK() : "null");
 	}
 
 	

@@ -16,6 +16,8 @@ public interface MayTinhThietBiRepository {
 	public MayTinhThietBi luu(MayTinhThietBi mayTinhThietBi);
 	
 	public List<MayTinhThietBi> layDanhSachMayTinhThietBi();
-
+	
+	public List<MayTinhThietBi> layDSMTTBheoMaThietBi(Long maThietBi);
+	
 	public List<MayTinhThietBi> layDSMTTB(Long maMay);
 }

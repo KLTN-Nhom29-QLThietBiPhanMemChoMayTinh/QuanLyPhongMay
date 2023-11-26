@@ -13,34 +13,45 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.ChucVu;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.LichTruc;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.ChucVuService;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.LichTrucService;
 
 @RestController
 @CrossOrigin
 public class LichTrucController {
-    
-    @Autowired
-    private LichTrucService lichTrucService;
 
-    @PostMapping("/LuuLichTruc")
-    public LichTruc luu(@RequestBody LichTruc lichTruc){
-        return lichTrucService.luu(lichTruc);
-    }
+	@Autowired
+	private LichTrucService lichTrucService;
 
-    @GetMapping("/DSLichTruc")
-    public List<LichTruc> layDSLT(){
-        return lichTrucService.layDSLT();
-    }
-    
-    @GetMapping("/LichTruc/{maLT}")
-    public LichTruc layLTTheoMa(@PathVariable Long maLich){
-        return lichTrucService.layLTTheoMa(maLich);
-    }
+	@PostMapping("/LuuLichTruc")
+	public LichTruc luu(@RequestBody LichTruc lichTruc) {
+		return lichTrucService.luu(lichTruc);
+	}
 
-    @DeleteMapping("/XoaLichTruc/{maLich}")
-    public String xoa(@PathVariable Long maLich){
-    	lichTrucService.xoa(maLich);
-        return "Đã xoá chức vụ " + maLich;
-    }
+	@GetMapping("/DSLichTruc")
+	public List<LichTruc> layDSLT() {
+		return lichTrucService.layDSLT();
+	}
+
+	@GetMapping("/LichTruc/{maLT}")
+	public LichTruc layLTTheoMa(@PathVariable Long maLich) {
+		return lichTrucService.layLTTheoMa(maLich);
+	}
+
+	@GetMapping("/LichTrucTheoTang/{maTang}")
+	public List<LichTruc> layLichTrucTheoTang(@PathVariable Long maTang) {
+		return lichTrucService.layLichTrucTheoMaTang(maTang);
+	}
+
+	@DeleteMapping("/XoaLichTruc/{maLich}")
+	public String xoa(@PathVariable Long maLich) {
+		lichTrucService.xoa(maLich);
+		return "Đã xoá chức vụ " + maLich;
+	}
+
+	@GetMapping("/TangChuaCoNhanVienTrucTrongThang")
+	public List<Tang> layTangChuaCoNhanVienTrucTrongThang() {
+		return lichTrucService.layTangChuaCoNhanVienTrucTrongThang();
+	}
 }

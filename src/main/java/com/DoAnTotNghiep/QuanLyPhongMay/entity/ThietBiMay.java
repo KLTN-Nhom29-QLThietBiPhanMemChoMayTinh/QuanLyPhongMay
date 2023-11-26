@@ -2,6 +2,7 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,18 +26,28 @@ public class ThietBiMay {
 	@Column(name = "ten_thiet_bi")
 	private String tenThietBi;
 
+	public double getSoTonKho() {
+		return soTonKho;
+	}
+
+
+	public void setSoTonKho(double soTonKho) {
+		this.soTonKho = soTonKho;
+	}
+
 	@Column(name = "tuoi_tho")
 	private double tuoiTho;
-
+	
+	@Column(name = "so_tonkho")
+	private double soTonKho;
+	
 	@Column(name = "ngay_cai_dat", columnDefinition = "DATETIME")
 	private Date ngayCaiDat;
 
-	// true: dang su dung
-	// false : bi hỏng
 	@JoinColumn(name = "status", columnDefinition = "boolean default true")
 	private boolean status = true;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ma_loai", nullable = false)
 	private LoaiThietBi loaiThietBi;
 
@@ -44,28 +55,9 @@ public class ThietBiMay {
 		return status;
 	}
 
-	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, Date ngayCaiDat, boolean status,
-			LoaiThietBi loaiThietBi) {
-		super();
-		this.maThietBi = maThietBi;
-		this.tenThietBi = tenThietBi;
-		this.tuoiTho = tuoiTho;
-		this.ngayCaiDat = ngayCaiDat;
-		this.status = status;
-		this.loaiThietBi = loaiThietBi;
-	}
 
 	public void setStatus(boolean status) {
 		this.status = status;
-	}
-
-	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, Date ngayCaiDat, LoaiThietBi loaiThietBi) {
-		super();
-		this.maThietBi = maThietBi;
-		this.tenThietBi = tenThietBi;
-		this.tuoiTho = tuoiTho;
-		this.ngayCaiDat = ngayCaiDat;
-		this.loaiThietBi = loaiThietBi;
 	}
 
 	public Date getNgayCaiDat() {
@@ -108,14 +100,6 @@ public class ThietBiMay {
 		this.loaiThietBi = loaiThietBi;
 	}
 
-	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, LoaiThietBi loaiThietBi) {
-		super();
-		this.maThietBi = maThietBi;
-		this.tenThietBi = tenThietBi;
-		this.tuoiTho = tuoiTho;
-		this.loaiThietBi = loaiThietBi;
-	}
-
 	public ThietBiMay() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -123,8 +107,8 @@ public class ThietBiMay {
 
 	@Override
 	public String toString() {
-		return "ThietBiMay [maThietBi=" + maThietBi + ", tenThietBi=" + tenThietBi + ", tuoiTho=" + tuoiTho
-				+ ", ngayCaiDat=" + ngayCaiDat + ", status=" + status + ", loaiThietBi=" + loaiThietBi + "]";
+	    return String.format("ThietBiMay [maThietBi=%d, tenThietBi=%s, tuoiTho=%f, ngayCaiDat=%s, status=%b, loaiThietBi=%s, soTonKho=%f]",
+	        maThietBi, tenThietBi, tuoiTho, ngayCaiDat, status, loaiThietBi != null ? loaiThietBi.toString() : "null",soTonKho);
 	}
 
 }

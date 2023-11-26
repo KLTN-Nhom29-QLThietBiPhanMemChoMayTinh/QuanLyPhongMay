@@ -2,6 +2,7 @@ package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,17 +16,16 @@ import javax.persistence.Table;
 @Table(name = "maytinh_thietbi")
 public class MayTinhThietBi {
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
+
 	@JoinColumn(name = "ma_may")
 	private MayTinh mayTinh;
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
+
 	@JoinColumn(name = "ma_thiet_bi")
 	private ThietBiMay thietBi;
 
-	// QL: thi bị này ở may tinh co su dung hay khog
-	// true: dang su dung
-	// false : bi hỏng
 	@JoinColumn(name = "status", columnDefinition = "boolean default true")
 	private boolean status = true;
 

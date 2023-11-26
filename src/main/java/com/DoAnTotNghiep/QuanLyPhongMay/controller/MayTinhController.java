@@ -55,6 +55,7 @@ public class MayTinhController {
 		List<MayTinhModel> lst = new ArrayList<>();
 
 		for (MayTinh mayTinh : mayTinhs) {
+			System.out.println(mayTinh);
 			
 			MayTinhModel model = new MayTinhModel();
 			model.setMaMay(mayTinh.getMaMay());
@@ -68,13 +69,11 @@ public class MayTinhController {
 			model.setTrangThai(mayTinh.getTrangThai());
 
 			List<ThietBiMayModel> thietBiMays = new ArrayList<>();
-			//
 			List<MayTinhThietBi> lstMayTinhThietBi = mayTinhThietBiService.layDSMTTB(model.getMaMay());
 			for (MayTinhThietBi mayTinhThietBi : lstMayTinhThietBi) {
+				System.out.println(mayTinhThietBi);
 				ThietBiMay thietBiMay = mayTinhThietBi.getThietBi();
 				boolean trangThai = mayTinhThietBi.isStatus();
-
-				//
 				ThietBiMayModel thietBiMayModel = new ThietBiMayModel();
 				thietBiMayModel.setMaThietBi(thietBiMay.getMaThietBi());
 				thietBiMayModel.setLoaiThietBi(thietBiMay.getLoaiThietBi());
@@ -86,10 +85,8 @@ public class MayTinhController {
 				//
 				thietBiMays.add(thietBiMayModel);
 			}
-
 			model.setThietBiMays(thietBiMays);
-			
-			//
+			System.out.println(model);
 			lst.add(model);
 		}
 		return ResponseEntity.ok(lst);
