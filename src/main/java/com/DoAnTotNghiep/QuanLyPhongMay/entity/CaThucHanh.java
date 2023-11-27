@@ -37,6 +37,10 @@ public class CaThucHanh {
     @Column(name = "tiet_ket_thuc")
     private int tietKetThuc;
 
+   
+	@Column(name = "buoi_so")
+    private int buoiSo; 
+    
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "ma_giao_vien") 
     private GiaoVien giaoVien;
@@ -98,25 +102,32 @@ public class CaThucHanh {
 	public void setMonHoc(MonHoc monHoc) {
 		this.monHoc = monHoc;
 	}
-	public CaThucHanh(Long maCa, Date ngayThucHanh, String tenCa, int tietBatDau, int tietKetThuc, GiaoVien giaoVien,
-			PhongMay phongMay, MonHoc monHoc) {
+	public CaThucHanh(Long maCa, Date ngayThucHanh, String tenCa, int tietBatDau, int tietKetThuc, int buoiSo,
+				GiaoVien giaoVien, PhongMay phongMay, MonHoc monHoc) {
 		super();
 		this.maCa = maCa;
 		this.ngayThucHanh = ngayThucHanh;
 		this.tenCa = tenCa;
 		this.tietBatDau = tietBatDau;
 		this.tietKetThuc = tietKetThuc;
+		this.buoiSo = buoiSo;
 		this.giaoVien = giaoVien;
 		this.phongMay = phongMay;
 		this.monHoc = monHoc;
+	}
+	 public int getBuoiSo() {
+		return buoiSo;
+	}
+	public void setBuoiSo(int buoiSo) {
+		this.buoiSo = buoiSo;
 	}
 	public CaThucHanh() {
 		super();
 	}
 	@Override
 	public String toString() {
-	    return String.format("CaThucHanh [maCa=%d, ngayThucHanh=%s, tenCa=%s, tietBatDau=%d, tietKetThuc=%d, giaoVien=%s, phongMay=%s, monHoc=%s]",
-	        maCa, ngayThucHanh, tenCa, tietBatDau, tietKetThuc, giaoVien != null ? giaoVien.getHoTen() : "null",
+	    return String.format("CaThucHanh [maCa=%d, ngayThucHanh=%s, tenCa=%s, tietBatDau=%d, tietKetThuc=%d, soBuoi=%i,giaoVien=%s, phongMay=%s, monHoc=%s]",
+	        maCa, ngayThucHanh, tenCa, tietBatDau, tietKetThuc,buoiSo, giaoVien != null ? giaoVien.getHoTen() : "null",
 	        phongMay != null ? phongMay.getTenPhong() : "null", monHoc != null ? monHoc.getTenMon() : "null");
 	}
 	

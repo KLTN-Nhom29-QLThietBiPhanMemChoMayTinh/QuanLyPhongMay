@@ -11,6 +11,7 @@ INSERT INTO chuc_vu (ten_cv) VALUES ('Nhân viên hỗ trợ');
 -- Thêm 2 khoa
 INSERT INTO khoa (ten_khoa) VALUES ('Công nghệ thông tin');
 INSERT INTO khoa (ten_khoa) VALUES ('Tài chính kế toán');
+
 -- Thêm 3 tài khoản và 3 người dùng
 INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV001', 'nhanvien1', '123456A', 1);
 INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV001','Nguyen Van A', 'email1@example.com', '123456789', 1);
@@ -20,6 +21,7 @@ INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('NV002'
 INSERT INTO nhan_vien (ma_nv,ten_nv, email, sdt, ma_cv) VALUES ('NV002','Nguyen Toan C', 'email1@example.com', '123456789', 2);	
 INSERT INTO tai_khoan (ma_tk, ten_dang_nhap, mat_khau, ma_quyen) VALUES ('GV002', 'giaovien2', '123456A', 2);
 INSERT INTO giao_vien (ma_gv,ho_ten, email,hoc_vi ,so_dien_thoai, ma_khoa) VALUES ('GV002','Pham Nguyen AB', 'email1@example.com', 'Giáo sư','123456789', 1);
+
 
 -- Thêm 4 phần mềm
 INSERT INTO phan_mem (mo_ta, ngay_cai_dat, phien_ban, ten_phanmem, trang_thai, tuoi_tho) VALUES
@@ -86,19 +88,21 @@ VALUES (3, 3, 1);
 INSERT INTO phongmay_phanmem (ma_phanmem, ma_phong, status)
 VALUES (1, 3, 1);
 -- Thêm 4 môn học
-INSERT INTO mon_hoc (ngay_bat_dau, ngay_ket_thuc, ten_mon)
-VALUES ('2023-10-01', '2023-11-30', 'Lập trình C++');
-INSERT INTO mon_hoc (ngay_bat_dau, ngay_ket_thuc, ten_mon)
-VALUES ('2023-10-15', '2023-12-15', 'Lập trình Python');
-INSERT INTO mon_hoc (ngay_bat_dau, ngay_ket_thuc, ten_mon)
-VALUES ('2023-11-01', '2024-01-31', 'Lập trình Java');
-INSERT INTO mon_hoc (ngay_bat_dau, ngay_ket_thuc, ten_mon)
-VALUES ('2023-11-15', '2024-02-28', 'Lập trình Web');
+INSERT INTO mon_hoc (ngay_bat_dau, so_buoi, ten_mon)
+VALUES ('2023-10-01', 40, 'Lập trình C++');
+INSERT INTO mon_hoc (ngay_bat_dau, so_buoi, ten_mon)
+VALUES ('2023-10-15', 30, 'Lập trình Python');
+INSERT INTO mon_hoc (ngay_bat_dau, so_buoi, ten_mon)
+VALUES ('2023-11-01',20, 'Lập trình Java');
+INSERT INTO mon_hoc (ngay_bat_dau, so_buoi, ten_mon)
+VALUES ('2023-11-15', 15, 'Lập trình Web');
 
-INSERT INTO ca_thuc_hanh (ngay_thuc_hanh, ten_ca, tiet_bat_dau, tiet_ket_thuc, ma_giao_vien, ma_mon, ma_phong_may) VALUES
-('2023-11-20 08:00:00', 'sáng', 1, 3, 'GV001', 1, 1),
-('2023-11-20 13:30:00', 'trưa', 6, 8, 'GV002', 2, 2),
-('2023-11-21 10:45:00', 'tối', 9, 11, 'GV002', 3, 3);
+INSERT INTO ca_thuc_hanh (ngay_thuc_hanh, ten_ca, tiet_bat_dau, tiet_ket_thuc,buoi_so, ma_giao_vien, ma_mon, ma_phong_may) VALUES
+('2023-11-20 08:00:00', 'sáng', 1, 3, 1,'GV002', 3, 2),
+('2023-11-20 08:00:00', 'sáng', 1, 3, 2,'GV001', 1, 4),
+('2023-11-20 08:00:00', 'sáng', 1, 3, 3,'GV001', 1, 1),
+('2023-11-20 13:30:00', 'trưa', 6, 8, 4,'GV002', 2, 2),
+('2023-11-21 10:45:00', 'tối', 9, 11, 5,'GV002', 3, 3);
 
 -- Thêm 4 máy tính
 INSERT INTO may_tinh (mo_ta, ngay_lap_dat, trang_thai, ma_phong)
@@ -187,5 +191,3 @@ INSERT INTO monhoc_phanmem (ma_mon, ma_phanmem)
 VALUES (2, 2);
 INSERT INTO monhoc_phanmem (ma_mon, ma_phanmem)
 VALUES (3, 3);
-
-

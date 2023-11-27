@@ -28,8 +28,8 @@ public class MonHoc {
     @Column(name = "ngay_bat_dau")
     private Date ngayBatDau;
 
-    @Column(name = "ngay_ket_thuc")
-    private Date ngayKetThuc;
+    @Column(name = "so_buoi")
+    private int soBuoi;
     
     @OneToMany(mappedBy = "monHoc", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
@@ -59,12 +59,12 @@ public class MonHoc {
 		this.ngayBatDau = ngayBatDau;
 	}
 
-	public Date getNgayKetThuc() {
-		return ngayKetThuc;
+	public int getSoBuoi() {
+		return soBuoi;
 	}
 
-	public void setNgayKetThuc(Date ngayKetThuc) {
-		this.ngayKetThuc = ngayKetThuc;
+	public void setSoBuoi(int soBuoi) {
+		this.soBuoi = soBuoi;
 	}
 
 	public List<CaThucHanh> getCaThucHanhs() {
@@ -75,12 +75,12 @@ public class MonHoc {
 		this.caThucHanhs = caThucHanhs;
 	}
 
-	public MonHoc(Long maMon, String tenMon, Date ngayBatDau, Date ngayKetThuc, List<CaThucHanh> caThucHanhs) {
+	public MonHoc(Long maMon, String tenMon, Date ngayBatDau, int soBuoi, List<CaThucHanh> caThucHanhs) {
 		super();
 		this.maMon = maMon;
 		this.tenMon = tenMon;
 		this.ngayBatDau = ngayBatDau;
-		this.ngayKetThuc = ngayKetThuc;
+		this.soBuoi = soBuoi;
 		this.caThucHanhs = caThucHanhs;
 	}
 
@@ -91,8 +91,8 @@ public class MonHoc {
 
 	@Override
 	public String toString() {
-		return "MonHoc [maMon=" + maMon + ", tenMon=" + tenMon + ", ngayBatDau=" + ngayBatDau + ", ngayKetThuc="
-				+ ngayKetThuc + ", caThucHanhs=" + caThucHanhs + "]";
+		return "MonHoc [maMon=" + maMon + ", tenMon=" + tenMon + ", ngayBatDau=" + ngayBatDau + ", soBuoi="
+				+ soBuoi + ", caThucHanhs=" + caThucHanhs + "]";
 	}
     
     

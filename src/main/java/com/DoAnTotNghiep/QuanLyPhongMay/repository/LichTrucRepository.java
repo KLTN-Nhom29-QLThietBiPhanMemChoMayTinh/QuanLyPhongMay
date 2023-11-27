@@ -10,7 +10,9 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 public interface LichTrucRepository extends JpaRepository<LichTruc, Long>{
     public List<LichTruc> findByTang_MaTang(Long maTang);
 
-    @Query("SELECT lichTruc.tang FROM LichTruc lichTruc WHERE MONTH(lichTruc.ngayTruc) = MONTH(CURRENT_DATE) AND YEAR(lichTruc.ngayTruc) = YEAR(CURRENT_DATE)")
+    @Query("SELECT tang FROM Tang tang WHERE tang NOT IN " +
+            "(SELECT DISTINCT lichTruc.tang FROM LichTruc lichTruc " +
+            "WHERE MONTH(lichTruc.ngayTruc) = MONTH(CURRENT_DATE) AND YEAR(lichTruc.ngayTruc) = YEAR(CURRENT_DATE))")
     public List<Tang> findTangChuaCoNhanVienTrucTrongThang();
 
     public LichTruc save(LichTruc lichTruc);

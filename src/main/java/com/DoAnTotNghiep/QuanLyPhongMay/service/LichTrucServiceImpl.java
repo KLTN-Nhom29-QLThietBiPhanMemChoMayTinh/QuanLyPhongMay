@@ -1,5 +1,6 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,12 +48,31 @@ public class LichTrucServiceImpl implements LichTrucService{
 	public List<LichTruc> layLichTrucTheoMaTang(Long maTang) {
 		 return lichTrucRepository.findByTang_MaTang(maTang);
 	}
+//	 @Override
+//	 public List<Tang> layTangChuaCoNhanVienTrucTrongThang() {
+//	     return lichTrucRepository.findTangChuaCoNhanVienTrucTrongThang();
+//	 }
 	 @Override
-	 public List<Tang> layTangChuaCoNhanVienTrucTrongThang() {
-	     return lichTrucRepository.findTangChuaCoNhanVienTrucTrongThang();
-	 }
-	 
-	 @Override
+	    public List<Tang> layTangChuaCoNhanVienTrucTrongThang() {
+	        try {
+	            // Sử dụng LichTrucRepository để lấy danh sách tầng chưa có nhân viên trực trong tháng hiện tại
+	            List<Tang> tangChuaCoNhanVienTruc = lichTrucRepository.findTangChuaCoNhanVienTrucTrongThang();
+
+	            // Kiểm tra và log thông tin để đảm bảo bạn nhận được dữ liệu đúng
+	            if (tangChuaCoNhanVienTruc != null) {
+	                System.out.println("Danh sách tầng chưa có nhân viên trực trong tháng hiện tại:");
+	                for (Tang tang : tangChuaCoNhanVienTruc) {
+	                    System.out.println(tang);
+	                }
+	            }
+
+	            return tangChuaCoNhanVienTruc;
+	        } catch (Exception e) {
+	            // Log lỗi nếu có
+	            e.printStackTrace();
+	            return Collections.emptyList(); // hoặc trả về danh sách rỗng hoặc xử lý lỗi khác tùy thuộc vào yêu cầu của bạn
+	        }
+	    }	 @Override
 	    public LichTruc updateLichTruc(LichTruc lichTruc) {
 	        Optional<LichTruc> existingLichTruc = lichTrucRepository.findById(lichTruc.getMaLich());
 	        if (existingLichTruc.isPresent()) {
