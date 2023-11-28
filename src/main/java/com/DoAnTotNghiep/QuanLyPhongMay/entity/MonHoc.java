@@ -31,7 +31,7 @@ public class MonHoc {
     @Column(name = "so_buoi")
     private int soBuoi;
     
-    @OneToMany(mappedBy = "monHoc", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "monHoc", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<CaThucHanh> caThucHanhs;
     

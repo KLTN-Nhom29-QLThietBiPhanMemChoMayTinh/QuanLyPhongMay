@@ -14,7 +14,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.LoaiThietBiRepository;
 public class LoaiThietBiServiceImpl implements LoaiThietBiService{
 
 	@Autowired
-	private LoaiThietBiRepository loaiThietBiRepository;
+	private  LoaiThietBiRepository loaiThietBiRepository;
 	
 	@Override
 	public LoaiThietBi layLoaiThietBiTheoMa(Long maLoai) {

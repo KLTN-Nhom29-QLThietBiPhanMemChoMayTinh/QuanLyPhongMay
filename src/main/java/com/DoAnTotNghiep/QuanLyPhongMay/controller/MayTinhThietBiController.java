@@ -23,13 +23,12 @@ public class MayTinhThietBiController {
 	@Autowired
     private MayTinhThietBiService mayTinhThietBiService;
 	
-	@Autowired
-	private MayTinhThietBiRepository2 MayTinhThietBiRepository2;
+	
 
     @PostMapping("/LuuMayTinhThietBi")
     public MayTinhThietBi luu(@RequestBody MayTinhThietBi mayTinhThietBi){
-    	System.out.println(mayTinhThietBi);
-        return MayTinhThietBiRepository2.save(mayTinhThietBi);
+    		return mayTinhThietBiService.luu(mayTinhThietBi);
+        
     }
 
     @GetMapping("/DSMayTinhThietBiheoMaMay/{maMay}")

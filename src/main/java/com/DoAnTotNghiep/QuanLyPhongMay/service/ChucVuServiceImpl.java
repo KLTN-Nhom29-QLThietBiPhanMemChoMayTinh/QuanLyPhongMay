@@ -13,7 +13,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.ChucVuRepository;
 public class ChucVuServiceImpl implements ChucVuService{
 
     @Autowired
-    private ChucVuRepository chucVuRepository;
+    private  ChucVuRepository chucVuRepository;
 
     @Override
     public ChucVu layCVTheoMa(Long maCV) {

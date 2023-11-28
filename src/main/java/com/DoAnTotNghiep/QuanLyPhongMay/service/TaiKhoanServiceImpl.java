@@ -10,7 +10,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.TaiKhoanRepository;
 public class TaiKhoanServiceImpl implements TaiKhoanService{
 	
 	@Autowired
-	private TaiKhoanRepository taiKhoanRepository;
+	private  TaiKhoanRepository taiKhoanRepository;
 
 	@Override
 	public void xoa(String maTK) {

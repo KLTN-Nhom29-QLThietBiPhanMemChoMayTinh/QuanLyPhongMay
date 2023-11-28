@@ -67,8 +67,8 @@ public class Tang {
 
 	@Override
     public String toString() {
-        return String.format("Tang [maTang=%d, tenTang=%s, toaNha=%s]",
-                maTang, tenTang, toaNha != null ? toaNha.getTenToaNha() : "null");
+        return String.format("Tang [maTang=%d, tenTang=%s, toaNha=%d]",
+                maTang, tenTang, toaNha != null ? toaNha.getMaToaNha() : "null");
     }
 
 	

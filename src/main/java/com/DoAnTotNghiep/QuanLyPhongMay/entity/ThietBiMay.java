@@ -46,29 +46,6 @@ public class ThietBiMay {
 		return status;
 	}
 
-	
-	public ThietBiMay(Long maThietBi, String tenThietBi, double tuoiTho, double soTonKho, Date ngayCaiDat,
-			boolean status, LoaiThietBi loaiThietBi) {
-		super();
-		this.maThietBi = maThietBi;
-		this.tenThietBi = tenThietBi;
-		this.tuoiTho = tuoiTho;
-		this.soTonKho = soTonKho;
-		this.ngayCaiDat = ngayCaiDat;
-		this.status = status;
-		this.loaiThietBi = loaiThietBi;
-	}
-
-
-	public double getSoTonKho() {
-		return soTonKho;
-	}
-
-
-	public void setSoTonKho(double soTonKho) {
-		this.soTonKho = soTonKho;
-	}
-
 
 	public void setStatus(boolean status) {
 		this.status = status;
@@ -121,8 +98,8 @@ public class ThietBiMay {
 
 	@Override
 	public String toString() {
-	    return String.format("ThietBiMay [maThietBi=%d, tenThietBi=%s, tuoiTho=%f, ngayCaiDat=%s, status=%b, loaiThietBi=%s, soTonKho=%f]",
-	        maThietBi, tenThietBi, tuoiTho, ngayCaiDat, status, loaiThietBi != null ? loaiThietBi.toString() : "null",soTonKho);
+	    return String.format("ThietBiMay [maThietBi=%d, tenThietBi=%s, tuoiTho=%f, ngayCaiDat=%s, status=%b, loaiThietBi=%d, soTonKho=%f]",
+	        maThietBi, tenThietBi, tuoiTho, ngayCaiDat, status, loaiThietBi != null ? loaiThietBi.getMaLoai() : "null",soTonKho);
 	}
 
 }

@@ -83,11 +83,7 @@ public class PhongMayController {
     	phongMayService.xoa(maPhong);
         return "Đã xoá chức vụ " + maPhong;
     }
-    @PutMapping("/CapNhatPhongMay")
-    public PhongMay capNhat(@RequestBody PhongMay phongMay){
-        return phongMayService.capNhat(phongMay);
-    }
-    
+   
    
     @PutMapping("/CapNhatPhongMay/{maPhong}")
     public PhongMay capNhatTheoMa(@PathVariable Long maPhong, @RequestBody PhongMay phongMay){

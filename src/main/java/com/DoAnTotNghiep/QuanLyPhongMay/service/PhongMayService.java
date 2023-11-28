@@ -13,7 +13,6 @@ public interface PhongMayService {
 
 	public PhongMay luu(PhongMay phongMay);
 
-	public PhongMay capNhat(PhongMay phongMay);
 
 	public PhongMay capNhatTheoMa(Long maPhong, PhongMay phongMay);
 

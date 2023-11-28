@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhanMem;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.ToaNha;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhanMemRepository;
 
 @Service
@@ -14,7 +15,7 @@ public class PhanMemServiceImpl implements PhanMemService{
 
 
 	@Autowired
-	private PhanMemRepository phanMemRepository;
+	private  PhanMemRepository phanMemRepository;
 	
 	@Override
 	public PhanMem layPhanMemTheoMa(Long maPhanMem) {
@@ -42,6 +43,5 @@ public class PhanMemServiceImpl implements PhanMemService{
 	public PhanMem luu(PhanMem phanMem) {
 		return phanMemRepository.save(phanMem);
 	}
-
 
 }

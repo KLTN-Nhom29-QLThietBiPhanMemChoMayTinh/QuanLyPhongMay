@@ -16,10 +16,10 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.UserRepository;
 public class GiaoVienServiceImpl implements GiaoVienService{
 
 	@Autowired
-	private GiaoVienRepository giaoVienRepository;
+	private  GiaoVienRepository giaoVienRepository;
 
 	@Autowired
-	private UserRepository userRepository;
+	private  UserRepository userRepository;
 	
 	
 	@Override

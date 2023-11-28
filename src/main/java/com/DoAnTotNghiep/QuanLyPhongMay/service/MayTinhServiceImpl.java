@@ -12,7 +12,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.MayTinhRepository;
 public class MayTinhServiceImpl implements MayTinhService{
 
 	@Autowired
-	private MayTinhRepository mayTinhRepository;
+	private  MayTinhRepository mayTinhRepository;
 	
 	@Override
 	public MayTinh layMayTinhTheoMa(Long maMay) {

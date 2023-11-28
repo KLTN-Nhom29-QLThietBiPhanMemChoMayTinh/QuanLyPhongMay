@@ -116,8 +116,8 @@ public class NhanVien {
 
 	@Override
 	public String toString() {
-	    return String.format("NhanVien [maNV=%s, tenNV=%s, email=%s, sDT=%s, chucVu=%s, taiKhoan=%s]",
-	        maNV, tenNV, email, sDT, chucVu != null ? chucVu.getTenCV() : "null",
+	    return String.format("NhanVien [maNV=%s, tenNV=%s, email=%s, sDT=%s, chucVu=%d, taiKhoan=%s]",
+	        maNV, tenNV, email, sDT, chucVu != null ? chucVu.getMaCV() : "null",
 	        taiKhoan != null ? taiKhoan.getMaTK() : "null");
 	}
 

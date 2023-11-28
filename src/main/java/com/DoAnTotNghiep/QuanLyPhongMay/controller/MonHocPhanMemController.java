@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MonHocPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocPhanMemRepository2;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository2;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.MonHocPhanMemService;
 
 @RestController
@@ -21,10 +23,12 @@ public class MonHocPhanMemController {
 	
 	@Autowired
     private MonHocPhanMemService monHocPhanMemService;
+	@Autowired
+	private MonHocPhanMemRepository2 monHocPhanMemRepository2;
 
     @PostMapping("/LuuMonHocPhanMem")
     public MonHocPhanMem luu(@RequestBody MonHocPhanMem monHocPhanMem){
-        return monHocPhanMemService.luu(monHocPhanMem);
+        return monHocPhanMemRepository2.save(monHocPhanMem);
     }
 
     @GetMapping("/DSMonHocPhanMem/{maMon}")

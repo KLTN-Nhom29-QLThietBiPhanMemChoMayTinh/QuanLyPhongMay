@@ -28,6 +28,7 @@ public class MonHocPhanMemRepositoryImpl  implements MonHocPhanMemRepository{
 	}
 
 	@Override
+	@Transactional
 	public void xoa(Long maMon, Long maPhanMem) {
 		Query query = entityManager.createNativeQuery("delete from monhoc_phanmem where ma_mon = " + maMon + " and ma_phanmem = '" + maPhanMem + "'");
     	query.executeUpdate();
@@ -35,17 +36,20 @@ public class MonHocPhanMemRepositoryImpl  implements MonHocPhanMemRepository{
 	}
 
 	@Override
+	@Transactional
 	public MonHocPhanMem luu(MonHocPhanMem monHocPhanMem) {
 		return entityManager.merge(monHocPhanMem);
 	}
 
 	@Override
+	@Transactional
 	public List<MonHocPhanMem> layDSMHPM(Long maMon) {
 		Query query = entityManager.createNativeQuery("SELECT * FROM monhoc_phanmem  WHERE ma_mon = " + maMon, MonHocPhanMem.class);
 		return query.getResultList();
 	}
 
 	@Override
+	@Transactional
 	public List<MonHocPhanMem> layDanhSachMonHocPhanMem() {
 		Query query = entityManager.createQuery("SELECT mhpm FROM MonHocPhanMem mhpm");
 	    return query.getResultList();

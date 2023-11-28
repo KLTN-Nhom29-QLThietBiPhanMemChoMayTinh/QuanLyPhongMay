@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,9 +36,10 @@ public class MayTinh {
     @Column(name = "ngay_lap_dat")
     private Date ngayLapDat;    
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JsonBackReference
     @JoinColumn(name = "ma_phong")
+
     private PhongMay phongMay;
 
 	public Long getMaMay() {

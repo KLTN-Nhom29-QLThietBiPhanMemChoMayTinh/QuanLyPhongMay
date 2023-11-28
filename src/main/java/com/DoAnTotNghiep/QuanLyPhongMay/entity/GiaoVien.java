@@ -38,8 +38,8 @@ public class GiaoVien {
     @Column(name = "hoc_vi")
     private String hocVi;
 	
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ma_gv", referencedColumnName = "ma_tk")
+    @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ma_tai_khoan", referencedColumnName = "ma_tk")
     private TaiKhoan taiKhoan;
     
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -123,8 +123,7 @@ public class GiaoVien {
 
 	@Override
 	public String toString() {
-	    return String.format("GiaoVien [maGiaoVien=%s, hoTen=%s, soDienThoai=%s, email=%s, hocVi=%s, taiKhoan=%s, khoa=%s]",
-	        maGiaoVien, hoTen, soDienThoai, email, hocVi, taiKhoan != null ? taiKhoan.getMaTK() : "null",
-	        khoa != null ? khoa.getTenKhoa() : "null");
+		return "GiaoVien [maGiaoVien=" + maGiaoVien + ", hoTen=" + hoTen + ", soDienThoai=" + soDienThoai + ", email="
+				+ email + ", hocVi=" + hocVi + ", taiKhoan=" + taiKhoan + ", khoa=" + khoa + "]";
 	}
 }

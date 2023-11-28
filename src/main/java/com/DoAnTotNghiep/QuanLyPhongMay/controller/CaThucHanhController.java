@@ -27,6 +27,7 @@ public class CaThucHanhController {
 
     @PostMapping("/LuuCaThucHanh")
     public CaThucHanh luu(@RequestBody CaThucHanh caThucHanh){
+    	System.out.println(caThucHanh);
         return caThucHanhService.luu(caThucHanh);
     }
 

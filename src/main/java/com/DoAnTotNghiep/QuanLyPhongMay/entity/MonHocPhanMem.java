@@ -15,14 +15,13 @@ public class MonHocPhanMem {
 
 	  @Id
 	  @ManyToOne(cascade = CascadeType.ALL)
-
 	  @JoinColumn(name = "ma_phanmem")
 	  private PhanMem phanMem;
 	  @Id
 	  @ManyToOne(cascade = CascadeType.ALL)
-
 	  @JoinColumn(name = "ma_mon")
 	  private MonHoc monHoc;
+	  
 	public PhanMem getPhanMem() {
 		return phanMem;
 	}

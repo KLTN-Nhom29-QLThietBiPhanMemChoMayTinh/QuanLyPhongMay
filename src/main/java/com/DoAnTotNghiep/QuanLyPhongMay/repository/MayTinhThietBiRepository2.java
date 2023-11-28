@@ -10,5 +10,5 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinhThietBiPK;
 
 @Repository
 public interface MayTinhThietBiRepository2 extends JpaRepository<MayTinhThietBi, MayTinhThietBiPK>{
-	public MayTinhThietBi save(MayTinhThietBi mayTinhThietBi);
+
 }

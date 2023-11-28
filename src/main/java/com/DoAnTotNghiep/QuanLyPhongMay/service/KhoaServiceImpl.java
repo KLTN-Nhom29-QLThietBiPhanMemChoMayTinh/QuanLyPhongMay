@@ -15,7 +15,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.KhoaRepository;
 public class KhoaServiceImpl implements KhoaService{
 
 	@Autowired
-	private KhoaRepository khoaRepository;
+	private  KhoaRepository khoaRepository;
 
 	
 	@Override

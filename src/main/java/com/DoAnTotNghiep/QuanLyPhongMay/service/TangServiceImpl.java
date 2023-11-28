@@ -15,9 +15,9 @@ public class TangServiceImpl implements TangService{
 
 
 	@Autowired
-	private TangRepository tangRepository;
+	private  TangRepository tangRepository;
 	@Autowired
-    private LichTrucService lichTrucService;
+    private  LichTrucService lichTrucService;
 	
 	@Override
 	public Tang layTangTheoMa(Long maTang) {

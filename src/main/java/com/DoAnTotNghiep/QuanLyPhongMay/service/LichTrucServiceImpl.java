@@ -15,7 +15,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.LichTrucRepository;
 public class LichTrucServiceImpl implements LichTrucService{
 
     @Autowired
-    private LichTrucRepository lichTrucRepository;
+    private  LichTrucRepository lichTrucRepository;
 
 	@Override
 	public LichTruc layLTTheoMa(Long maLich) {

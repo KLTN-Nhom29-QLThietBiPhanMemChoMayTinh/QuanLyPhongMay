@@ -15,7 +15,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository;
 public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
 
 	@Autowired
-	private MayTinhThietBiRepository mayTinhThietBiRepository;
+	private  MayTinhThietBiRepository mayTinhThietBiRepository;
 	@Autowired
     private MayTinhThietBiRepository2 mayTinhThietBiRepository2;
 	
@@ -30,7 +30,7 @@ public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
 
 	@Override
 	public MayTinhThietBi luu(MayTinhThietBi mayTinhThietBi) {
-		return mayTinhThietBiRepository.luu(mayTinhThietBi);
+		return mayTinhThietBiRepository2.save(mayTinhThietBi);
 	}
 
 	@Override

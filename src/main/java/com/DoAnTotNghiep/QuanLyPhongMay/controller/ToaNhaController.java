@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.ThietBiMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.ToaNha;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.ToaNhaService;
 
@@ -35,6 +36,10 @@ public class ToaNhaController {
     public String xoa(@PathVariable Long maToaNha){
         toaNhaService.xoa(maToaNha);
         return "Đã xoá quyền " + maToaNha;
+    }
+    @GetMapping("/ToaNha/{maToaNha}")
+    public ToaNha layThietBiMayTheoMa(@PathVariable Long maToaNha){
+        return toaNhaService.layToaNhaTheoMa(maToaNha);
     }
 
 }

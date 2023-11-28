@@ -13,7 +13,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocRepository;
 public class MonHocServiceImpl implements MonHocService{
 
 	@Autowired
-	private MonHocRepository monHocRepository;
+	private  MonHocRepository monHocRepository;
 
 	@Override
 	public MonHoc layMonHocTheoMa(Long maMon) {

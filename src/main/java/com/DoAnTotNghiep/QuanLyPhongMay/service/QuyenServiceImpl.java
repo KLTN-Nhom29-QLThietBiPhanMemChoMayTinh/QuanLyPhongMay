@@ -12,7 +12,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.QuyenRepository;
 public class QuyenServiceImpl implements QuyenService{
 
 	@Autowired
-	private QuyenRepository quyenRepository;
+	private  QuyenRepository quyenRepository;
 	
 	@Override
 	public Quyen layQuyenTheoMa(Long maQuyen) {

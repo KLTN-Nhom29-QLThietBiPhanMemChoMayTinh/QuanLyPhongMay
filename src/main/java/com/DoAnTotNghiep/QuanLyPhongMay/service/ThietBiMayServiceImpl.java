@@ -14,7 +14,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.ThietBiMayRepository;
 public class ThietBiMayServiceImpl implements ThietBiMayService{
 
 	@Autowired
-	private ThietBiMayRepository thietBiMayRepository;
+	private  ThietBiMayRepository thietBiMayRepository;
 	@Override
 	public ThietBiMay layThietBiMayTheoMa(Long maThietBi) {
 		ThietBiMay thietBiMay = null;

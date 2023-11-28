@@ -31,28 +31,33 @@ public class MayTinhThietBiRepositoryImpl implements MayTinhThietBiRepository{
 	}
 
 	@Override
+	@Transactional
 	public void xoa(Long maMay, Long maThietBi) {
 		Query query = entityManager.createNativeQuery("delete from maytinh_thietbi where ma_may = " + maMay + " and ma_thiet_bi = '" + maThietBi + "'");
     	query.executeUpdate();
 	}
 
 	@Override
+	@Transactional
 	public MayTinhThietBi luu(MayTinhThietBi mayTinhThietBi) {
 		return entityManager.merge(mayTinhThietBi);
 	}
 
 	@Override
+	@Transactional
 	public List<MayTinhThietBi> layDSMTTB(Long maMay) {
 		Query query = entityManager.createNativeQuery("SELECT * FROM maytinh_thietbi WHERE ma_may = " + maMay, MayTinhThietBi.class);
 		return query.getResultList();
 	}
 	@Override
+	@Transactional
 	public List<MayTinhThietBi> layDanhSachMayTinhThietBi() {
 	    Query query = entityManager.createQuery("SELECT mttb FROM MayTinhThietBi mttb");
 	    return query.getResultList();
 	}
 
 	@Override
+	@Transactional
 	public List<MayTinhThietBi> layDSMTTBheoMaThietBi(Long maThietBi) {
 		Query query = entityManager.createNativeQuery("SELECT * FROM maytinh_thietbi WHERE ma_thiet_bi = " + maThietBi, MayTinhThietBi.class);
 		return query.getResultList();

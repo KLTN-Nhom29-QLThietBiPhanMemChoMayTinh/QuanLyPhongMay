@@ -26,23 +26,11 @@ public class PhanMem {
 	private double tuoiTho;
 	@Column(name = "ngay_cai_dat")
 	private Date ngayCaiDat;
-	// thoigian su dung
 
 	public Long getMaPhanMem() {
 		return maPhanMem;
 	}
 
-	public PhanMem(Long maPhanMem, String tenPhanMem, boolean trangThai, String moTa, String phienBan, double tuoiTho,
-			Date ngayCaiDat) {
-		super();
-		this.maPhanMem = maPhanMem;
-		this.tenPhanMem = tenPhanMem;
-		this.trangThai = trangThai;
-		this.moTa = moTa;
-		this.phienBan = phienBan;
-		this.tuoiTho = tuoiTho;
-		this.ngayCaiDat = ngayCaiDat;
-	}
 
 	public double getTuoiTho() {
 		return tuoiTho;
@@ -96,7 +84,9 @@ public class PhanMem {
 		this.ngayCaiDat = ngayCaiDat;
 	}
 
-	public PhanMem(Long maPhanMem, String tenPhanMem, boolean trangThai, String moTa, String phienBan,
+	
+
+	public PhanMem(Long maPhanMem, String tenPhanMem, boolean trangThai, String moTa, String phienBan, double tuoiTho,
 			Date ngayCaiDat) {
 		super();
 		this.maPhanMem = maPhanMem;
@@ -104,16 +94,19 @@ public class PhanMem {
 		this.trangThai = trangThai;
 		this.moTa = moTa;
 		this.phienBan = phienBan;
+		this.tuoiTho = tuoiTho;
 		this.ngayCaiDat = ngayCaiDat;
 	}
 
 	public PhanMem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
+
 	@Override
 	public String toString() {
-	    return String.format("PhanMem [maPhanMem=%d, tenPhanMem=%s, trangThai=%b, moTa=%s, phienBan=%s, tuoiTho=%f, ngayCaiDat=%s]",
-	        maPhanMem, tenPhanMem, trangThai, moTa, phienBan, tuoiTho, ngayCaiDat);
+		return "PhanMem [maPhanMem=" + maPhanMem + ", tenPhanMem=" + tenPhanMem + ", trangThai=" + trangThai + ", moTa="
+				+ moTa + ", phienBan=" + phienBan + ", tuoiTho=" + tuoiTho + ", ngayCaiDat=" + ngayCaiDat + "]";
 	}
+	
 }

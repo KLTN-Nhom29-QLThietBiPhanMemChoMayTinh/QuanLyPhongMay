@@ -12,7 +12,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.CaThucHanhRepository;
 @Service
 public class CaThucHanhServiceImpl implements CaThucHanhService{
 	@Autowired
-	private CaThucHanhRepository caThucHanhRepository;
+	private  CaThucHanhRepository caThucHanhRepository;
 	
 	@Override
 	public CaThucHanh layCaThucHanhTheoMa(Long maCaThucHanh) {

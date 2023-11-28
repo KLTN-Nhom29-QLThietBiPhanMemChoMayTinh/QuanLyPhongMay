@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "lich_truc")
@@ -25,7 +23,6 @@ public class LichTruc {
     private Long maLich;
 
     @Column(name = "ngay_truc")
-    @Temporal(TemporalType.DATE)
     private Date ngayTruc;
 
     @Column(name = "thoi_gian_bat_dau")
@@ -107,12 +104,10 @@ public class LichTruc {
 	}
 
 	 @Override
-	    public String toString() {
-	        return String.format("LichTruc [maLich=%d, ngayTruc=%s, thoiGianBatDau=%s, thoiGianKetThuc=%s, nhanVien=%s, tang=%s]",
-	                maLich, ngayTruc, thoiGianBatDau, thoiGianKetThuc,
-	                nhanVien != null ? nhanVien.getTenNV() : "null",
-	                tang != null ? tang.getTenTang() : "null");
-	    }
+	public String toString() {
+		return "LichTruc [maLich=" + maLich + ", ngayTruc=" + ngayTruc + ", thoiGianBatDau=" + thoiGianBatDau
+				+ ", thoiGianKetThuc=" + thoiGianKetThuc + ", nhanVien=" + nhanVien + ", tang=" + tang + "]";
+	}
 
 
 	

@@ -17,8 +17,6 @@ public class ToaNha {
 	
 	@Column(name = "ten_toanha", columnDefinition = "nvarchar(50)", nullable = false)
 	private String tenToaNha;
-	
-	
 
 	public Long getMaToaNha() {
 		return maToaNha;

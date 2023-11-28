@@ -44,8 +44,8 @@ public class ChucVu {
     }
 
     @Override
-    public String toString() {
-        return String.format("ChucVu [maCV=%d, tenCV=%s]", maCV, tenCV);
-    }
+	public String toString() {
+		return "ChucVu [maCV=" + maCV + ", tenCV=" + tenCV + "]";
+	}
 
 }

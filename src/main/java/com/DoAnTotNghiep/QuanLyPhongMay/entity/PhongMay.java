@@ -1,10 +1,10 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -34,8 +37,8 @@ public class PhongMay {
     @Column(name = "trang_thai",  columnDefinition = "nvarchar(50) DEFAULT N'Trống' CHECK (trang_thai IN (N'Trống', N'Đang có tiết', N'Không thể dùng'))")
     private String trangThai= "Trống";
 	
-    @ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ma_tang", nullable = false)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "ma_tang", nullable = false) 
 	private Tang tang;
 
 	public List<MayTinh> getMayTinhs() {
@@ -46,8 +49,9 @@ public class PhongMay {
 		this.mayTinhs = mayTinhs;
 	}
 
-	@OneToMany(mappedBy = "phongMay", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "phongMay", cascade = CascadeType.ALL)
 	@JsonManagedReference
+    @OnDelete(action = OnDeleteAction.CASCADE)
 	private List<MayTinh> mayTinhs;
 	
 	public Long getMaPhong() {
@@ -117,9 +121,8 @@ public class PhongMay {
 
 	@Override
 	public String toString() {
-	    return String.format("PhongMay [maPhong=%d, tenPhong=%s, soMay=%d, moTa=%s, trangThai=%s, tang=%s, mayTinhs=%s]",
-	        maPhong, tenPhong, soMay, moTa, trangThai, tang != null ? tang.getTenTang() : "null",
-	        mayTinhs != null ? mayTinhs.toString() : "null");
+		return "PhongMay [maPhong=" + maPhong + ", tenPhong=" + tenPhong + ", soMay=" + soMay + ", moTa=" + moTa
+				+ ", trangThai=" + trangThai + ", tang=" + tang + ", mayTinhs=" + mayTinhs + "]";
 	}
 
 }

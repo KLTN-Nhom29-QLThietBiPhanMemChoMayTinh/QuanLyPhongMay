@@ -19,7 +19,7 @@ public class NhanVienServiceImpl implements NhanVienService {
 	private NhanVienRepository nhanVienRepository;
 
 	@Autowired
-	private UserRepository userRepository;
+	private  UserRepository userRepository;
 	
 	@Override
 	public NhanVien layNVTheoMa(String maNV) {

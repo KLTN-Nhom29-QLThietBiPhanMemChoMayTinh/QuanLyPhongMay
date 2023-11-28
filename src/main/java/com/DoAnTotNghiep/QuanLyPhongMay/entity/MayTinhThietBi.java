@@ -11,18 +11,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @IdClass(MayTinhThietBiPK.class)
 @Table(name = "maytinh_thietbi")
 public class MayTinhThietBi {
 	@Id
-	@ManyToOne(cascade = CascadeType.ALL)
-
+	@ManyToOne
 	@JoinColumn(name = "ma_may")
 	private MayTinh mayTinh;
 	@Id
-	@ManyToOne(cascade = CascadeType.ALL)
-
+	@ManyToOne
 	@JoinColumn(name = "ma_thiet_bi")
 	private ThietBiMay thietBi;
 

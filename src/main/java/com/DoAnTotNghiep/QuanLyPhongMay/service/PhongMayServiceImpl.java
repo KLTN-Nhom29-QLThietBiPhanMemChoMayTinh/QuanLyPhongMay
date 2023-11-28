@@ -15,7 +15,7 @@ public class PhongMayServiceImpl implements PhongMayService{
 
 
 	@Autowired
-	private PhongMayRepository phongMayRepository;
+	private  PhongMayRepository phongMayRepository;
 	
 	@Override
 	public PhongMay layPhongMayTheoMa(Long maPhong) {
@@ -45,19 +45,15 @@ public class PhongMayServiceImpl implements PhongMayService{
 	}
 
 	@Override
-	public PhongMay capNhat(PhongMay phongMay) {
-		return phongMayRepository.save(phongMay);
+	public PhongMay capNhatTheoMa(Long maPhong, PhongMay phongMay) {
+	    Optional<PhongMay> phongMayDB = phongMayRepository.findById(maPhong);
+	    if (phongMayDB.isPresent()) {
+	        PhongMay phongMayCu = phongMayDB.get();
+	        return phongMayRepository.save(phongMayCu);
+	    }
+	    return null;
 	}
 
-	@Override
-	public PhongMay capNhatTheoMa(Long maPhong, PhongMay phongMay) {
-		 Optional<PhongMay> phongMayDB = phongMayRepository.findById(maPhong);
-	        if (phongMayDB.isPresent()) {
-	            PhongMay phongMayCu = phongMayDB.get();
-	            return phongMayRepository.save(phongMayCu);
-	        }
-	        return null;
-	}
 
 
 }

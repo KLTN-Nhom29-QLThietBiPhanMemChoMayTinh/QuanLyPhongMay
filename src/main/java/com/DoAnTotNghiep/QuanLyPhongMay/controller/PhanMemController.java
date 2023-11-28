@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhanMem;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 import com.DoAnTotNghiep.QuanLyPhongMay.service.PhanMemService;
 
 @RestController
@@ -36,5 +37,8 @@ public class PhanMemController {
         phanMemService.xoa(maPhanMem);
         return "Đã xoá quyền " + maPhanMem;
     }
-
+    @GetMapping("/PhanMem/{maPhanMem}")
+    public PhanMem layTangTheoMa(@PathVariable Long maPhanMem) {
+        return phanMemService.layPhanMemTheoMa(maPhanMem);
+    }
 }

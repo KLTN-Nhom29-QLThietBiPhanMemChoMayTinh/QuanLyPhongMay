@@ -10,7 +10,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.UserRepository;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private  UserRepository userRepository;
 
 	@Override
 	public TaiKhoan createUser(TaiKhoan nguoiDung) {

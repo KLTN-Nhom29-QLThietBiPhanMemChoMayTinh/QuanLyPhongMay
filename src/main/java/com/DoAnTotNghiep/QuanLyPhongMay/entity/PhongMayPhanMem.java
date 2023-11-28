@@ -11,12 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @IdClass(PhongMayPhanMemPK.class)
 @Table(name = "phongmay_phanmem")
 public class PhongMayPhanMem {
 
-	 @Id
+	 	@Id
 	    @ManyToOne(cascade = CascadeType.ALL)
 	    @JoinColumn(name = "ma_phong")
 	    private PhongMay phongMay;
@@ -63,7 +66,6 @@ public class PhongMayPhanMem {
 
 	public PhongMayPhanMem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

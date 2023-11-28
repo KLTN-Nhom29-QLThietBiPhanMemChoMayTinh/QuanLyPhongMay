@@ -12,7 +12,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocPhanMemRepository;
 public class MonHocPhanMemServiceImpl implements MonHocPhanMemService{
 
 	@Autowired
-	private MonHocPhanMemRepository monHocPhanMemRepository;
+	private  MonHocPhanMemRepository monHocPhanMemRepository;
 	
 	@Override
 	public List<MonHocPhanMem> layDSMHPMTheoMa(Long maMon) {
