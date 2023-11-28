@@ -1,5 +1,6 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,7 +28,6 @@ public class CaThucHanhController {
 
     @PostMapping("/LuuCaThucHanh")
     public CaThucHanh luu(@RequestBody CaThucHanh caThucHanh){
-    	System.out.println(caThucHanh);
         return caThucHanhService.luu(caThucHanh);
     }
 
@@ -49,11 +49,11 @@ public class CaThucHanhController {
         return caThucHanhService.layCaThucHanhTheoMa(maCaThucHanh);
     }
     @GetMapping("/DSCaThucHanhTheoMonHoc/{maMon}")
-    public ResponseEntity<List<CaThucHanh>> layDSCaThucHanhTheoMonHoc(@PathVariable Long maMon) {
+    public ResponseEntity<?> layDSCaThucHanhTheoMonHoc(@PathVariable Long maMon) {
         List<CaThucHanh> dsCaThucHanh = caThucHanhService.layDSCaThucHanhTheoMonHoc(maMon);
         
         if (dsCaThucHanh.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.ok(new ArrayList<>());
         }
 
         return new ResponseEntity<>(dsCaThucHanh, HttpStatus.OK);

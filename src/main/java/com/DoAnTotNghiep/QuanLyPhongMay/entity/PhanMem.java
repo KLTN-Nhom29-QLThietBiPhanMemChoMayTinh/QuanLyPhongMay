@@ -14,7 +14,7 @@ public class PhanMem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ma_phanmem")
 	private Long maPhanMem;
-	@Column(name = "ten_phanmem", columnDefinition = "nvarchar(100)", nullable = false)
+	@Column(name = "ten_phanmem", columnDefinition = "nvarchar(100)")
 	private String tenPhanMem;
 	@Column(name = "trang_thai", columnDefinition = "boolean default true")
 	private boolean trangThai;

@@ -23,12 +23,11 @@ public class MonHocPhanMemController {
 	
 	@Autowired
     private MonHocPhanMemService monHocPhanMemService;
-	@Autowired
-	private MonHocPhanMemRepository2 monHocPhanMemRepository2;
+	
 
     @PostMapping("/LuuMonHocPhanMem")
     public MonHocPhanMem luu(@RequestBody MonHocPhanMem monHocPhanMem){
-        return monHocPhanMemRepository2.save(monHocPhanMem);
+        return monHocPhanMemService.luu(monHocPhanMem);
     }
 
     @GetMapping("/DSMonHocPhanMem/{maMon}")

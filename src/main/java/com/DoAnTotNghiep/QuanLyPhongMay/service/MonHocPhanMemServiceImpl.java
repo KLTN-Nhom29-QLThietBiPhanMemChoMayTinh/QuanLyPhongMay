@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MonHocPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocPhanMemRepository;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocPhanMemRepository2;
 
 @Service
 public class MonHocPhanMemServiceImpl implements MonHocPhanMemService{
 
 	@Autowired
 	private  MonHocPhanMemRepository monHocPhanMemRepository;
-	
+	@Autowired
+	private MonHocPhanMemRepository2 monHocPhanMemRepository2;
 	@Override
 	public List<MonHocPhanMem> layDSMHPMTheoMa(Long maMon) {
 		return monHocPhanMemRepository.layDSMHPMTheoMa(maMon);
@@ -26,7 +28,7 @@ public class MonHocPhanMemServiceImpl implements MonHocPhanMemService{
 
 	@Override
 	public MonHocPhanMem luu(MonHocPhanMem monHocPhanMem) {
-		return monHocPhanMemRepository.luu(monHocPhanMem);
+		return monHocPhanMemRepository2.save(monHocPhanMem);
 	}
 
 	@Override
