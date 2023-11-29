@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository;
+import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository2;
 
 @Service
 public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 
 	@Autowired
 	private PhongMayPhanMemRepository phongMayPhanMemRepository;
-	
+	@Autowired
+	private PhongMayPhanMemRepository2 phongMayPhanMemRepository2;
 	@Override
 	public List<PhongMayPhanMem> layDSPMPMTheoMa(Long maPhong) {
 		return phongMayPhanMemRepository.layDSPMPMTheoMa(maPhong);
@@ -39,6 +41,10 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 	@Override
 	public List<PhongMayPhanMem> layDSPMPMTheoMaPhanMem(Long maPhanMem) {
 		return phongMayPhanMemRepository.layDSPMPMTheoMaPhanMem(maPhanMem);
+	}
+	@Override
+	public List<PhongMayPhanMem> findByStatus(boolean status) {
+		return phongMayPhanMemRepository2.findByStatus(status);
 	}
 
 }

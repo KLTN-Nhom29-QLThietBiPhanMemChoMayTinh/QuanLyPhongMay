@@ -30,7 +30,10 @@ public class ThietBiController {
     public List<ThietBiMay> layDSThietBiMay(){
         return thietBiMayService.layDSThietBiMay();
     }
-    
+    @GetMapping("DSThietBiMaytheoTrangThai/{status}")
+    public List<ThietBiMay> getThietBiMaysByStatus(@PathVariable boolean  status) {
+        return thietBiMayService.findByStatus(status);
+    }
     @GetMapping("/ThietBiMay/{maThietBi}")
     public ThietBiMay layThietBiMayTheoMa(@PathVariable Long maThietBi){
         return thietBiMayService.layThietBiMayTheoMa(maThietBi);

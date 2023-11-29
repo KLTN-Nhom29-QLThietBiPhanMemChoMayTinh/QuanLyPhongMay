@@ -53,7 +53,7 @@ public class CaThucHanhController {
         List<CaThucHanh> dsCaThucHanh = caThucHanhService.layDSCaThucHanhTheoMonHoc(maMon);
         
         if (dsCaThucHanh.isEmpty()) {
-            return ResponseEntity.ok(new ArrayList<>());
+            return  ResponseEntity.ok(new ArrayList<>());
         }
 
         return new ResponseEntity<>(dsCaThucHanh, HttpStatus.OK);

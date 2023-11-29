@@ -27,7 +27,7 @@ public class MayTinh {
     @Column(name = "ma_may")
     private Long maMay;
 
-    @Column(name = "trang_thai",columnDefinition = "nvarchar(50) DEFAULT N'Đang sử dụng  ' CHECK (trang_thai IN (N'Đã hỏng', N'Đang hoạt động'))")
+    @Column(name = "trang_thai",columnDefinition = "nvarchar(50) DEFAULT N'Đang hoạt động ' CHECK (trang_thai IN (N'Đã hỏng', N'Đang hoạt động'))")
     private String trangThai= "Đang hoạt động";
 
     @Column(name = "mo_ta")

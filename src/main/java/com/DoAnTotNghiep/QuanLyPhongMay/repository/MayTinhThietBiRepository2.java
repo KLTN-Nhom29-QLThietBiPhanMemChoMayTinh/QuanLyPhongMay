@@ -17,5 +17,7 @@ public interface MayTinhThietBiRepository2 extends JpaRepository<MayTinhThietBi,
 	@Modifying
 	@Transactional
 	@Query("DELETE FROM MayTinhThietBi mttb WHERE mttb.mayTinh.maMay = :maMay")
-	void xoaTheoMaMay(@Param("maMay") Long maMay);
+	public void xoaTheoMaMay(@Param("maMay") Long maMay);
+	
+	public List<MayTinhThietBi> findByStatus(boolean status);
 }

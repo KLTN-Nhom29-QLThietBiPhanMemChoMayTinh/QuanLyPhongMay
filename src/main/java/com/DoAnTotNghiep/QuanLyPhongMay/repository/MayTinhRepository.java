@@ -9,4 +9,5 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinh;
 @Repository
 public interface MayTinhRepository extends JpaRepository<MayTinh, Long>{
 	public  List<MayTinh> findByPhongMay_MaPhong(Long maPhong);
+	public List<MayTinh> findByTrangThai(String trangThai);
 }

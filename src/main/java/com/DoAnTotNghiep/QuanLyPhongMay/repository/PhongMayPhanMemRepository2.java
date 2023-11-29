@@ -10,5 +10,5 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMemPK;
 
 @Repository
 public interface PhongMayPhanMemRepository2 extends JpaRepository<PhongMayPhanMem, PhongMayPhanMemPK> {
-	
+	public	List<PhongMayPhanMem> findByStatus(boolean status);
 }

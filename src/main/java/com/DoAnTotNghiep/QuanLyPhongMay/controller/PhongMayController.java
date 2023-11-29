@@ -55,7 +55,10 @@ public class PhongMayController {
     public List<PhongMay> layDSPhongMay(){
         return phongMayService.layDSPhongMay();
     }
-    
+    @GetMapping("/DSPhongMaytheoTrangThai/{trangThai}")
+    public List<PhongMay> getPhongMaysByTrangThai(@PathVariable String trangThai) {
+        return phongMayService.findByTrangThai(trangThai);
+    }
     //
     @GetMapping("/DSPhongMay2")
     public ResponseEntity<?> layDSPhongMay2(){

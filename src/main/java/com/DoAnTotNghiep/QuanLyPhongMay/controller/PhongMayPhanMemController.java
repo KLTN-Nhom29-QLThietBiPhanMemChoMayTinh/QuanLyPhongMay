@@ -40,7 +40,10 @@ public class PhongMayPhanMemController {
     public List<PhongMayPhanMem> layDSPhongMayPhanMemTheoMaPhanMem(@PathVariable Long maPhanMem){
         return phongMayPhanMemService.layDSPMPMTheoMaPhanMem(maPhanMem);
     }
-    
+    @GetMapping("DSPhongMayPhanMemtheoTrangThai/{status}")
+    public List<PhongMayPhanMem> getPhongMayPhanMemsByStatus(@PathVariable boolean status) {
+        return phongMayPhanMemService.findByStatus(status);
+    }
     @DeleteMapping("/XoaPhongMayPhanMem/{maPhong}/{maPhanMem}")
     public String xoa(@PathVariable Long maPhong,@PathVariable Long maPhanMem){
     	

@@ -10,7 +10,7 @@ public interface PhanMemService {
 	public List<PhanMem> layDSPhanMem();
 
 	public void xoa(Long maPhanMem);
-
+	 public List<PhanMem> findByTrangThai(boolean trangThai);
 	public PhanMem luu(PhanMem phanMem);
 
 }

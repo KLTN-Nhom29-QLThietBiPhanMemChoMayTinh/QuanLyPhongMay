@@ -11,7 +11,7 @@ public interface MayTinhThietBiService {
 
 	public MayTinhThietBi luu(MayTinhThietBi mayTinhThietBi);
 	public void xoaTheoMaMay(Long maMay);
-
+	public List<MayTinhThietBi> findByStatus(boolean status);
 	public List<MayTinhThietBi> layDanhSachMayTinhThietBi();
 	public List<MayTinhThietBi> layDSMTTBTheoMaThietBi(Long maThietBi);
 	public List<MayTinhThietBi> layDSMTTB(Long maMay);

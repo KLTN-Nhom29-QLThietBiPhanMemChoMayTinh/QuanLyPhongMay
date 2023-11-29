@@ -28,7 +28,10 @@ public class PhongMayServiceImpl implements PhongMayService{
 			return phongMay;
 		}
 	}
-
+	@Override
+	public List<PhongMay> findByTrangThai(String trangThai) {
+        return phongMayRepository.findByTrangThai(trangThai);
+    }
 	@Override
 	public List<PhongMay> layDSPhongMay() {
 		return phongMayRepository.findAll();

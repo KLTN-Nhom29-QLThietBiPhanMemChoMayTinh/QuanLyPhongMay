@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhanMem;
@@ -30,6 +31,10 @@ public class PhanMemController {
     @GetMapping("/DSPhanMem")
     public List<PhanMem> layDSPhanMem(){
         return phanMemService.layDSPhanMem();
+    }
+    @GetMapping("/DSPhanMemtheoTrangThai/{trangThai}")
+    public List<PhanMem> getPhanMemsByTrangThai(@PathVariable boolean trangThai) {
+        return phanMemService.findByTrangThai(trangThai);
     }
 
     @DeleteMapping("/XoaPhanMem/{maPhanMem}")

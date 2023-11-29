@@ -39,7 +39,10 @@ public class MayTinhThietBiController {
     public List<MayTinhThietBi> layDSMayTinhThietBiTheoMaThietBi(@PathVariable Long maThietBi){
         return mayTinhThietBiService.layDSMTTBTheoMaThietBi(maThietBi);
     }
-    
+    @GetMapping("DSMayTinhThietBitheoTrangThai/{status}")
+    public List<MayTinhThietBi> getMayTinhThietBisByStatus(@PathVariable boolean status) {
+        return mayTinhThietBiService.findByStatus(status);
+    }
     @DeleteMapping("/XoaMayTinhThietBi/{maMay}/{maThietBi}")
     public String xoa(@PathVariable Long maMay,@PathVariable Long maThietBi){
     	mayTinhThietBiService.xoa(maMay,maThietBi);

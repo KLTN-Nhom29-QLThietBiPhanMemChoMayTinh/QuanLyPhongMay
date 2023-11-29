@@ -10,6 +10,6 @@ public interface ThietBiMayService {
 	public List<ThietBiMay> layDSThietBiMay();
 
 	public void xoa(Long maThietBi);
-
+	 public List<ThietBiMay> findByStatus(boolean status) ;
 	public ThietBiMay luu(ThietBiMay thietBiMay);
 }

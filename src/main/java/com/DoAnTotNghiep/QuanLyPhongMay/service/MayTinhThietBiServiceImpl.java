@@ -57,4 +57,8 @@ public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
     public MayTinhThietBi updateMayTinhThietBi(MayTinhThietBi mayTinhThietBi) {
 		 return mayTinhThietBiRepository2.save(mayTinhThietBi);
     }
+	@Override
+	public List<MayTinhThietBi> findByStatus(boolean status) {
+		return mayTinhThietBiRepository2.findByStatus(status);
+	}
 }

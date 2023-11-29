@@ -44,12 +44,6 @@ public class GhiChu {
 	}
 
 	
-	public GhiChu() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
 	public void setMaGhiChu(Long maGhiChu) {
 		this.maGhiChu = maGhiChu;
 	}

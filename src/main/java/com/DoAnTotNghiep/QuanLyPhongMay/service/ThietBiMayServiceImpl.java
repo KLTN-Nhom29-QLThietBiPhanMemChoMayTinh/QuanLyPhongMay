@@ -42,4 +42,9 @@ public class ThietBiMayServiceImpl implements ThietBiMayService{
 		return thietBiMayRepository.save(thietBiMay);
 	}
 
+	@Override
+	public List<ThietBiMay> findByStatus(boolean status) {
+		return thietBiMayRepository.findByStatus(status);
+	}
+
 }

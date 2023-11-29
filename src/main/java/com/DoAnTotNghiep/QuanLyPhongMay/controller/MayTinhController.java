@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinh;
@@ -41,6 +42,10 @@ public class MayTinhController {
 	public MayTinh luu(@RequestBody MayTinh mayTinh) {
 		System.out.println(mayTinh);
 		return mayTinhService.luu(mayTinh);
+	}
+	@GetMapping("/DSMayTinhtheoTrangThai/{trangThai}")
+	public List<MayTinh> getMayTinhsByTrangThai(@PathVariable String trangThai) {
+	    return mayTinhService.findByTrangThai(trangThai);
 	}
 
 	@GetMapping("/DSMayTinh")

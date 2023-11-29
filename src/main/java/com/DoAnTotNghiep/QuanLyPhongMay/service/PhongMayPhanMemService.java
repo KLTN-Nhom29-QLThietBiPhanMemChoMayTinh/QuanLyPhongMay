@@ -6,7 +6,7 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 
 public interface PhongMayPhanMemService {
 	public List<PhongMayPhanMem> layDSPMPMTheoMa(Long maPhong);
-	
+	 public List<PhongMayPhanMem> findByStatus(boolean status);
 	public List<PhongMayPhanMem> layDSPMPMTheoMaPhanMem(Long maPhanMem);
 	
 	public void xoa(Long maPhong, Long maPhanMem);

@@ -44,4 +44,9 @@ public class PhanMemServiceImpl implements PhanMemService{
 		return phanMemRepository.save(phanMem);
 	}
 
+	@Override
+	public List<PhanMem> findByTrangThai(boolean trangThai) {
+		 return phanMemRepository.findByTrangThai(trangThai);
+	}
+
 }

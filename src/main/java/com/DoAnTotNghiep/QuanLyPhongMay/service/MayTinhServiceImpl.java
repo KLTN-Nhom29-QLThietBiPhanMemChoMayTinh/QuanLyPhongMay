@@ -27,6 +27,10 @@ public class MayTinhServiceImpl implements MayTinhService{
 		}
 	}
 	@Override
+	public List<MayTinh> findByTrangThai(String trangThai) {
+        return mayTinhRepository.findByTrangThai(trangThai);
+    }
+	@Override
     public List<MayTinh> layDSMayTinhTheoMaPhong(Long maPhong) {
         return mayTinhRepository.findByPhongMay_MaPhong(maPhong);
     }

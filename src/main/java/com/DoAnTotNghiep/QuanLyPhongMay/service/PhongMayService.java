@@ -12,7 +12,7 @@ public interface PhongMayService {
 	public void xoa(Long maPhong);
 
 	public PhongMay luu(PhongMay phongMay);
-
+	public List<PhongMay> findByTrangThai(String trangThai);
 
 	public PhongMay capNhatTheoMa(Long maPhong, PhongMay phongMay);
 
