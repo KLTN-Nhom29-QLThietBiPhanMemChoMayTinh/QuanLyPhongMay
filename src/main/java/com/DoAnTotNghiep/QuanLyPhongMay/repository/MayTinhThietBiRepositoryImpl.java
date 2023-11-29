@@ -33,7 +33,7 @@ public class MayTinhThietBiRepositoryImpl implements MayTinhThietBiRepository{
 	@Override
 	@Transactional
 	public void xoa(Long maMay, Long maThietBi) {
-		Query query = entityManager.createNativeQuery("delete from maytinh_thietbi where ma_may = " + maMay + " and ma_thiet_bi = '" + maThietBi + "'");
+		Query query = entityManager.createNativeQuery("delete from maytinh_thietbi where ma_may = " + maMay + " and ma_thiet_bi = " + maThietBi + "");
     	query.executeUpdate();
 	}
 

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Optional;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinhThietBi;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
@@ -24,8 +26,14 @@ public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
 		return mayTinhThietBiRepository.layDSMTTBheoMa(maMay);
 	}
 	@Override
+	@Transactional
 	public void xoa(Long maMay, Long maThietBi) {
 		mayTinhThietBiRepository.xoa(maMay, maThietBi);
+	}
+	@Override
+	@Transactional
+	public void xoaTheoMaMay(Long maMay) {
+	    mayTinhThietBiRepository2.xoaTheoMaMay(maMay);
 	}
 
 	@Override

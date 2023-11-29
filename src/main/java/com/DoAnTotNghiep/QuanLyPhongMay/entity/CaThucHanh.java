@@ -62,7 +62,7 @@ public class CaThucHanh {
     private GiaoVien giaoVien;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ma_phong_may")
+    @JoinColumn(name = "ma_phong")
     private PhongMay phongMay;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)

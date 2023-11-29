@@ -14,5 +14,5 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.GhiChu;
 public interface GhiChuRepository extends JpaRepository<GhiChu, Long>{
 	public List<GhiChu> findByNgayBaoLoi( @Temporal(TemporalType.DATE) Date ngayBaoLoi);
 	public List<GhiChu> findByNgaySua( @Temporal(TemporalType.DATE) Date ngaySua);
-//	public List<GhiChu> findByPhongMay_MaPhongMay(long maPhong);
+	public List<GhiChu> findByPhongMay_MaPhong(Long maPhong);
 }

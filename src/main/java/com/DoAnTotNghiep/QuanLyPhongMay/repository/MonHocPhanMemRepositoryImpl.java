@@ -30,7 +30,7 @@ public class MonHocPhanMemRepositoryImpl  implements MonHocPhanMemRepository{
 	@Override
 	@Transactional
 	public void xoa(Long maMon, Long maPhanMem) {
-		Query query = entityManager.createNativeQuery("delete from monhoc_phanmem where ma_mon = " + maMon + " and ma_phanmem = '" + maPhanMem + "'");
+		Query query = entityManager.createNativeQuery("delete from monhoc_phanmem where ma_mon = " + maMon + " and ma_phanmem = " + maPhanMem + "");
     	query.executeUpdate();
 		
 	}

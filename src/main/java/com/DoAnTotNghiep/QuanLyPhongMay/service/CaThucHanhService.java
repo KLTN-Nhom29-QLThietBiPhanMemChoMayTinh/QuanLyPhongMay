@@ -15,4 +15,6 @@ public interface CaThucHanhService {
 	List<CaThucHanh> layDSCaThucHanhTheoNgay(Date ngayThucHanh);
 
 	List<CaThucHanh> layDSCaThucHanhTheoMonHoc(Long maMon);
+
+	public List<CaThucHanh> layDSCaThucHanhTheoMaPhong(Long maPhong);
 }

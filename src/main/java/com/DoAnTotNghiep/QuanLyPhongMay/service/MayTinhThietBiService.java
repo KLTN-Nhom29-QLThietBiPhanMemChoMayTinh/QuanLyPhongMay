@@ -10,7 +10,8 @@ public interface MayTinhThietBiService {
 	public void xoa(Long maMay, Long maThietBi);
 
 	public MayTinhThietBi luu(MayTinhThietBi mayTinhThietBi);
-	
+	public void xoaTheoMaMay(Long maMay);
+
 	public List<MayTinhThietBi> layDanhSachMayTinhThietBi();
 	public List<MayTinhThietBi> layDSMTTBTheoMaThietBi(Long maThietBi);
 	public List<MayTinhThietBi> layDSMTTB(Long maMay);

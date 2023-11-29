@@ -51,5 +51,9 @@ public class CaThucHanhServiceImpl implements CaThucHanhService{
 	public CaThucHanh luu(CaThucHanh caThucHanh) {
 		return caThucHanhRepository.save(caThucHanh);
 	}
+	@Override
+	public List<CaThucHanh> layDSCaThucHanhTheoMaPhong(Long maPhong) {
+		return caThucHanhRepository.findByPhongMay_MaPhong(maPhong);
+	}
 
 }

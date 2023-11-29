@@ -10,6 +10,6 @@ public interface MayTinhService {
 	public List<MayTinh> layDSMayTinh();
 
 	public void xoa(Long maMay);
-
+	  public List<MayTinh> layDSMayTinhTheoMaPhong(Long maPhong);
 	public MayTinh luu(MayTinh mayTinh);
 }

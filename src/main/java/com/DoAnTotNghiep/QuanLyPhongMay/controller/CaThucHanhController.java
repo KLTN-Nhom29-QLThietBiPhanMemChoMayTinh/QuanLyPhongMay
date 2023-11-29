@@ -49,7 +49,7 @@ public class CaThucHanhController {
         return caThucHanhService.layCaThucHanhTheoMa(maCaThucHanh);
     }
     @GetMapping("/DSCaThucHanhTheoMonHoc/{maMon}")
-    public ResponseEntity<?> layDSCaThucHanhTheoMonHoc(@PathVariable Long maMon) {
+    public ResponseEntity<List<CaThucHanh>> layDSCaThucHanhTheoMonHoc(@PathVariable Long maMon) {
         List<CaThucHanh> dsCaThucHanh = caThucHanhService.layDSCaThucHanhTheoMonHoc(maMon);
         
         if (dsCaThucHanh.isEmpty()) {

@@ -32,7 +32,7 @@ public class PhongMayPhanMemRepositoryImpl implements PhongMayPhanMemRepository{
 	@Override
 	@Transactional
 	public void xoa(Long maPhong, Long maPhanMem) {
-		Query query = entityManager.createNativeQuery("delete from phongmay_phanmem where ma_phong = " + maPhong + " and ma_phanmem = '" + maPhanMem + "'");
+		Query query = entityManager.createNativeQuery("delete from phongmay_phanmem where ma_phong = " + maPhong + " and ma_phanmem = " + maPhanMem + "");
     	query.executeUpdate();
 	}
 

@@ -55,9 +55,9 @@ public class GhiChuServiceImpl implements GhiChuService{
 	public List<GhiChu> layDSGhiChuTheoNgayBaoLoi(Date ngayBaoLoi) {
 		return ghiChuRepository.findByNgayBaoLoi(ngayBaoLoi);
 	}
-//	@Override
-//	public List<GhiChu> layDSGhiChuTheoPhongMay(long maPhong) {
-//		return ghiChuRepository.findByPhongMay_MaPhongMay(maPhong);
-//	}
+	@Override
+	public List<GhiChu> layDSGhiChuTheoPhongMay(Long maPhong) {
+		return ghiChuRepository.findByPhongMay_MaPhong(maPhong);
+	}
 
 }

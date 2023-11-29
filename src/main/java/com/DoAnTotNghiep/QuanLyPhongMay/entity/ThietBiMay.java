@@ -38,7 +38,7 @@ public class ThietBiMay {
 	@JoinColumn(name = "status", columnDefinition = "boolean default true")
 	private boolean status = true;
 
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ma_loai", nullable = false)
 	private LoaiThietBi loaiThietBi;
 

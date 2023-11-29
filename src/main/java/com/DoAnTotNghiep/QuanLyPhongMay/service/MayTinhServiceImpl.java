@@ -13,7 +13,8 @@ public class MayTinhServiceImpl implements MayTinhService{
 
 	@Autowired
 	private  MayTinhRepository mayTinhRepository;
-	
+	@Autowired 
+	private  MayTinhThietBiService  mayTinhThietBiService;
 	@Override
 	public MayTinh layMayTinhTheoMa(Long maMay) {
 		MayTinh mayTinh = null;
@@ -25,7 +26,10 @@ public class MayTinhServiceImpl implements MayTinhService{
 			return mayTinh;
 		}
 	}
-
+	@Override
+    public List<MayTinh> layDSMayTinhTheoMaPhong(Long maPhong) {
+        return mayTinhRepository.findByPhongMay_MaPhong(maPhong);
+    }
 	@Override
 	public List<MayTinh> layDSMayTinh() {
 		return mayTinhRepository.findAll();
@@ -33,8 +37,10 @@ public class MayTinhServiceImpl implements MayTinhService{
 
 	@Override
 	public void xoa(Long maMay) {
-		mayTinhRepository.deleteById(maMay);
+	    mayTinhThietBiService.xoaTheoMaMay(maMay);
+	    mayTinhRepository.deleteById(maMay);
 	}
+
 
 	@Override
 	public MayTinh luu(MayTinh mayTinh) {

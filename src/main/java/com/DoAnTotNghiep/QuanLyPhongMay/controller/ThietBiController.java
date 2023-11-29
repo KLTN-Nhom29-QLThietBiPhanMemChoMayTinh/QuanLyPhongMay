@@ -23,7 +23,6 @@ public class ThietBiController {
 
     @PostMapping("/LuuThietBiMay")
     public ThietBiMay luu(@RequestBody ThietBiMay thietBiMay){
-    	System.out.println(thietBiMay);
         return thietBiMayService.luu(thietBiMay);
     }
 

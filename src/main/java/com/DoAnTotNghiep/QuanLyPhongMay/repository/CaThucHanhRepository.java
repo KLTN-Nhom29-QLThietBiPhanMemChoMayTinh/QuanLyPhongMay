@@ -15,5 +15,6 @@ import com.DoAnTotNghiep.QuanLyPhongMay.entity.CaThucHanh;
 public interface CaThucHanhRepository extends JpaRepository<CaThucHanh, Long> {
 	public List<CaThucHanh> findByNgayThucHanh( @Temporal(TemporalType.DATE) Date ngayThucHanh);
 	public List<CaThucHanh> findByMonHoc_MaMon(Long maMon);
+	public List<CaThucHanh> findByPhongMay_MaPhong(Long maPhong);
 }
 

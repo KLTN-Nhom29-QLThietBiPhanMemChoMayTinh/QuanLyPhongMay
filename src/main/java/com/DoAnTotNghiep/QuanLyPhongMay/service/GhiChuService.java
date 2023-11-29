@@ -15,5 +15,5 @@ public interface GhiChuService {
 	public GhiChu luu(GhiChu ghiChu);
 	List<GhiChu> layDSGhiChuTheoNgaySua(Date ngaySua);
 	List<GhiChu> layDSGhiChuTheoNgayBaoLoi(Date ngayBaoLoi);
-//	List<GhiChu> layDSGhiChuTheoPhongMay(long maPhong);
+	List<GhiChu> layDSGhiChuTheoPhongMay(Long maPhong);
 }

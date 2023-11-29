@@ -39,7 +39,7 @@ public class GiaoVien {
     private String hocVi;
 	
     @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ma_tai_khoan", referencedColumnName = "ma_tk")
+    @JoinColumn(name = "ma_gv", referencedColumnName = "ma_tk")
     private TaiKhoan taiKhoan;
     
     @ManyToOne(cascade = CascadeType.PERSIST)
