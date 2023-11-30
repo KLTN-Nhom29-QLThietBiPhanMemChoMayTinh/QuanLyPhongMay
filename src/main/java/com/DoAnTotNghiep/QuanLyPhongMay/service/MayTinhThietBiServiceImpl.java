@@ -35,6 +35,11 @@ public class MayTinhThietBiServiceImpl implements MayTinhThietBiService{
 	public void xoaTheoMaMay(Long maMay) {
 	    mayTinhThietBiRepository2.xoaTheoMaMay(maMay);
 	}
+	@Override
+	@Transactional
+	public void xoaTheoMaThietBi(Long maThietBi) {
+	    mayTinhThietBiRepository2.xoaTheoMaThietBi(maThietBi);
+	}
 
 	@Override
 	public MayTinhThietBi luu(MayTinhThietBi mayTinhThietBi) {

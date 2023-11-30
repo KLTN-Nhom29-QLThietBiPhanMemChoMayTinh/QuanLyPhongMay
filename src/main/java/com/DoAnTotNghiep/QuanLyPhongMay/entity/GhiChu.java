@@ -18,6 +18,12 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "ghi_chu")
 public class GhiChu {
+	public GhiChu() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	//Ghi chú:( mã ghi chú, mã phòng, ngày báo lỗi,ngày sửa, nội dung)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

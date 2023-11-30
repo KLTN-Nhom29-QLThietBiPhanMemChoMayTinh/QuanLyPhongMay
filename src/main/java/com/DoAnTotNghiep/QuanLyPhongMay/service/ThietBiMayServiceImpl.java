@@ -12,7 +12,8 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.ThietBiMayRepository;
 
 @Service
 public class ThietBiMayServiceImpl implements ThietBiMayService{
-
+	@Autowired 
+	private  MayTinhThietBiService  mayTinhThietBiService;
 	@Autowired
 	private  ThietBiMayRepository thietBiMayRepository;
 	@Override
@@ -34,6 +35,7 @@ public class ThietBiMayServiceImpl implements ThietBiMayService{
 
 	@Override
 	public void xoa(Long maThietBi) {
+		 mayTinhThietBiService.xoaTheoMaMay(maThietBi);
 		thietBiMayRepository.deleteById(maThietBi);
 	}
 
