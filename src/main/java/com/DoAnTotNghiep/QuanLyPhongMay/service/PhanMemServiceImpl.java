@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.ToaNha;
@@ -13,7 +14,10 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhanMemRepository;
 @Service
 public class PhanMemServiceImpl implements PhanMemService{
 
-
+	@Autowired
+	private PhongMayPhanMemService phongMayPhanMemService;
+	@Autowired
+	private MonHocPhanMemService monHocPhanMemService;
 	@Autowired
 	private  PhanMemRepository phanMemRepository;
 	
@@ -36,6 +40,8 @@ public class PhanMemServiceImpl implements PhanMemService{
 
 	@Override
 	public void xoa(Long maPhanMem) {
+		phongMayPhanMemService.XoaTheoMaPhanMem(maPhanMem);
+		monHocPhanMemService.xoaTheoMaPhanMem(maPhanMem);
 		phanMemRepository.deleteById(maPhanMem);
 	}
 

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.LichTruc;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
@@ -39,6 +40,7 @@ public class ToaNhaServiceImpl implements ToaNhaService{
 	}
 
 	@Override
+    @Transactional
     public void xoa(Long maToaNha) {
         List<Tang> dsTang = tangService.layTangTheoToaNha(maToaNha);
         for (Tang tang : dsTang) {
@@ -50,6 +52,7 @@ public class ToaNhaServiceImpl implements ToaNhaService{
         }
         toaNhaRepository.deleteById(maToaNha);
     }
+
 
 	@Override
 	public ToaNha luu(ToaNha toaNha) {

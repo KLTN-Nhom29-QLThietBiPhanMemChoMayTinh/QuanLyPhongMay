@@ -35,17 +35,12 @@ import com.DoAnTotNghiep.QuanLyPhongMay.service.PhongMayService;
 @CrossOrigin
 public class PhongMayController {
 	
-	@PersistenceContext
-    private EntityManager entityManager;
+	
     @Autowired
     private PhongMayService phongMayService;
     @Autowired
-    private MayTinhService mayTinhService;
-    @Autowired
     private PhongMayPhanMemService phongMayPhanMemService;
-    @Autowired
-    private CaThucHanhService  caThucHanhService;
-
+    
     @PostMapping("/LuuPhongMay")
     public PhongMay luu(@RequestBody PhongMay phongMay){
         return phongMayService.luu(phongMay);
@@ -98,31 +93,12 @@ public class PhongMayController {
     @DeleteMapping("/XoaPhongMay/{maPhong}")
     @Transactional
     public String xoa(@PathVariable Long maPhong) {
-
-            List<MayTinh> danhSachMayTinh = mayTinhService.layDSMayTinhTheoMaPhong(maPhong);
-            List<PhongMayPhanMem> danhSachPhongMayPhanMem = phongMayPhanMemService.layDSPMPM(maPhong);
-            List<CaThucHanh> danhSachCaThucHanh = caThucHanhService.layDSCaThucHanhTheoMaPhong(maPhong);
-
-            for (MayTinh mayTinh : danhSachMayTinh) {
-                mayTinhService.xoa(mayTinh.getMaMay());
-            }
-
-            for (CaThucHanh caThucHanh : danhSachCaThucHanh) {
-                caThucHanhService.xoa(caThucHanh.getMaCa());
-            }
-
-            for (PhongMayPhanMem phongMayPhanMem : danhSachPhongMayPhanMem) {
-                phongMayPhanMemService.xoa(maPhong, phongMayPhanMem.getPhanMem().getMaPhanMem());
-            }   
-            entityManager.flush();
-            entityManager.clear();
             phongMayService.xoa(maPhong);
 
             return "Đã xoá " + maPhong;
         
     }
 
-   
    
     @PutMapping("/CapNhatPhongMay/{maPhong}")
     public PhongMay capNhatTheoMa(@PathVariable Long maPhong, @RequestBody PhongMay phongMay){

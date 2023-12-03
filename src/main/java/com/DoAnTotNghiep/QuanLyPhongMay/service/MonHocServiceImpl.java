@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MonHoc;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocRepository;
@@ -12,6 +13,8 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocRepository;
 @Service
 public class MonHocServiceImpl implements MonHocService{
 
+	@Autowired
+	private MonHocPhanMemService monHocPhanMemService;
 	@Autowired
 	private  MonHocRepository monHocRepository;
 
@@ -34,6 +37,7 @@ public class MonHocServiceImpl implements MonHocService{
 
 	@Override
 	public void xoa(Long maMon) {
+		monHocPhanMemService.xoaTheoMaMon(maMon);
 		monHocRepository.deleteById(maMon);
 	}
 

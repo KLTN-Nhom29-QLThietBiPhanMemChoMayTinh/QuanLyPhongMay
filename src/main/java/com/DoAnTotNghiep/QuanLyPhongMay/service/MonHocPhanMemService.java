@@ -15,4 +15,8 @@ public interface MonHocPhanMemService {
 	public List<MonHocPhanMem> layDSMHPM(Long maMon);
 
 	public List<MonHocPhanMem> layDanhSachMonHocPhanMem();
+	
+	public void xoaTheoMaPhanMem(Long maPhanMem);
+	
+	public void xoaTheoMaMon(Long maMon);
 }

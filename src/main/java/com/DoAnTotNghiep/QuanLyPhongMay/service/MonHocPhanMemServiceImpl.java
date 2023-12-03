@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MonHocPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.MonHocPhanMemRepository;
@@ -39,6 +40,20 @@ public class MonHocPhanMemServiceImpl implements MonHocPhanMemService{
 	@Override
 	public List<MonHocPhanMem> layDanhSachMonHocPhanMem() {
 	    return monHocPhanMemRepository.layDanhSachMonHocPhanMem();
+	}
+
+
+	@Override
+	@Transactional
+	public void xoaTheoMaPhanMem(Long maPhanMem) {
+		monHocPhanMemRepository2.XoaTheoMaPhanMem(maPhanMem);
+		
+	}
+
+	@Override
+	@Transactional
+	public void xoaTheoMaMon(Long maMon) {
+		monHocPhanMemRepository2.XoaTheoMaMon(maMon);	
 	}
 
 

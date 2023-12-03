@@ -58,7 +58,6 @@ public class AuthController {
 		System.out.println(taiKhoan2);
 		System.out.println(new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau()));
 		if (taiKhoan2 == null || !new BCryptPasswordEncoder().matches(taiKhoan.getMatKhau(), taiKhoan2.getMatKhau())) {
-//			return new ResponseEntity<>("Khong tim thay - "+ taiKhoan, HttpStatus.NOT_FOUND);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Đăng nhập không thành công. Sai thông tin");
 		}
 		

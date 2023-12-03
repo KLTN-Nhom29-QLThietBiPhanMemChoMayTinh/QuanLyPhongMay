@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
 import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhongMayPhanMemRepository;
@@ -20,11 +21,7 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 	public List<PhongMayPhanMem> layDSPMPMTheoMa(Long maPhong) {
 		return phongMayPhanMemRepository.layDSPMPMTheoMa(maPhong);
 	}
-	@Override
-	public void xoa(Long maPhong, Long maPhanMem) {
-		phongMayPhanMemRepository.xoa(maPhong, maPhanMem);
-	}
-
+	
 	@Override
 	public PhongMayPhanMem luu(PhongMayPhanMem phongMayPhanMem) {
 		return phongMayPhanMemRepository.luu(phongMayPhanMem);
@@ -45,6 +42,16 @@ public class PhongMayPhanMemServiceImpl implements PhongMayPhanMemService{
 	@Override
 	public List<PhongMayPhanMem> findByStatus(boolean status) {
 		return phongMayPhanMemRepository2.findByStatus(status);
+	}
+	@Override
+	@Transactional
+	public void XoaTheoMaPhanMem(Long maPhanMem) {
+		phongMayPhanMemRepository2.XoaTheoMaPhanMem(maPhanMem);
+	}
+	@Override
+	@Transactional
+	public void xoa(Long maPhong, Long maPhanMem) {
+		phongMayPhanMemRepository.xoa(maPhong, maPhanMem);
 	}
 
 }

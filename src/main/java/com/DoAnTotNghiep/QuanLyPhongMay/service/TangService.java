@@ -2,6 +2,8 @@ package com.DoAnTotNghiep.QuanLyPhongMay.service;
 
 import java.util.List;
 
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.LichTruc;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 
 public interface TangService {
@@ -16,4 +18,7 @@ public interface TangService {
 	public List<Tang> layTangTheoToaNha(Long maToaNha); 
 	
 	public Long tinhSoLuongTangTheoMaToaNha(Long maToaNha);
+	public List<PhongMay> layDSPhongMayTheoTang(Long maTang);
+	public List<LichTruc> layDSLichTrucTheoTang(Long maTang);
+
 }

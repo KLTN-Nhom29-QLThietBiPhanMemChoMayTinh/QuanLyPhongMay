@@ -30,7 +30,7 @@ public class GhiChu {
     @Column(name = "ma_ghichu")
     private Long maGhiChu;
 
-    @Column(name = "noi_dung", columnDefinition = "nvarchar(2500)")
+    @Column(name = "noi_dung", columnDefinition = "nvarchar(50)")
     private String noiDung;
 
     @ManyToOne

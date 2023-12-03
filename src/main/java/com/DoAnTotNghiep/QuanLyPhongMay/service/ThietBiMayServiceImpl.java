@@ -35,7 +35,7 @@ public class ThietBiMayServiceImpl implements ThietBiMayService{
 
 	@Override
 	public void xoa(Long maThietBi) {
-		 mayTinhThietBiService.xoaTheoMaMay(maThietBi);
+		mayTinhThietBiService.xoaTheoMaThietBi(maThietBi);
 		thietBiMayRepository.deleteById(maThietBi);
 	}
 

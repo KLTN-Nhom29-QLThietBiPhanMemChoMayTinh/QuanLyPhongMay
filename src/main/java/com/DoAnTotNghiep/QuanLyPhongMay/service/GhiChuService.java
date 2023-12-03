@@ -13,7 +13,8 @@ public interface GhiChuService {
 	public void xoa(Long maGhiChu);
 	public GhiChu capNhat(GhiChu ghiChu);
 	public GhiChu luu(GhiChu ghiChu);
-	List<GhiChu> layDSGhiChuTheoNgaySua(Date ngaySua);
-	List<GhiChu> layDSGhiChuTheoNgayBaoLoi(Date ngayBaoLoi);
-	List<GhiChu> layDSGhiChuTheoPhongMay(Long maPhong);
+	public List<GhiChu> layDSGhiChuTheoNgaySua(Date ngaySua);
+	public List<GhiChu> layDSGhiChuTheoNgayBaoLoi(Date ngayBaoLoi);
+	public List<GhiChu> layDSGhiChuTheoPhongMay(Long maPhong);
+	public GhiChu layGhiChuGanNhatTheoPhongMay(Long maPhong);
 }

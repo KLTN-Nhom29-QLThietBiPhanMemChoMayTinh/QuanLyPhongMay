@@ -16,4 +16,6 @@ public interface PhongMayService {
 
 	public PhongMay capNhatTheoMa(Long maPhong, PhongMay phongMay);
 
+	public List<PhongMay> layPhongMayTheoMaTang(Long maTang);
+
 }

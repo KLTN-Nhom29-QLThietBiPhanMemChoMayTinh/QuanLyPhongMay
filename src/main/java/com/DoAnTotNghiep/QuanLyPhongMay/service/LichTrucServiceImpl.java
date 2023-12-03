@@ -72,7 +72,8 @@ public class LichTrucServiceImpl implements LichTrucService{
 	            e.printStackTrace();
 	            return Collections.emptyList(); // hoặc trả về danh sách rỗng hoặc xử lý lỗi khác tùy thuộc vào yêu cầu của bạn
 	        }
-	    }	 @Override
+	    }	 
+	 @Override
 	    public LichTruc updateLichTruc(LichTruc lichTruc) {
 	        Optional<LichTruc> existingLichTruc = lichTrucRepository.findById(lichTruc.getMaLich());
 	        if (existingLichTruc.isPresent()) {
@@ -89,4 +90,7 @@ public class LichTrucServiceImpl implements LichTrucService{
 	            return null;
 	        }
 	    }
+	 
+	 
+	 
 }

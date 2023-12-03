@@ -1,8 +1,9 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -81,4 +82,20 @@ public class GhiChuController {
 	    	ghiChuService.xoa(maGhiChu);
 	        return "Đã xoá chức vụ " + maGhiChu;
 	    }
+	    @GetMapping("/GhiChuGanNhatTheoPhongMay/{maPhong}")
+	    public ResponseEntity<GhiChu> layGhiChuGanNhatTheoPhongMay(@PathVariable Long maPhong) {
+	        List<GhiChu> dsGhiChu = ghiChuService.layDSGhiChuTheoPhongMay(maPhong);
+
+	        if (dsGhiChu.isEmpty()) {
+	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	        }
+
+	        // Tìm GhiChu có ngày báo lỗi gần nhất
+	        GhiChu ghiChuGanNhat = dsGhiChu.stream()
+	                .max(Comparator.comparing(GhiChu::getNgayBaoLoi))
+	                .orElse(null);
+
+	        return new ResponseEntity<>(ghiChuGanNhat, HttpStatus.OK);
+	    }
+
 }
