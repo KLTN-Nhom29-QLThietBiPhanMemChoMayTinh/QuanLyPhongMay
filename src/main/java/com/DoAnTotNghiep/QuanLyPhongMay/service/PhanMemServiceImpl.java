@@ -13,7 +13,8 @@ import com.DoAnTotNghiep.QuanLyPhongMay.repository.PhanMemRepository;
 
 @Service
 public class PhanMemServiceImpl implements PhanMemService{
-
+	@Autowired
+	private GhiChuPhongMayService ghiChuPhongMayService;
 	@Autowired
 	private PhongMayPhanMemService phongMayPhanMemService;
 	@Autowired
@@ -39,6 +40,7 @@ public class PhanMemServiceImpl implements PhanMemService{
 	}
 
 	@Override
+    @Transactional
 	public void xoa(Long maPhanMem) {
 		phongMayPhanMemService.XoaTheoMaPhanMem(maPhanMem);
 		monHocPhanMemService.xoaTheoMaPhanMem(maPhanMem);

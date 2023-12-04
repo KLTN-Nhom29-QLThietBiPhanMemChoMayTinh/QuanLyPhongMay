@@ -1,6 +1,7 @@
 package com.DoAnTotNghiep.QuanLyPhongMay.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,30 +11,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 @Entity
-@Table(name = "ghi_chu")
-public class GhiChu {
-	public GhiChu() {
+@Table(name = "ghi_chu_phong_may")
+public class GhiChuPhongMay {
+	public GhiChuPhongMay() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-	//Ghi chú:( mã ghi chú, mã phòng, ngày báo lỗi,ngày sửa, nội dung)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ma_ghichu")
     private Long maGhiChu;
 
-    @Column(name = "noi_dung", columnDefinition = "nvarchar(50)")
+    @Column(name = "noi_dung", columnDefinition = "nvarchar(2500)")
     private String noiDung;
 
-    @ManyToOne
+	@ManyToOne
 	@JoinColumn(name = "ma_phong")
 	private PhongMay phongMay;
 
@@ -45,11 +46,32 @@ public class GhiChu {
     @Temporal(TemporalType.DATE)
     private Date ngaySua;
 
+    @Column(name = "matk_bao_loi")
+	private String maTKBaoLoi;
+    
+    @Column(name = "matk_sua_loi")
+	private String nguoiSuaLoi;
+
 	public Long getMaGhiChu() {
 		return maGhiChu;
 	}
 
-	
+	public String getMaTKBaoLoi() {
+		return maTKBaoLoi;
+	}
+
+	public void setMaTKBaoLoi(String maTKBaoLoi) {
+		this.maTKBaoLoi = maTKBaoLoi;
+	}
+
+	public String getNguoiSuaLoi() {
+		return nguoiSuaLoi;
+	}
+
+	public void setNguoiSuaLoi(String nguoiSuaLoi) {
+		this.nguoiSuaLoi = nguoiSuaLoi;
+	}
+
 	public void setMaGhiChu(Long maGhiChu) {
 		this.maGhiChu = maGhiChu;
 	}
@@ -86,20 +108,26 @@ public class GhiChu {
 	public void setNgaySua(Date ngaySua) {
 		this.ngaySua = ngaySua;
 	}
+	
+	@Override
+	public String toString() {
+		return "GhiChuPhongMay [maGhiChu=" + maGhiChu + ", noiDung=" + noiDung + ", phongMay=" + phongMay
+				+ ", ngayBaoLoi=" + ngayBaoLoi + ", ngaySua=" + ngaySua + ", maTKBaoLoi=" + maTKBaoLoi
+				+ ", nguoiSuaLoi=" + nguoiSuaLoi + "]";
+	}
 
-	public GhiChu(Long maGhiChu, String noiDung, PhongMay phongMay, Date ngayBaoLoi, Date ngaySua) {
+	public GhiChuPhongMay(Long maGhiChu, String noiDung, PhongMay phongMay, Date ngayBaoLoi, Date ngaySua,
+			String maTKBaoLoi, String nguoiSuaLoi) {
 		super();
 		this.maGhiChu = maGhiChu;
 		this.noiDung = noiDung;
 		this.phongMay = phongMay;
 		this.ngayBaoLoi = ngayBaoLoi;
 		this.ngaySua = ngaySua;
+		this.maTKBaoLoi = maTKBaoLoi;
+		this.nguoiSuaLoi = nguoiSuaLoi;
+
 	}
-	
-	
-@Override
-	public String toString() {
-		return "GhiChu [maGhiChu=" + maGhiChu + ", noiDung=" + noiDung + ", phongMay=" + phongMay + ", ngayBaoLoi="
-				+ ngayBaoLoi + ", ngaySua=" + ngaySua + "]";
-	}
+
 }
+

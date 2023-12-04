@@ -14,8 +14,11 @@ public class MayTinhServiceImpl implements MayTinhService{
 
 	@Autowired
 	private  MayTinhRepository mayTinhRepository;
+	@Autowired
+	private GhiChuMayTinhService ghiChuMayTinhService;
 	@Autowired 
 	private  MayTinhThietBiService  mayTinhThietBiService;
+	
 	@Override
 	public MayTinh layMayTinhTheoMa(Long maMay) {
 		MayTinh mayTinh = null;
@@ -41,7 +44,9 @@ public class MayTinhServiceImpl implements MayTinhService{
 	}
 
 	@Override
+	@Transactional
 	public void xoa(Long maMay) {
+		ghiChuMayTinhService.xoaTheoMaMay(maMay);
 	    mayTinhThietBiService.xoaTheoMaMay(maMay);
 	    mayTinhRepository.deleteById(maMay);
 	}

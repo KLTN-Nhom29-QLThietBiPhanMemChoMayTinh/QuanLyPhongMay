@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.Tang;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.ThietBiMay;
@@ -16,6 +17,10 @@ public class ThietBiMayServiceImpl implements ThietBiMayService{
 	private  MayTinhThietBiService  mayTinhThietBiService;
 	@Autowired
 	private  ThietBiMayRepository thietBiMayRepository;
+	@Autowired
+	private GhiChuMayTinhService ghiChuMayTinhService;
+	
+	
 	@Override
 	public ThietBiMay layThietBiMayTheoMa(Long maThietBi) {
 		ThietBiMay thietBiMay = null;
@@ -34,6 +39,7 @@ public class ThietBiMayServiceImpl implements ThietBiMayService{
 	}
 
 	@Override
+	@Transactional
 	public void xoa(Long maThietBi) {
 		mayTinhThietBiService.xoaTheoMaThietBi(maThietBi);
 		thietBiMayRepository.deleteById(maThietBi);

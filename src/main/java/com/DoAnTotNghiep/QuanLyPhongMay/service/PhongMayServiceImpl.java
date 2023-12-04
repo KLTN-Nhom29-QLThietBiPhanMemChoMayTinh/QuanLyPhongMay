@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.CaThucHanh;
-import com.DoAnTotNghiep.QuanLyPhongMay.entity.GhiChu;
+import com.DoAnTotNghiep.QuanLyPhongMay.entity.GhiChuPhongMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.MayTinh;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMay;
 import com.DoAnTotNghiep.QuanLyPhongMay.entity.PhongMayPhanMem;
@@ -32,7 +32,7 @@ public class PhongMayServiceImpl implements PhongMayService{
 	@Autowired
 	private  PhongMayRepository phongMayRepository;
 	@Autowired
-	private GhiChuService ghiChuService;
+	private GhiChuPhongMayService ghiChuPhongMayService;
 	@Override
 	public PhongMay layPhongMayTheoMa(Long maPhong) {
 		PhongMay phongMay = null;
@@ -55,7 +55,7 @@ public class PhongMayServiceImpl implements PhongMayService{
 
 	@Override
 	public void xoa(Long maPhong) {
-		List<GhiChu> dsGhiChu = ghiChuService.layDSGhiChuTheoPhongMay(maPhong);
+		List<GhiChuPhongMay> dsGhiChu = ghiChuPhongMayService.layDSGhiChuTheoPhongMay(maPhong);
 		List<MayTinh> danhSachMayTinh = mayTinhService.layDSMayTinhTheoMaPhong(maPhong);
         List<PhongMayPhanMem> danhSachPhongMayPhanMem = phongMayPhanMemService.layDSPMPM(maPhong);
         List<CaThucHanh> danhSachCaThucHanh = caThucHanhService.layDSCaThucHanhTheoMaPhong(maPhong);
@@ -71,8 +71,8 @@ public class PhongMayServiceImpl implements PhongMayService{
         for (PhongMayPhanMem phongMayPhanMem : danhSachPhongMayPhanMem) {
             phongMayPhanMemService.xoa(maPhong, phongMayPhanMem.getPhanMem().getMaPhanMem());
         }   
-	    for (GhiChu ghiChu : dsGhiChu) {
-            ghiChuService.xoa(ghiChu.getMaGhiChu());
+	    for (GhiChuPhongMay ghiChuPhongMay : dsGhiChu) {
+            ghiChuPhongMayService.xoa(ghiChuPhongMay.getMaGhiChu());
         }	
 	    entityManager.flush();
         entityManager.clear();

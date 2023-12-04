@@ -35,7 +35,7 @@ public class MonHocPhanMemController {
         return monHocPhanMemService.layDSMHPM(maMon);
     }
 
-    @DeleteMapping("/XoaQuyen/{maMon}/{maPhanMem}")
+    @DeleteMapping("/XoaMonHocPhanMem/{maMon}/{maPhanMem}")
     public String xoa(@PathVariable Long maMon, @PathVariable Long maPhanMem){
     	monHocPhanMemService.xoa(maMon, maPhanMem);
         return "Đã xoá quyền " + maMon+"Đã xoá quyền " + maPhanMem;
